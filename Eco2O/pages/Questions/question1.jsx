@@ -20,7 +20,7 @@ export default function Question() {
         <Image source={require("../../assets/undraw_Questions_re_1fy7.png")}
           style={{ width: 110, height: 110 }} />
         <View>
-          <Text style={{ marginLeft: 80, marginTop: 30, fontSize: 35 }}>Question</Text>
+          <Text style={{ marginLeft: 60, marginTop: 30, fontSize: 35 }}>Question</Text>
           <Text style={{ marginLeft: 70, marginTop: 0, opacity: 0.6 }}>Take A Quize And</Text>
           <Text style={{ marginLeft: 70, marginTop: 0, fontSize: 15, opacity: 0.6 }}>Increaze you Bouns</Text>
         </View >
