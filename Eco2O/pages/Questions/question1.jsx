@@ -12,7 +12,7 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
-export default function Question() {
+export default function Question1() {
   return (
     <ScrollView style={{padding: 30}}>
     <View>

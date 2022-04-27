@@ -10,7 +10,9 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@pratap2210/react-native-radio-button": "^1.0.17",
     "@react-native-async-storage/async-storage": "^1.15.0",
+    "@react-native-community/checkbox": "^0.5.12",
     "@react-navigation/native": "^6.0.10",
     "expo": "~44.0.0",
     "expo-status-bar": "~1.2.0",
