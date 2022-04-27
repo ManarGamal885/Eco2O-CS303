@@ -1,4 +1,5 @@
 //Mabrouk
+
 import React from 'react'
 import { StatusBar } from "expo-status-bar";
 import {
@@ -11,43 +12,83 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
-
 const Scancode = () => {
   return (
-    <ImageBackground
-      source={require("../assets/packground2.png")}
-      style={styles.background}
-    >
-      <Image source={require("../assets/logo.png")} style={styles.logo} />
-      <Text style={styles.text} >Building Zero Wast Communities</Text>
-      <ScrollView style={{ padding: 30 }}>
-        <View style={{ padding: 10 }}>
-          <Text>Email</Text>
+    <ScrollView style={{ padding: 30 }}>
+      <View>
+        <View style={styles.header}>
+          <Image source={require("../../Eco2O/assets/forest-fire.jpg")}
+            style={{ width: 110, height: 110 }} />
+          <View>
+            <Text style={{ marginLeft: 45, marginTop: 30, fontSize: 30 }}>Scane your code</Text>
+            <Text style={{ marginLeft: 50, marginTop: 0, opacity: 0.6 }}>Scane Your Code Now And we</Text>
+            <Text style={{ marginLeft: 70, marginTop: 0, fontSize: 15, opacity: 0.6 }}>And take Your bouns</Text>
+          </View >
+        </View >
+        <View style={{ marginTop: 170, marginLeft: 125, }}>
+          <Image source={require("../../Eco2O/assets/forest-fire.jpg")}
+            style={{ width: 110, height: 110, borderRadius: "63" }} />
+
+        </View>
+        <View>
+          <Text style={{ marginLeft: 81, marginTop: 30, fontSize: 30 }}>Scane your code</Text>
         </View>
 
-        <View style={{ paddingLeft: 0 }}>
-          <TextInput placeholder={"example@gmail.com"}></TextInput>
+          <View style={{ paddingTop: 70,paddingLeft: 90,flexDirection:"row" }}>
+           
+          <View style={{
+            height: 40, overflow: 'hidden',width:40,
+            borderRadius: 50, backgroundColor: '#004D25'
+          }}>
+            <Button title={"+"} color='#ffff' />
+          </View>
+          <Text  >-----</Text>
+          <Text  >-----</Text>
+          <Text  >-----</Text>
+        </View>
+
+
+
+
+
+
+
+
+        <View style={{ padding: 50 }}>
+          <View style={{
+            height: 40, overflow: 'hidden',
+            borderRadius: 50, backgroundColor: '#004D25'
+          }}>
+            <Button title={"take Quiz"} color='#ffff' />
+
+          </View>
         </View>
         <StatusBar style="auto"></StatusBar>
-      </ScrollView>
-    </ImageBackground>
+
+      </View>
+    </ScrollView>
   )
 }
 
 
 const styles = StyleSheet.create({
-  background: {
+  header: {
+
+    flexDirection: 'row',
+    marginLeft: 7,
+    marginTop: 5
+
+  },
+  mid: {
+    marginTop: 210,
+    borderRadius: 20,
+    margin: 20,
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    height: "100%",
-    margin: 20
-  },
-  logo: {
-    height: 150,
-    width: 300,
-    marginTop: 40
-  },
+    backgroundColor: "#AFC6BA"
+
+  }
 
 });
 
