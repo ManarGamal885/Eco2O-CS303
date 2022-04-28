@@ -14,11 +14,11 @@ import {
 } from "react-native";
 const Scancode = () => {
   return (
-    <ScrollView style={{ padding: 30 }}>
+    <ScrollView style={{ padding: 50,paddingLeft:20 }}>
       <View>
         <View style={styles.header}>
-          <Image source={require("../../Eco2O/assets/forest-fire.jpg")}
-            style={{ width: 110, height: 110 }} />
+          <Image source={require("../../Eco2O/assets/qrcode.png")}
+            style={{ width: 100, height: 100 ,paddingTop:20 }} />
           <View>
             <Text style={{ marginLeft: 45, marginTop: 30, fontSize: 30 }}>Scane your code</Text>
             <Text style={{ marginLeft: 50, marginTop: 0, opacity: 0.6 }}>Scane Your Code Now And we</Text>
@@ -26,14 +26,14 @@ const Scancode = () => {
           </View >
         </View >
         <View style={{ marginTop: 170, marginLeft: 125, }}>
-          <Image source={require("../../Eco2O/assets/forest-fire.jpg")}
-            style={{ width: 110, height: 110, borderRadius: "63" }} />
+          <Image source={require("../../Eco2O/assets/iconecamera.png")}
+            style={{ width: 110, height: 110, borderRadius: "40" }} />
 
         </View>
         <View>
           <Text style={{ marginLeft: 81, marginTop: 30, fontSize: 30 }}>Scane your code</Text>
         </View>
-
+        
           <View style={{ paddingTop: 70,paddingLeft: 90,flexDirection:"row" }}>
            
           <View style={{
@@ -42,22 +42,20 @@ const Scancode = () => {
           }}>
             <Button title={"+"} color='#ffff' />
           </View>
-          <Text  >-----</Text>
-          <Text  >-----</Text>
-          <Text  >-----</Text>
+          <View style={{padding:15}}>
+          <Text>________</Text>
+          </View>
+          <View style={{
+            height: 40, overflow: 'hidden',width:40,
+            borderRadius: 50, backgroundColor: '#004D25'
+          }}>
+            <Button title={"+"} color='#ffff' />
+          </View>
         </View>
-
-
-
-
-
-
-
-
         <View style={{ padding: 50 }}>
           <View style={{
             height: 40, overflow: 'hidden',
-            borderRadius: 50, backgroundColor: '#004D25'
+            borderRadius: 50, backgroundColor: '#004D25',
           }}>
             <Button title={"take Quiz"} color='#ffff' />
 
