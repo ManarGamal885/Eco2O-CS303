@@ -39,7 +39,6 @@ export default function Question1() {
       <View  style={{ height:40, overflow:'hidden', 
        borderRadius:50, backgroundColor: '#004D25' }}>
       <Button title={"take Quiz"}  color= '#ffff' />
-      
       </View>
       </View>
       <StatusBar style="auto"></StatusBar>
