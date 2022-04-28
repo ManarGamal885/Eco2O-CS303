@@ -31,7 +31,7 @@ export default function question3() {
           <Text></Text>
           </View>
         </View>
-
+        <Text></Text>
         <View style={styles.mid}>
         <Text></Text>
       <Text style={{fontSize: 20 }} >you will get three questions</Text>
