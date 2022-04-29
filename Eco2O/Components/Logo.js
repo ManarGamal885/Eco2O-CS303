@@ -5,7 +5,7 @@ import {
 
 export default function Logo () {
     return (
-        <View>
+        <View style={styles.rectangle}>
         <Image
             source={require('../assets/logo.png')}
             style={styles.logo}
@@ -15,11 +15,19 @@ export default function Logo () {
 }
 
 const styles = StyleSheet.create({
-    logo: {
+    rectangle: {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        width: 277,
+        width: 414,
+        height: 120,
+        backgroundColor: '#ffffff',
+    },
+    logo:{
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width:277,
         height: 127,
     },
 });

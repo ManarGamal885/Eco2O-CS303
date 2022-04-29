@@ -17,12 +17,12 @@ export default function App() {
         <Logo/>
       </View>
 
-      <View>
+      <View style={styles.textLine}>
         {/* Text Lines */}
         <TextLines/>
       </View>
 
-      <View>
+      <View style={styles.EmailPassword}>
         {/* Email and password */}
         <EmailandPassword/>
       </View>
@@ -40,4 +40,12 @@ const styles = StyleSheet.create({
     // width: null,
     // height: null,
   },
+  textLine: {
+    paddingTop: 5,
+    paddingBottom: 5,
+  },
+  EmailPassword: {
+    paddingTop: 5,
+    paddingBottom: 5,
+  }
 });
