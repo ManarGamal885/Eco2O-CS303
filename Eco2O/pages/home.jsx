@@ -1,13 +1,116 @@
 //Manar
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native'
 import React from 'react'
+import { Dimensions } from 'react-native-web';
 
 export default function home() {
   return (
-    <View>
-      <Text>home</Text>
+    <View style={styles.con}>
+      <View style={styles.con1}>
+        <Image style={styles.imH} source={require('../assets/h.jpeg')} />
+        <View style={styles.textcon}>
+          <Text style={styles.H1}>Welcome in Your Home </Text>
+          <Text style={styles.H2} >Choose Your Feature Now</Text>
+        </View>
+      </View>
+
+
+      <View style={styles.con2}>
+        <Text style={styles.options}>Options for You</Text>
+        <View style={styles.optionsCon}>
+          <ScrollView>
+            <TouchableOpacity style={styles.touch}>
+              <Image style={styles.Im} source={require('../assets/scan.jpg')} />
+              <Text style={styles.txt}>Scan Code</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.touch}>
+              <Image style={styles.Im} source={require('../assets/news.webp')} />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.touch}>
+              <Image style={styles.Im} source={require('../assets/questions.webp')} />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.touch}>
+              <Image style={styles.Im} source={require('../assets/sug.jpg')} />
+            </TouchableOpacity>
+
+          </ScrollView>
+        </View>
+      </View>
     </View>
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  con: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  con1: {
+    width: Dimensions.get('window').width,
+    height: '15%',
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    position: 'absolute',
+    top: 0,
+  },
+  con2: {
+    width: Dimensions.get('window').width,
+    height: '85%',
+    backgroundColor: '#F9F9F9',
+    position: 'absolute',
+    bottom: 0,
+  },
+  imH: {
+    width: 171,
+    height: 124,
+  },
+  H1: {
+    fontSize: 20,
+    fontWeight: '700',
+    textShadowColor: '#B7B7B7',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 6,
+  },
+  H2: {
+    fontSize: 15,
+    color: '#999999'
+  },
+  textcon: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  options: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    textShadowColor: '#B7B7B7',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 6,
+    margin: 20,
+  },
+  optionsCon: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor:'#F9F9F9'
+  },
+  touch: {
+    width: 313,
+    height: 199,
+    borderRadius: 20,
+    marginBottom:20,
+  },
+  Im: {
+    width: 313,
+    height: 199,
+    borderRadius: 20,
+    opacity:'70%'
+  },
+  txt:{
+    fontSize:20,
+    fontWeight:'bold',
+    
+  },
+})
