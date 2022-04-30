@@ -1,51 +1,19 @@
-import React from 'react';
-import { 
-  StyleSheet, Text, View, ImageBackground
-} from 'react-native';
-import packground2 from './assets/packground2.png';
-import Logo from './Components/Logo';
-import TextLines from './Components/TextLines';
-import EmailandPassword from './Components/EmailandPassword';
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import SignIn from './pages/SignIn'
 
-export default function App() {
+export default function signIn() {
   return (
-    <ImageBackground style={styles.container} source={packground2}>
-      {/* Background */}
-
-      <View>
-        {/* Logo */}
-        <Logo/>
-      </View>
-
-      <View style={styles.textLine}>
-        {/* Text Lines */}
-        <TextLines/>
-      </View>
-
-      <View style={styles.EmailPassword}>
-        {/* Email and password */}
-        <EmailandPassword/>
-      </View>
-
-    </ImageBackground>
-  );
+    <View style={styles.contaner}>
+      <SignIn/>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+  contaner: {
+    alignContent: 'center',
     justifyContent: 'center',
-    // width: null,
-    // height: null,
-  },
-  textLine: {
-    paddingTop: 5,
-    paddingBottom: 5,
-  },
-  EmailPassword: {
-    paddingTop: 5,
-    paddingBottom: 5,
+    alignItems: 'center'
   }
 });
