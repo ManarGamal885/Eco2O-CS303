@@ -1,7 +1,8 @@
 //Mabrouk
 
-import React from 'react'
+import {useState ,useEffect } from 'react'
 import { StatusBar } from "expo-status-bar";
+
 import {
   Button,
   ScrollView,
@@ -13,6 +14,10 @@ import {
   ImageBackground,
 } from "react-native";
 const Scancode = () => {
+  
+  
+
+  
   return (
     <ScrollView style={{ padding: 50,paddingLeft:20 }}>
       <View>
@@ -38,7 +43,7 @@ const Scancode = () => {
            
           <View style={{
             height: 40, overflow: 'hidden',width:40,
-            borderRadius: 50, backgroundColor: '#004D25'
+            borderRadius: "50", backgroundColor: '#004D25'
           }}>
             <Button title={"+"} color='#ffff' />
           </View>
@@ -47,7 +52,7 @@ const Scancode = () => {
           </View>
           <View style={{
             height: 40, overflow: 'hidden',width:40,
-            borderRadius: 50, backgroundColor: '#004D25'
+            borderRadius: "50", backgroundColor: '#004D25'
           }}>
             <Button title={"+"} color='#ffff' />
           </View>
