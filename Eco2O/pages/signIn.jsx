@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     height: 904,
   },
   logoStyle: {
-    paddingTop: 200
+    paddingTop: 20
   },
   rectangle: {
   flexDirection: 'column',
@@ -110,7 +110,9 @@ logo:{
   width:277,
   height: 120,
 },
-textLineStyle:{},
+textLineStyle:{
+  paddingTop: 20,
+},
 text: {
   width: 294,
   height: 78
@@ -137,7 +139,9 @@ EmailPassword: {},
 inputStyle: {
   alignContent: 'center',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  paddingTop: 10,
+  paddingBottom: 25,
 },
   input: {
   marginBottom: 10,
@@ -184,12 +188,15 @@ buttonText: {
   justifyContent: 'center',
   alignContent: 'center',
   alignItems: 'center',
-  flexDirection: 'column'
+  flexDirection: 'column',
+  paddingTop: 10
 },
 textOR:{
   color: 'gray',
   fontSize: 20,
   textAlign: 'center',
+  paddingTop: 3,
+  paddingBottom: 3
 },
 forgetpassLineStyle: {
   justifyContent: 'space-between',
@@ -197,6 +204,7 @@ forgetpassLineStyle: {
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
+  paddingTop: 10
 },
 forgetpassLine: {
   color: '#3366B4',

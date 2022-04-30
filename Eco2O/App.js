@@ -12,6 +12,7 @@ export default function signIn() {
 
 const styles = StyleSheet.create({
   contaner: {
+    flex: 1,
     alignContent: 'center',
     justifyContent: 'center',
     alignItems: 'center'
