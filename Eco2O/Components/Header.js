@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    View, StyleSheet, Text, Image, FlatList
+    View, StyleSheet, Text, Image
 } from 'react-native';
 
 export default function Header(){
@@ -22,7 +22,6 @@ export default function Header(){
 
 const styles = StyleSheet.create({
     container:{
-        flex: 2,
         flexDirection: 'row',
     },
     signUp: {

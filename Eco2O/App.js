@@ -6,7 +6,7 @@ import InputFile from './Components/InputFile';
 export default function App() {
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.header}>
         {/* Header */}
         <Header/>
       </View>
@@ -24,6 +24,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  header: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   inputs: {
     justifyContent: 'center',
