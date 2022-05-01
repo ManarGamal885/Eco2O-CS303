@@ -4,12 +4,17 @@ import Register from './pages/Register';
 
 export default function register() {
   return (
-    <View>
+    <View style={styles.Container}>
       <Register/>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-
+  Container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+  }
 });
