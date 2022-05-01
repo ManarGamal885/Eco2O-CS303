@@ -1,5 +1,5 @@
 //Mabrouk
-import React, { useState } from 'react'
+import React from 'react'
 import { StatusBar } from "expo-status-bar";
 import { RadioButton } from 'react-native-paper';
 import {
@@ -7,11 +7,8 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
   View,
   Image,
-  ImageBackground,
-
 } from "react-native";
 
 export default function question2() {
@@ -74,7 +71,7 @@ export default function question2() {
         <View style={{padding:50}}>
       <View  style={{ height:40, overflow:'hidden', 
        borderRadius:50, backgroundColor: '#004D25' }}>
-      <Button title={"sumite"}  color= '#ffff' />
+      <Button title={"sumite"}  color= '#004D25' />
       </View>
       </View>
         <Text></Text>
