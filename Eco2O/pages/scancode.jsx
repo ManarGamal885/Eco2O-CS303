@@ -43,18 +43,18 @@ const Scancode = () => {
            
           <View style={{
             height: 40, overflow: 'hidden',width:40,
-            borderRadius: "50", backgroundColor: '#004D25'
+            borderRadius: 50, backgroundColor: '#004D25'
           }}>
-            <Button title={"+"} color='#ffff' />
+            <Button title={"+"} color='#004D25' />
           </View>
           <View style={{padding:15}}>
           <Text>________</Text>
           </View>
           <View style={{
             height: 40, overflow: 'hidden',width:40,
-            borderRadius: "50", backgroundColor: '#004D25'
+            borderRadius: 50, backgroundColor: '#004D25'
           }}>
-            <Button title={"+"} color='#ffff' />
+            <Button title={"-"} color='#004D25' />
           </View>
         </View>
         <View style={{ padding: 50 }}>
@@ -62,7 +62,7 @@ const Scancode = () => {
             height: 40, overflow: 'hidden',
             borderRadius: 50, backgroundColor: '#004D25',
           }}>
-            <Button title={"take Quiz"} color='#ffff' />
+            <Button title={"take Quiz"} color='#004D25' />
 
           </View>
         </View>
