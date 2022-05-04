@@ -5,6 +5,7 @@ import News from './pages/news';
 import Scan from './pages/scancode';
 import Suggestion from './pages/suggestionBox';
 import Contact from './pages/contactUs';
+import Start from './pages/start';
 export default function App() {
   return (
     <View style={styles.container}>
