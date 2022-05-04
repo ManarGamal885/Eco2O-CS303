@@ -1,13 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Scancode from './pages/scancode';
-
+import News from './pages/news';
+import Scan from './pages/scancode';
 export default function App() {
   return (
     <View style={styles.container}>
-     
-      <Scancode/>
-      <StatusBar style="auto" />
+     <News />
     </View>
   );
 }
