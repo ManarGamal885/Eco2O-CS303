@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Home from './pages/home'
+import Home from './pages/home';
+import News from './pages/news';
+import Scan from './pages/scancode';
 export default function App() {
   return (
     <View style={styles.container}>
