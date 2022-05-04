@@ -4,10 +4,11 @@ import Home from './pages/home';
 import News from './pages/news';
 import Scan from './pages/scancode';
 import Suggestion from './pages/suggestionBox';
+import Contact from './pages/contactUs';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Suggestion />
+      <Contact />
       <StatusBar style="auto" />
     </View>
   );
