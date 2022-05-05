@@ -10,8 +10,13 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@pratap2210/react-native-radio-button": "^1.0.17",
     "@react-native-async-storage/async-storage": "^1.15.0",
+<<<<<<< HEAD
     "@react-navigation/bottom-tabs": "^6.3.1",
+=======
+    "@react-native-community/checkbox": "^0.5.12",
+>>>>>>> questions
     "@react-navigation/native": "^6.0.10",
     "expo": "~44.0.0",
     "expo-barcode-scanner": "^11.2.1",
@@ -22,8 +27,12 @@
     "react-native": "0.64.3",
     "react-native-camera": "^4.2.1",
     "react-native-fetch": "^2.0.0",
+<<<<<<< HEAD
     "react-native-permissions": "^3.3.1",
     "react-native-qrcode-scanner": "^1.5.5",
+=======
+    "react-native-paper": "^4.12.1",
+>>>>>>> questions
     "react-native-safe-area-context": "^4.2.4",
     "react-native-screens": "^3.13.1",
     "react-native-web": "0.17.1",
