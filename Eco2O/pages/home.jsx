@@ -2,8 +2,10 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native'
 import React from 'react'
 import { Dimensions } from 'react-native-web';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+const Tab = createBottomTabNavigator();
 
-export default function home() {
+export default function home({ navigation }) {
   return (
     <View style={styles.con}>
       <View style={styles.con1}>
@@ -19,26 +21,28 @@ export default function home() {
         <Text style={styles.options}>Options for You</Text>
         <View style={styles.optionsCon}>
           <ScrollView>
-            <TouchableOpacity style={styles.touch}>
+            <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Scan')}>
               <Image style={styles.Im} source={require('../assets/scan.jpg')} />
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.touch}>
+            <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('News')}>
               <Image style={styles.Im} source={require('../assets/news.webp')} />
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.touch}>
+            <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Suggestion')}>
               <Image style={styles.Im} source={require('../assets/questions.webp')} />
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.touch}>
+            <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Q1')}>
               <Image style={styles.Im} source={require('../assets/sug.jpg')} />
             </TouchableOpacity>
 
           </ScrollView>
         </View>
       </View>
+      
     </View>
+
   )
 }
 
@@ -93,23 +97,23 @@ const styles = StyleSheet.create({
   optionsCon: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor:'#F9F9F9'
+    backgroundColor: '#F9F9F9'
   },
   touch: {
     width: 313,
     height: 199,
     borderRadius: 20,
-    marginBottom:20,
+    marginBottom: 20,
   },
   Im: {
     width: 313,
     height: 199,
     borderRadius: 20,
-    opacity:'70%'
+    opacity: '70%'
   },
-  txt:{
-    fontSize:20,
-    fontWeight:'bold',
-    
+  txt: {
+    fontSize: 20,
+    fontWeight: 'bold',
+
   },
 })

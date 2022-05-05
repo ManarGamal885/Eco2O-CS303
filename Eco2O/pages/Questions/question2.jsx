@@ -11,7 +11,7 @@ import {
   Image,
 } from "react-native";
 
-export default function question2() {
+export default function question2({navigation}) {
 
   const [value1, setValue1] = React.useState('');
   const [value2, setValue2] = React.useState('');
@@ -68,12 +68,14 @@ export default function question2() {
         </RadioButton.Group>
         <Text></Text>
         <Text></Text>
-        <View style={{padding:50}}>
-      <View  style={{ height:40, overflow:'hidden', 
-       borderRadius:50, backgroundColor: '#004D25' }}>
-      <Button title={"sumite"}  color= '#004D25' />
-      </View>
-      </View>
+        <View style={{ padding: 50 }}>
+          <View style={{
+            height: 40, overflow: 'hidden',
+            borderRadius: 50, backgroundColor: '#004D25'
+          }}>
+            <Button title={"sumite"} color='#004D25' onPress={() => navigation.navigate('Q3')} />
+          </View>
+        </View>
         <Text></Text>
         <Text></Text>
         <StatusBar style="auto"></StatusBar>

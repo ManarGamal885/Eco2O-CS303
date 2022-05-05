@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import packground2 from '../assets/packground2.png';
 
-export default function App() {
+export default function App({navigation}) {
 
   const [text, setText] = useState('');
   const changeHandler = (val) => {
@@ -57,7 +57,8 @@ export default function App() {
 
         <View style={styles.buttonsStyle}>
           <View style={styles.button}>
-            <TouchableOpacity style={styles.button1}>
+            <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('Home')} >
+              
               <Text style={styles.buttonText}>Sign in</Text>
             </TouchableOpacity>
           </View>
@@ -67,16 +68,17 @@ export default function App() {
           </View>
 
           <View style={styles.button}>
-            <TouchableOpacity style={styles.button2}>
+            <TouchableOpacity style={styles.button2}  onPress={() => navigation.navigate('Register')}>
               <Text style={styles.buttonText}>Sign up</Text>
             </TouchableOpacity>
           </View>
                 
           <View style={styles.forgetpassLineStyle}>
-            <Text style={styles.forgetpassLine}>forget Password</Text>
+            <Text style={styles.forgetpassLine} onPress={() => navigation.navigate('Forget')}>forget Password</Text>
           </View>
         </View>
       </View>
+      
 
     </ImageBackground>
   );

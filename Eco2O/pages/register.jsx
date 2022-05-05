@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 
-export default function App() {
+export default function App({navigation}) {
 
   const [text, setText] = useState('');
   const changeHandler = (val) => {
@@ -120,7 +120,7 @@ export default function App() {
             </View>
 
             <View style={styles.button}>
-              <TouchableOpacity style={styles.buttonStyle}>
+              <TouchableOpacity style={styles.buttonStyle} onPress={() => navigation.navigate('SignIn')}>
                 <Text style={styles.buttonText}>
                   Sign up
                 </Text>

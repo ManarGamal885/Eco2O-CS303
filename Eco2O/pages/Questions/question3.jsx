@@ -13,7 +13,7 @@ import {
 
 } from "react-native";
 
-export default function question3() {
+export default function question3({navigation}) {
   const [first, setfirst] = useState(false);
   return (
     <ScrollView style={{ padding: 30 }}>
@@ -45,7 +45,7 @@ export default function question3() {
 
         <View style={{ padding: 50 }}>
           <View style={styles.button}>
-            <Button title={"Back to home"} color='#004D2' />
+            <Button title={"Back to home"} color='#004D2'  onPress={() => navigation.navigate('Home')} />
 
           </View>
         </View>

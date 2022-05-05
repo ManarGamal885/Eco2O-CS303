@@ -11,7 +11,7 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
-export default function Question1() {
+export default function Question1({ navigation }) {
   return (
     <ScrollView style={{ padding: 30 }}>
       <View>
@@ -38,7 +38,7 @@ export default function Question1() {
         </View >
         <View style={{ padding: 50 }}>
           <View style={styles.button}>
-            <Button title={"take Quiz"} color='##004D25' />
+            <Button title={"take Quiz"} color='##004D25' onPress={() => navigation.navigate('Q2')} />
           </View>
         </View>
         <StatusBar style="auto"></StatusBar>
