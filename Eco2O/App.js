@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Home from './pages/home';
 import News from './pages/news';
@@ -7,11 +7,12 @@ import Suggestion from './pages/suggestionBox';
 import Contact from './pages/contactUs';
 import Start from './pages/start';
 import SignIn from './pages/signIn';
-import Register from './pages/Register';
+import Register from './pages/register';
+import Forget from './pages/forgetPass';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Register />
+      <Forget />
       <StatusBar style="auto" />
     </View>
   )
