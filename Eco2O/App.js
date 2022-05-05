@@ -6,20 +6,21 @@ import Scan from './pages/scancode';
 import Suggestion from './pages/suggestionBox';
 import Contact from './pages/contactUs';
 import Start from './pages/start';
+import SignIn from './pages/signIn';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Contact />
+      <SignIn />
       <StatusBar style="auto" />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
+  contaner: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    alignContent: 'center',
     justifyContent: 'center',
-  },
+    alignItems: 'center'
+  }
 });
