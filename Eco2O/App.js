@@ -7,10 +7,11 @@ import Suggestion from './pages/suggestionBox';
 import Contact from './pages/contactUs';
 import Start from './pages/start';
 import SignIn from './pages/signIn';
+import Register from './pages/Register';
 export default function App() {
   return (
     <View style={styles.container}>
-      <SignIn />
+      <Register />
       <StatusBar style="auto" />
     </View>
   )
