@@ -72,16 +72,14 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   con1: {
-    width: Dimensions.get('window').width,
-    height: '15%',
+  
     flexDirection: 'row',
     backgroundColor: 'white',
     position: 'absolute',
     top: 0,
   },
   con2: {
-    width: Dimensions.get('window').width,
-    height: '85%',
+   
     backgroundColor: '#F9F9F9',
     position: 'absolute',
     bottom: 0,

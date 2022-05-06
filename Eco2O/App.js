@@ -23,6 +23,9 @@ import Forget from "./pages/forgetPass";
 import Q1 from "./pages/Questions/question1";
 import Q2 from "./pages/Questions/question2";
 import Q3 from "./pages/Questions/question3";
+import Question1 from "./pages/Questions/question1";
+import question2 from "./pages/Questions/question2";
+import question3 from "./pages/Questions/question3";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -48,11 +51,4 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  contaner: {
-    flex: 1,
-    alignContent: "center",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
+const styles = StyleSheet.create({});

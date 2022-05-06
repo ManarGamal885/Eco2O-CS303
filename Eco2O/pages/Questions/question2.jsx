@@ -71,7 +71,7 @@ export default function question2({navigation}) {
         <View style={{ padding: 50 }}>
           <View style={{
             height: 40, overflow: 'hidden',
-            borderRadius: 50, backgroundColor: '#004D25'
+            borderRadius: 50, backgroundColor: 'silver'
           }}>
             <Button title={"sumite"} color='#004D25' onPress={() => navigation.navigate('Q3')} />
           </View>

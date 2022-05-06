@@ -7,7 +7,10 @@ const Tab = createBottomTabNavigator();
 
 export default function home({ navigation }) {
   return (
-    <View style={styles.con}>
+    <ScrollView>
+
+      <View>
+    
       <View style={styles.con1}>
         <Image style={styles.imH} source={require('../assets/h.jpeg')} />
         <View style={styles.textcon}>
@@ -16,11 +19,11 @@ export default function home({ navigation }) {
         </View>
       </View>
 
-
+      <View style={styles.con}>
       <View style={styles.con2}>
         <Text style={styles.options}>Options for You</Text>
         <View style={styles.optionsCon}>
-          <ScrollView>
+          
             <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Scan')}>
               <Image style={styles.Im} source={require('../assets/scan.jpg')} />
             </TouchableOpacity>
@@ -36,13 +39,11 @@ export default function home({ navigation }) {
             <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Q1')}>
               <Image style={styles.Im} source={require('../assets/sug.jpg')} />
             </TouchableOpacity>
-
-          </ScrollView>
         </View>
       </View>
-      
     </View>
-
+    </View>
+    </ScrollView>
   )
 }
 
@@ -53,18 +54,16 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   con1: {
-    width: Dimensions.get('window').width,
-    height: '15%',
+    
     flexDirection: 'row',
     backgroundColor: 'white',
-    position: 'absolute',
+    
     top: 0,
   },
   con2: {
-    width: Dimensions.get('window').width,
-    height: '85%',
+   
     backgroundColor: '#F9F9F9',
-    position: 'absolute',
+    
     bottom: 0,
   },
   imH: {
@@ -109,7 +108,7 @@ const styles = StyleSheet.create({
     width: 313,
     height: 199,
     borderRadius: 20,
-    opacity: '70%'
+    opacity: 90
   },
   txt: {
     fontSize: 20,

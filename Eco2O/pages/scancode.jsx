@@ -36,7 +36,7 @@ const Scancode = () => {
         <View style={{ paddingTop: 70, paddingLeft: 90, flexDirection: "row" }}>
           <View style={{
             height: 40, overflow: 'hidden', width: 40,
-            borderRadius: 50, backgroundColor: '#004D25'
+            borderRadius: 50, backgroundColor: 'silver'
           }}>
             <Button title={"+"} color='#004D25' />
           </View>
@@ -45,7 +45,7 @@ const Scancode = () => {
           </View>
           <View style={{
             height: 40, overflow: 'hidden', width: 40,
-            borderRadius: 50, backgroundColor: '#004D25'
+            borderRadius: 50, backgroundColor: 'silver'
           }}>
             <Button title={"-"} color='#004D25' />
           </View>
@@ -53,7 +53,7 @@ const Scancode = () => {
         <View style={{ padding: 50 }}>
           <View style={{
             height: 40, overflow: 'hidden',
-            borderRadius: 50, backgroundColor: '#004D25',
+            borderRadius: 50, backgroundColor: 'silver',
           }}>
             <Button title={"scane"} color='#004D25' />
 
