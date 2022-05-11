@@ -1,6 +1,7 @@
 //Mabrouk
 import React, { useState } from 'react'
 import { StatusBar } from "expo-status-bar";
+import {countAns} from "./question2";
 import {
   Button,
   ScrollView,
@@ -10,7 +11,6 @@ import {
   View,
   Image,
   ImageBackground,
-
 } from "react-native";
 
 export default function Question3({navigation}) {
@@ -27,7 +27,7 @@ export default function Question3({navigation}) {
           <Text style={{ fontSize: 25, paddingTop: 10, paddingRight: 100 }}>Your Final Scor</Text>
           <View style={styles.styletext}>
             <Text></Text>
-            <Text style={styles.text} >0</Text>
+            <Text style={styles.text} >{countAns}</Text>
             <Text></Text>
           </View>
         </View>
