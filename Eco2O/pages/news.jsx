@@ -1,7 +1,10 @@
 //Manar
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, Linking,Button } from 'react-native'
 import React from 'react'
 import { Dimensions } from 'react-native-web';
+import { Constants } from 'expo';
+
+
 export default function News() {
   return (
     <View style={styles.con}>
@@ -20,12 +23,24 @@ export default function News() {
         <View style={styles.newsCon}>
           <View style={styles.news}>
 
-            <TouchableOpacity style={styles.touch1}>
-              <Image style={styles.Im} source={require('../assets/earth.jpg')} />
+            <TouchableOpacity style={styles.touch1} onPress={() => {
+              Linking.openURL("https://google.com")
+                .catch(err => {
+                  console.error("Failed opening page because: ", err)
+                  alert('Failed to open page')
+                })
+            }}>
+              <Image style={styles.Im} source={require('../assets/earth.jpg')}   />
               <Text style={styles.txt}>Earth</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.touch2}>
+            <TouchableOpacity style={styles.touch2} onPress={() => {
+              Linking.openURL("https://google.com")
+                .catch(err => {
+                  console.error("Failed opening page because: ", err)
+                  alert('Failed to open page')
+                })
+            }}>
               <Image style={styles.Im} source={require('../assets/air.jpg')} />
               <Text style={styles.txt}>Air</Text>
             </TouchableOpacity>
@@ -35,12 +50,24 @@ export default function News() {
 
           <View style={styles.news}>
 
-            <TouchableOpacity style={styles.touch1}>
+            <TouchableOpacity style={styles.touch1} onPress={() => {
+              Linking.openURL("https://google.com")
+                .catch(err => {
+                  console.error("Failed opening page because: ", err)
+                  alert('Failed to open page')
+                })
+            }}>
               <Image style={styles.Im} source={require('../assets/forest.jpg')} />
               <Text style={styles.txt}>Forest Fires</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.touch2}>
+            <TouchableOpacity style={styles.touch2} onPress={() => {
+              Linking.openURL("https://google.com")
+                .catch(err => {
+                  console.error("Failed opening page because: ", err)
+                  alert('Failed to open page')
+                })
+            }}>
               <Image style={styles.Im} source={require('../assets/global.jpg')} />
               <Text style={styles.txt}>Global Warming</Text>
             </TouchableOpacity>
@@ -48,12 +75,24 @@ export default function News() {
           </View>
           <View style={styles.news}>
 
-            <TouchableOpacity style={styles.touch1}>
+            <TouchableOpacity style={styles.touch1} onPress={() => {
+              Linking.openURL("https://google.com")
+                .catch(err => {
+                  console.error("Failed opening page because: ", err)
+                  alert('Failed to open page')
+                })
+            }}>
               <Image style={styles.Im} source={require('../assets/ocean.jpg')} />
               <Text style={styles.txt}>Oceans</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.touch2}>
+            <TouchableOpacity style={styles.touch2} onPress={() => {
+              Linking.openURL("https://google.com")
+                .catch(err => {
+                  console.error("Failed opening page because: ", err)
+                  alert('Failed to open page')
+                })
+            }}>
               <Image style={styles.Im} source={require('../assets/pla.jpg')} />
               <Text style={styles.txt}>Plastic</Text>
             </TouchableOpacity>
@@ -72,14 +111,14 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   con1: {
-  
+
     flexDirection: 'row',
     backgroundColor: 'white',
     position: 'absolute',
     top: 0,
   },
   con2: {
-   
+
     backgroundColor: '#F9F9F9',
     position: 'absolute',
     bottom: 0,
