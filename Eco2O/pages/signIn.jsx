@@ -1,17 +1,39 @@
 //Rahma
-import React, { useState } from 'react';
+import {StatusBar} from 'expo-status-bar';
+import {Button, ScrollView, StyleSheet, View, Text, TextInput} from 'react-native';
+import {useEffect, useState,useContext} from 'react';
+
+import * as React from "react";
 import { 
-  StyleSheet, Text, View, ImageBackground,
-  Image, TextInput, TouchableOpacity
+  ImageBackground,
+  Image, TouchableOpacity
 } from 'react-native';
 import packground2 from '../assets/packground2.png';
+import {login, getUserToken} from "../firebase/Auth";
+import {AuthContext} from "./Utils";
 
-export default function App({navigation}) {
 
-  const [text, setText] = useState('');
-  const changeHandler = (val) => {
-    setText(val);
-  }
+export default function SignIn({navigation}) {
+
+  const {signIn} = useContext(AuthContext);
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    function signInUser() {
+      // console.log(" sayed",email," 351c5zxv1zx",password)
+      // login('mohamed@gmail.com', "123456789").then(()=>console.log("okkey")).catch((e)=>{
+      //   console.log(e.message);
+      // })
+        login(email, password).then(() => {
+          console.log('here sign in*****')
+            signIn({email, password, token : getUserToken()});
+            navigation.navigate('Home');
+        }).catch((e) => {
+            alert(e.message);
+            console.log(e.message);
+        });
+    }
 
   return (
     <ImageBackground style={styles.background} source={packground2}>
@@ -45,21 +67,22 @@ export default function App({navigation}) {
           <TextInput
             style={styles.input}
             placeholder='Email'
-            onChange={changeHandler}
+            onChangeText={setEmail}
           />
 
           <TextInput
             style={styles.input}
             placeholder='Password'
-            onChange={changeHandler}
+            onChangeText={setPassword}
           />
         </View>
 
         <View style={styles.buttonsStyle}>
           <View style={styles.button}>
-            <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('Home')} >
+            <TouchableOpacity style={styles.button1}  onPress={signInUser} >
               
               <Text style={styles.buttonText}>Sign in</Text>
+              
             </TouchableOpacity>
           </View>
 

@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { Dimensions } from 'react-native-web'
 
 
-export default function contactUs() {
+export default function ContactUs() {
   return (
     <View style={styles.home}>
       <View style={styles.cont2}>

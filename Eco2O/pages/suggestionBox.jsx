@@ -2,7 +2,7 @@
 import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Dimensions } from 'react-native-web';
-export default function suggestionBox() {
+export default function SuggestionBox() {
   return (
     <View style={styles.home}>
       <View style={styles.header}>

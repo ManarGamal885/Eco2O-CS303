@@ -38,7 +38,7 @@ export default function Question1({ navigation }) {
         </View >
         <View style={{ padding: 50 }}>
           <View style={styles.button}>
-            <Button title={"take Quiz"} color='##004D25' onPress={() => navigation.navigate('Q2')} />
+            <Button title={"take Quiz"} color='##004D25' onPress={() => navigation.navigate('Question2')} />
           </View>
         </View>
         <StatusBar style="auto"></StatusBar>

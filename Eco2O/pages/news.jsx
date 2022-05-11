@@ -2,7 +2,7 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Dimensions } from 'react-native-web';
-export default function news() {
+export default function News() {
   return (
     <View style={styles.con}>
       <View style={styles.con1}>

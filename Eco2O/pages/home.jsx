@@ -1,11 +1,10 @@
 //Manar
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native'
 import React from 'react'
-import { Dimensions } from 'react-native-web';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Tab = createBottomTabNavigator();
 
-export default function home({ navigation }) {
+export default function Home({ navigation }) {
   return (
     <ScrollView>
 
@@ -36,7 +35,7 @@ export default function home({ navigation }) {
               <Image style={styles.Im} source={require('../assets/questions.webp')} />
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Q1')}>
+            <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Question1')}>
               <Image style={styles.Im} source={require('../assets/sug.jpg')} />
             </TouchableOpacity>
         </View>

@@ -13,7 +13,7 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
-const Scancode = () => {
+const Scancode = ({ navigation }) => {
   return (
     <ScrollView style={{ padding: 50, paddingLeft: 20 }}>
       <View>
@@ -55,7 +55,7 @@ const Scancode = () => {
             height: 40, overflow: 'hidden',
             borderRadius: 50, backgroundColor: 'silver',
           }}>
-            <Button title={"scane"} color='#004D25' />
+            <Button title={"scane"} color='#004D25'  onPress={() => navigation.navigate('Scanner')}  />
 
           </View>
         </View>

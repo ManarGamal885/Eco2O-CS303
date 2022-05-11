@@ -1,18 +1,47 @@
 //Rahma
+import { setUserId } from 'firebase/analytics';
 import React, { useState } from 'react';
-import { 
+import {
   StyleSheet, Text, View, Image,
   TouchableOpacity, TextInput
 } from 'react-native';
-
-
-export default function App({navigation}) {
+import { register, getUserUId } from "../firebase/Auth";
+import { addUser, getUserById } from "../firebase/User";
+export default function Register({ navigation }) {
 
   const [text, setText] = useState('');
-  const changeHandler = (val) => {
-    setText(val);
-  }
+  const [name, setname] = useState('');
+  const [usename, setusername] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmpassword, setconfirmPassword] = useState('');
+  const [city, setcity] = useState('');
+  const [email, setEmail] = useState('');
+  const [state, setstate] = useState('');
+  const [gender, setgender] = useState('');
+  const [age, setage] = useState('');
+  const [phone, setphone] = useState('');
 
+
+  function registerUser() {
+    console.log('this is email ', email);
+    if (email === '' || password === '' || name === '' ||
+      usename === '' || confirmpassword === '' || city === ''
+      || state === '' || gender === '' || age === '' || phone === '') {
+      alert("email or password is empty!");
+    } else {
+      register(email, password).then(() => {
+
+        console.log(getUserUId());
+        getUserUId().then((id) => {
+          // console.log(id);
+          addUser({ id: id, email, password,name,usename,confirmpassword,city,state,gender,age,phone });
+        });
+        navigation.navigate('SignIn');
+      }).catch((e) => {
+        console.log(e.message);
+      });
+    }
+  }
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -42,7 +71,7 @@ export default function App({navigation}) {
                 <TextInput
                   style={styles.halfText}
                   placeholder='Name'
-                  onChange={changeHandler}
+                  onChangeText={setname}
                 />
               </View>
 
@@ -50,7 +79,7 @@ export default function App({navigation}) {
                 <TextInput
                   style={styles.halfText}
                   placeholder='Username'
-                  onChange={changeHandler}
+                  onChangeText={setusername}
                 />
               </View>
             </View>
@@ -59,19 +88,21 @@ export default function App({navigation}) {
               <TextInput
                 style={styles.fullText}
                 placeholder='Email'
-                onChange={changeHandler}
+                onChangeText={setEmail}
               />
 
               <TextInput
                 style={styles.fullText}
                 placeholder='Password'
-                onChange={changeHandler}
+                onChangeText={setPassword}
+
+
               />
 
               <TextInput
                 style={styles.fullText}
                 placeholder='Confirm password'
-                onChange={changeHandler}
+                onChangeText={setconfirmPassword}
               />
             </View>
 
@@ -80,7 +111,7 @@ export default function App({navigation}) {
                 <TextInput
                   style={styles.halfText}
                   placeholder='City'
-                  onChange={changeHandler}
+                  onChangeText={setcity}
                 />
               </View>
 
@@ -88,7 +119,7 @@ export default function App({navigation}) {
                 <TextInput
                   style={styles.halfText}
                   placeholder='State'
-                  onChange={changeHandler}
+                  onChangeText={setstate}
                 />
               </View>
             </View>
@@ -98,7 +129,7 @@ export default function App({navigation}) {
                 <TextInput
                   style={styles.halfText}
                   placeholder='Gender'
-                  onChange={changeHandler}
+                  onChangeText={setgender}
                 />
               </View>
 
@@ -106,7 +137,7 @@ export default function App({navigation}) {
                 <TextInput
                   style={styles.halfText}
                   placeholder='Age'
-                  onChange={changeHandler}
+                  onChangeText={setage}
                 />
               </View>
             </View>
@@ -115,12 +146,12 @@ export default function App({navigation}) {
               <TextInput
                 style={styles.fullText}
                 placeholder='Phone number'
-                onChange={changeHandler}
+                onChangeText={setphone}
               />
             </View>
 
             <View style={styles.button}>
-              <TouchableOpacity style={styles.buttonStyle} onPress={() => navigation.navigate('SignIn')}>
+              <TouchableOpacity style={styles.buttonStyle} onPress={registerUser}>
                 <Text style={styles.buttonText}>
                   Sign up
                 </Text>
@@ -145,7 +176,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 260
   },
-  headerStyle:{
+  headerStyle: {
     flexDirection: 'row',
   },
   signUpStyle: {
@@ -154,14 +185,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  signUpText:{
+  signUpText: {
     width: 164,
     height: 64,
     fontSize: 40,
     fontWeight: 'bold',
     color: '#000000',
     textShadowColor: '#B7B7B7',
-    textShadowOffset: {width: 0, height: 4},
+    textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 6,
     justifyContent: 'flex-start',
   },
@@ -178,7 +209,7 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     textAlign: 'center',
     paddingTop: 30,
-    
+
   },
   rectangle: {
     backgroundColor: '#F9F9F9',
@@ -211,14 +242,14 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     justifyContent: 'space-between'
   },
-  halfText:{
+  halfText: {
     marginBottom: 10,
     borderBottomWidth: 1,
     borderColor: '#9C8A8A',
     width: 143,
     justifyContent: 'space-between',
-    
-    
+
+
   },
   EPC: {
     justifyContent: 'center',
@@ -241,31 +272,31 @@ const styles = StyleSheet.create({
     paddingTop: 30,
   },
   buttonStyle: {
-      alignContent: 'center',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#004D25',
-      borderRadius: 50,
-      width: 300,
-      height: 72,
-      justifyContent: 'space-between',
-      // shadowColor: 'black',
-      // shadowOffset: {width: 0, height: 4},
-      // shadowRadius: 100,
+    alignContent: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#004D25',
+    borderRadius: 50,
+    width: 300,
+    height: 72,
+    justifyContent: 'space-between',
+    // shadowColor: 'black',
+    // shadowOffset: {width: 0, height: 4},
+    // shadowRadius: 100,
   },
   buttonText: {
-      paddingTop: 8,
-      color: 'white',
-      textShadowColor: '#5B5959',
-      textShadowOffset: {width: 0, height: 4},
-      textShadowRadius: 6,
-      textAlign: 'center',
-      fontSize: 30,
-      justifyContent: 'center',
-      alignContent: 'center',
-      alignItems: 'center',
-      flexDirection: 'column',
-      // paddingTop: 10
+    paddingTop: 8,
+    color: 'white',
+    textShadowColor: '#5B5959',
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 6,
+    textAlign: 'center',
+    fontSize: 30,
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    // paddingTop: 10
   }
 });

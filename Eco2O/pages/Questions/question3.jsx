@@ -13,7 +13,7 @@ import {
 
 } from "react-native";
 
-export default function question3({navigation}) {
+export default function Question3({navigation}) {
   const [first, setfirst] = useState(false);
   return (
     <ScrollView style={{ padding: 30 }}>

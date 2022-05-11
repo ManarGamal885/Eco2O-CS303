@@ -6,7 +6,7 @@ import {
   TextInput, TouchableOpacity
 } from 'react-native';
 
-export default function App() {
+export default function ForgetPass() {
 
   const [text, setText] = useState('');
   const changeHandler = (val) => {
