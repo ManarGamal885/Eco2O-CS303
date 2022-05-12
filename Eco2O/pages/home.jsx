@@ -67,6 +67,8 @@ const styles = StyleSheet.create({
   },
   con2: {
 
+    width: 414,
+    height: 758,
     backgroundColor: '#F9F9F9',
 
     bottom: 0,
