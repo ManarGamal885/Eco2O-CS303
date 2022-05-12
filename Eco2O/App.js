@@ -10,6 +10,7 @@ import {
   View,
   Image,
   ImageBackground,
+  TouchableOpacity
 } from "react-native";
 import Home from "./pages/Home";
 import News from "./pages/News";
@@ -24,11 +25,23 @@ import Question1 from './pages/Questions/Question1';
 import Question2 from './pages/Questions/Question2';
 import Question3 from './pages/Questions/Question3';
 import Scanner from './pages/Scanner';
+import Profile from './pages/profile';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {AuthContext} from "./pages/Utils";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
+function LogoTitle() {
+    return (
+        <TouchableOpacity >
+      <Image
+        style={{ width: 50, height: 50 }}
+        source={require('./assets/user.png')}
+      />
+      </TouchableOpacity>
+    );
+  }
 export default function App() {
 
   const [state, dispatch] = React.useReducer(
@@ -87,12 +100,16 @@ const authContext = React.useMemo(
     <NavigationContainer>
       
       <Stack.Navigator initialRouteName="SignIn">
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Home" component={Home} options={{
+            headerTitle: (props) => <LogoTitle {...props} />
+            
+          }} />
         <Stack.Screen name="News" component={News} />
         <Stack.Screen name="Scan" component={Scan} />
         <Stack.Screen name="Suggestion" component={Suggestion} />
         <Stack.Screen name="Contact" component={Contact} />
         <Stack.Screen name="Start" component={Start} />
+        <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Forget" component={Forget} />
