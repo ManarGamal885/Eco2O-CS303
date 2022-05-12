@@ -10,7 +10,7 @@ import {
   View,
   Image,
 } from "react-native";
-export let countAns=0;
+ let countAns = 0;
 export default function Question2({ navigation }) {
   const ans1 = "second";
   const ans2 = "third";
@@ -22,57 +22,58 @@ export default function Question2({ navigation }) {
   const [value3, setValue3] = React.useState('');
   const [value4, setValue4] = React.useState('');
   const [value5, setValue5] = React.useState('');
-  const onPressQuestionHandler =()=>{
-    navigation.navigate('Question3');
-    if(value1==ans1){countAns++;}
-    if(value2==ans2){countAns++;}
-    if(value3==ans3){countAns++;}
-    if(value4==ans4){countAns++;}
-    if(value5==ans5){countAns++;}
+  const onPressQuestionHandler = () => {
+
+    if (value1 == ans1) { countAns++; }
+    if (value2 == ans2) { countAns++; }
+    if (value3 == ans3) { countAns++; }
+    if (value4 == ans4) { countAns++; }
+    if (value5 == ans5) { countAns++; }
     console.log(countAns);
+    navigation.navigate('Question3', { x: countAns });
   }
   return (
     <ScrollView style={{ padding: 30 }}>
       <View>
         <View style={styles.header}>
           <Image source={require("../../assets/undraw_Questions_re_1fy7.png")}
-            style={{ width: 180, height: 180, borderRadius:100 }} />
+            style={{ width: 180, height: 180, borderRadius: 100 }} />
         </View>
 
 
         {/* Q1 */}
-        <View style={{ paddingTop: 50, padding:10 }} >
-          <Text style={{ fontSize: 20 ,fontWeight:'bold', marginBottom:10}}>Which of the following is the main reason for producing
+        <View style={{ paddingTop: 50, padding: 10 }} >
+          <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 10 }}>Which of the following is the main reason for producing
             the atmospheriic greenhouse effect: </Text>
         </View>
         <RadioButton.Group onValueChange={value1 => setValue1(value1)} value={value1} >
           <RadioButton.Item
-           label="Absorption and re-emission of ultraviolet radiations by the atmosphere"
-           value="first" 
-           />
+            label="Absorption and re-emission of ultraviolet radiations by the atmosphere"
+            value="first"
+          />
           <RadioButton.Item
-           label="Absorption and re-emission of infrared radiations by the atmosphere" 
-           value="second" />
-          <RadioButton.Item 
-           label="Absorption and re-emission of visible light by the atmosphere" 
-           value="third" />
+            label="Absorption and re-emission of infrared radiations by the atmosphere"
+            value="second" />
+          <RadioButton.Item
+            label="Absorption and re-emission of visible light by the atmosphere"
+            value="third" />
         </RadioButton.Group>
 
 
         {/* Q2 */}
         <View style={{ paddingTop: 50, paddingLeft: 120 }} >
-          <Text style={{ fontSize: 20, fontWeight:'bold' }}>The salinization can be defined as : </Text>
+          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>The salinization can be defined as : </Text>
         </View>
         <RadioButton.Group onValueChange={value2 => setValue2(value2)} value={value2}>
-          <RadioButton.Item 
-          label="Accumulation of salts in the body"
-          value="first" />
-          <RadioButton.Item 
-          label="Accumulation of salts in the water" 
-          value="second" />
-          <RadioButton.Item 
-          label="Accumulation of salts in the soil"
-          value="third" />
+          <RadioButton.Item
+            label="Accumulation of salts in the body"
+            value="first" />
+          <RadioButton.Item
+            label="Accumulation of salts in the water"
+            value="second" />
+          <RadioButton.Item
+            label="Accumulation of salts in the soil"
+            value="third" />
         </RadioButton.Group>
 
 
@@ -82,31 +83,31 @@ export default function Question2({ navigation }) {
         </View>
         <RadioButton.Group onValueChange={value3 => setValue3(value3)} value={value3}>
           <RadioButton.Item
-           label="Due to the presence of water vapor" 
-           value="first" />
-          <RadioButton.Item 
-          label="Due to the absorption of blue light due to theair"
-           value="second" />
-          <RadioButton.Item 
-          label="Due to the scattering of sunlight by air molecules"
-           value="third" />
+            label="Due to the presence of water vapor"
+            value="first" />
+          <RadioButton.Item
+            label="Due to the absorption of blue light due to theair"
+            value="second" />
+          <RadioButton.Item
+            label="Due to the scattering of sunlight by air molecules"
+            value="third" />
         </RadioButton.Group>
-        
+
 
         {/* Q4 */}
         <View style={{ paddingTop: 50, paddingLeft: 120 }} >
           <Text style={{ fontSize: 25 }}>Ultraviolet rays of the sunlight results in formation of</Text>
         </View>
         <RadioButton.Group onValueChange={value4 => setValue4(value4)} value={value4}>
-          <RadioButton.Item 
-          label="Ozone"
-           value="first" />
-          <RadioButton.Item 
-          label="Fluorides" 
-          value="second" />
-          <RadioButton.Item 
-          label="Sulphur Dioxide" 
-          value="third" />
+          <RadioButton.Item
+            label="Ozone"
+            value="first" />
+          <RadioButton.Item
+            label="Fluorides"
+            value="second" />
+          <RadioButton.Item
+            label="Sulphur Dioxide"
+            value="third" />
         </RadioButton.Group>
 
 
@@ -116,14 +117,14 @@ export default function Question2({ navigation }) {
         </View>
         <RadioButton.Group onValueChange={value5 => setValue5(value5)} value={value5}>
           <RadioButton.Item
-           label="Acid rain" 
-           value="first" />
-          <RadioButton.Item 
-          label="Ozone" 
-          value="second" />
+            label="Acid rain"
+            value="first" />
           <RadioButton.Item
-           label="Aerosol" 
-           value="third" />
+            label="Ozone"
+            value="second" />
+          <RadioButton.Item
+            label="Aerosol"
+            value="third" />
         </RadioButton.Group>
 
 
@@ -135,7 +136,7 @@ export default function Question2({ navigation }) {
             <Button title={"sumite"} color='#004D25' onPress={onPressQuestionHandler} />
           </View>
         </View>
-        
+
         <StatusBar style="auto"></StatusBar>
       </View>
     </ScrollView>

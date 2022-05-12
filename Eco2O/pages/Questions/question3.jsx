@@ -1,7 +1,7 @@
 //Mabrouk
 import React, { useState } from 'react'
 import { StatusBar } from "expo-status-bar";
-import {countAns} from "./question2";
+import { countAns } from "./question2";
 import {
   Button,
   ScrollView,
@@ -13,8 +13,11 @@ import {
   ImageBackground,
 } from "react-native";
 
-export default function Question3({navigation}) {
-  const [first, setfirst] = useState(false);
+export default function Question3({ navigation, route }) {
+  let { x } = route.params;
+  console.log("the number of the score", x);
+  
+  const [first, setfirst] = useState("");
   return (
     <ScrollView style={{ padding: 30 }}>
       <View>
@@ -27,7 +30,7 @@ export default function Question3({navigation}) {
           <Text style={{ fontSize: 25, paddingTop: 10, paddingRight: 100 }}>Your Final Scor</Text>
           <View style={styles.styletext}>
             <Text></Text>
-            <Text style={styles.text} >{countAns}</Text>
+            <Text style={styles.text} >{x}</Text>
             <Text></Text>
           </View>
         </View>
@@ -45,7 +48,7 @@ export default function Question3({navigation}) {
 
         <View style={{ padding: 50 }}>
           <View style={styles.button}>
-            <Button title={"Back to home"} color='#004D2'  onPress={() => navigation.navigate('Home')} />
+            <Button title={"Back to home"} color='#004D2' onPress={() => navigation.navigate('Home')} />
 
           </View>
         </View>
@@ -86,15 +89,15 @@ const styles = StyleSheet.create({
     width: 50,
     height: 20,
     fontSize: 20,
-    color: "white", 
+    color: "white",
     alignItems: "center",
     justifyContent: "center",
-    paddingLeft:17
+    paddingLeft: 17
   },
-  image:{
+  image: {
     width: 110,
-     height: 110,
-      borderRadius: 50
+    height: 110,
+    borderRadius: 50
   }
 
 })
