@@ -12,19 +12,19 @@ import {
   ImageBackground,
   TouchableOpacity
 } from "react-native";
-import Home from "./pages/Home";
-import News from "./pages/News";
-import Scan from "./pages/Scancode";
-import Suggestion from "./pages/SuggestionBox";
-import Contact from "./pages/ContactUs";
-import Start from "./pages/Start";
-import SignIn from "./pages/SignIn";
-import Register from "./pages/Register";
-import Forget from "./pages/ForgetPass";
-import Question1 from './pages/Questions/Question1';
-import Question2 from './pages/Questions/Question2';
-import Question3 from './pages/Questions/Question3';
-import Scanner from './pages/Scanner';
+import Home from "./pages/home";
+import News from "./pages/news";
+import Scan from "./pages/scancode";
+import Suggestion from "./pages/suggestionBox";
+import Contact from "./pages/contactUs";
+import Start from "./pages/start";
+import SignIn from "./pages/signIn";
+import Register from "./pages/register";
+import Forget from "./pages/forgetPass";
+import Question1 from './pages/Questions/question1';
+import Question2 from './pages/Questions/question2';
+import Question3 from './pages/Questions/question3';
+import Scanner from './pages/scancode';
 import Profile from './pages/profile';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {AuthContext} from "./pages/Utils";

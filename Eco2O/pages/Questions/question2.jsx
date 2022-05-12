@@ -30,7 +30,7 @@ export default function Question2({ navigation }) {
     if (value4 == ans4) { countAns++; }
     if (value5 == ans5) { countAns++; }
     console.log(countAns);
-    navigation.navigate('Question3', { x: countAns });
+    navigation.navigate('Question3', { buons: countAns });
   }
   return (
     <ScrollView style={{ padding: 30 }}>

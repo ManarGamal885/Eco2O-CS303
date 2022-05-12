@@ -12,6 +12,10 @@ async function getUsers() {
     });
 }
 
+
+async function addUser(user) {
+    await setDoc(doc(firestoreDB, "Users", user.id), user);
+}
 export async function getUserById(id) {
     const usersRef = collection(firestoreDB, "Users");
     const q = query(usersRef, where("id", "==", id));
@@ -21,8 +25,5 @@ export async function getUserById(id) {
     });
 }
 
-async function addUser(user) {
-    await setDoc(doc(firestoreDB, "Users", user.id), user);
-}
 
 export {getUsers, addUser};
