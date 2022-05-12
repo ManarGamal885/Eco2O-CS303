@@ -95,6 +95,33 @@ const authContext = React.useMemo(
     []
 );
 
+const MainStackNavigator = () => {
+  return (
+    <NavigationContainer>
+      
+      <Stack.Navigator initialRouteName="SignIn">
+        <Stack.Screen name="Home" component={Home} options={{
+            headerTitle: (props) => <LogoTitle {...props} />
+            
+          }} />
+        <Stack.Screen name="News" component={News} />
+        <Stack.Screen name="Scan" component={Scan} />
+        <Stack.Screen name="Suggestion" component={Suggestion} />
+        <Stack.Screen name="Contact" component={Contact} />
+        <Stack.Screen name="Start" component={Start} />
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="SignIn" component={SignIn}  options={{headerShown: false}}/>
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Forget" component={Forget} />
+        <Stack.Screen name="Question1" component={Question1} />
+        <Stack.Screen name="Question2" component={Question2} />
+        <Stack.Screen name="Question3" component={Question3} />
+        <Stack.Screen name="Scanner" component={Scanner} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
   return (
     <AuthContext.Provider value={authContext}>
     <NavigationContainer>
