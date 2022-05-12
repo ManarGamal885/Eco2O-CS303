@@ -2,27 +2,46 @@
 import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Dimensions } from 'react-native-web';
-export default function SuggestionBox() {
+import { addSug } from "../firebase/Sugge"
+import { getUserUId } from "../firebase/Auth";
+export default function SuggestionBox({ navigation }) {
+  const [text, settext] = React.useState('');
+  function Suggestion() {
+    getUserUId().then((id) => {
+      if (text === "") {
+        alert("There is no bouns :( !!");
+        navigation.navigate('Home');
+      }
+      else {
+        addSug({ id: id, text });
+        console.log(id);
+        navigation.navigate('Home');
+      }
+    });
+
+
+
+  }
   return (
     <View style={styles.home}>
       <View style={styles.header}>
-        <Image 
-           style={styles.imageH}
-           source={require('../assets/help.png')}
+        <Image
+          style={styles.imageH}
+          source={require('../assets/help.png')}
         />
         <Text style={styles.H}>Suggestions</Text>
         <Text style={styles.T}>Help Us To Improve The Environmen</Text>
       </View>
       <View style={styles.inputANDbut}>
-        <TextInput style={styles.textIn} placeholder='     Enter Your Suggestion' />
-        <TouchableOpacity style={styles.button}>
+        <TextInput style={styles.textIn} placeholder='Enter Your Suggestion' onChangeText={settext} />
+        <TouchableOpacity style={styles.button} onPress={Suggestion}>
           <Text style={styles.textBu} >Send</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.footer}>
-        <Image 
-           style={styles.imageF}
-           source={require('../assets/check.png')}
+        <Image
+          style={styles.imageF}
+          source={require('../assets/check.png')}
         />
         <Text style={styles.textI}> Thank You </Text>
       </View>
@@ -57,7 +76,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     height: 300,
     backgroundColor: 'white',
-    flexDirection:'row',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
@@ -82,33 +101,33 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: 'white',
   },
-  imageH:{
-    width:286,
-    height:167,
+  imageH: {
+    width: 286,
+    height: 167,
     position: 'absolute',
     top: 0,
-    marginTop:'8%',
+    marginTop: '8%',
   },
-  H:{
-    marginTop:'45%',
+  H: {
+    marginTop: '45%',
     fontSize: 35,
     fontWeight: '800',
     textShadowColor: '#B7B7B7',
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 6,
   },
-  T:{
-    marginTop:'2.5%',
-    fontSize:15,
-    color:'#9F9F9F',
+  T: {
+    marginTop: '2.5%',
+    fontSize: 15,
+    color: '#9F9F9F',
   },
-  imageF:{
-    width:150,
-    height:150,
+  imageF: {
+    width: 150,
+    height: 150,
   },
-  textI:{
-    fontSize:25,
-    fontWeight:'bold',
+  textI: {
+    fontSize: 25,
+    fontWeight: 'bold',
     textShadowColor: '#B7B7B7',
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 6,
