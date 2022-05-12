@@ -1,7 +1,8 @@
 //Mabrouk
 import React, { useState } from 'react'
 import { StatusBar } from "expo-status-bar";
-import { countAns } from "./question2";
+import { getUserUId } from "../../firebase/Auth";
+
 import {
   Button,
   ScrollView,
@@ -12,12 +13,27 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
+import { addBouns } from '../../firebase/Bouns';
 
 export default function Question3({ navigation, route }) {
-  let { x } = route.params;
-  console.log("the number of the score", x);
-  
-  const [first, setfirst] = useState("");
+  let { buons } = route.params;
+  console.log("the number of the score", buons);
+  //function to add bouns 
+  function registerUser() {
+
+    if (buons === 0) {
+      alert("There is no bouns :( !!");
+      navigation.navigate('Home');
+    } else {
+      getUserUId().then((id) => {
+        addBouns({ id: id, buons });
+        console.log(id);
+        navigation.navigate('Home');
+      });
+
+    }
+  }
+
   return (
     <ScrollView style={{ padding: 30 }}>
       <View>
@@ -30,7 +46,7 @@ export default function Question3({ navigation, route }) {
           <Text style={{ fontSize: 25, paddingTop: 10, paddingRight: 100 }}>Your Final Scor</Text>
           <View style={styles.styletext}>
             <Text></Text>
-            <Text style={styles.text} >{x}</Text>
+            <Text style={styles.text} >{buons}</Text>
             <Text></Text>
           </View>
         </View>
@@ -48,7 +64,7 @@ export default function Question3({ navigation, route }) {
 
         <View style={{ padding: 50 }}>
           <View style={styles.button}>
-            <Button title={"Back to home"} color='#004D2' onPress={() => navigation.navigate('Home')} />
+            <Button title={"Back to home"} color='#004D2' onPress={registerUser} />
 
           </View>
         </View>
