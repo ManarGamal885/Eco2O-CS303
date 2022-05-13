@@ -22,7 +22,7 @@ export default function Register({ navigation }) {
   const [phone, setphone] = useState('');
 
 
-  function registerUser() {
+  function registerUser () {
     console.log('this is email ', email);
     if (email === '' || password === '' || name === '' ||
       usename === '' || confirmpassword === '' || city === ''
