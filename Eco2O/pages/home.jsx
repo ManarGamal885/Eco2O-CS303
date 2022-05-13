@@ -29,7 +29,7 @@ export default function Home({ navigation }) {
             <Text style={styles.options}>Options for You</Text>
             <View style={styles.optionsCon}>
 
-              <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Scan')}>
+              <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Scancode')}>
                 <Image style={styles.Im} source={require('../assets/scan.jpg')} />
               </TouchableOpacity>
 

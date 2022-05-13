@@ -1,8 +1,6 @@
 //Mabrouk
-
 import { useState, useEffect } from 'react'
 import { StatusBar } from "expo-status-bar";
-
 import {
   Button,
   ScrollView,
@@ -13,7 +11,18 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
-const Scancode = ({ navigation }) => {
+
+export default function Scancode({ navigation }) {
+  let [number, setnumber] = useState(0);
+  function setnumberincr() {
+    setnumber(number++);
+  }
+
+  function setnumberdecr() {
+    if (number >= 0)
+      setnumber(number--);
+  }
+
   return (
     <ScrollView style={{ padding: 50, paddingLeft: 20 }}>
       <View>
@@ -36,26 +45,26 @@ const Scancode = ({ navigation }) => {
         <View style={{ paddingTop: 70, paddingLeft: 90, flexDirection: "row" }}>
           <View style={{
             height: 40, overflow: 'hidden', width: 40,
-            borderRadius: 50, backgroundColor: 'silver'
+            borderRadius: "50", backgroundColor: 'silver'
           }}>
-            <Button title={"+"} color='#004D25' />
+            <Button title={"+"} color='#004D25' onPress={setnumberincr} />
           </View>
           <View style={{ padding: 15 }}>
-            <Text>________</Text>
+            <Text style={{ fontSize: 24 }}> {number} </Text>
           </View>
           <View style={{
             height: 40, overflow: 'hidden', width: 40,
-            borderRadius: 50, backgroundColor: 'silver'
+            borderRadius: "50", backgroundColor: 'silver'
           }}>
-            <Button title={"-"} color='#004D25' />
+            <Button title={"-"} color='#004D25' onPress={setnumberdecr} />
           </View>
         </View>
         <View style={{ padding: 50 }}>
           <View style={{
             height: 40, overflow: 'hidden',
-            borderRadius: 50, backgroundColor: 'silver',
+            borderRadius: "50", backgroundColor: 'silver',
           }}>
-            <Button title={"scane"} color='#004D25'  onPress={() => navigation.navigate('Scanner')}  />
+            <Button title={"scane"} color='#004D25' onPress={() => navigation.navigate('Scanner2', { numberofbottle: number })} />
 
           </View>
         </View>
@@ -81,9 +90,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#AFC6BA"
-
   }
 
 });
 
-export default Scancode;
