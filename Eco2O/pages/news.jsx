@@ -24,7 +24,7 @@ export default function News() {
           <View style={styles.news}>
 
             <TouchableOpacity style={styles.touch1} onPress={() => {
-              Linking.openURL("https://google.com")
+              Linking.openURL("https://www.nasa.gov/content/nasa-earth-science-news")
                 .catch(err => {
                   console.error("Failed opening page because: ", err)
                   alert('Failed to open page')
@@ -35,14 +35,14 @@ export default function News() {
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.touch2} onPress={() => {
-              Linking.openURL("https://google.com")
+              Linking.openURL("https://earthdata.nasa.gov/earth-observation-data/near-real-time/hazards-and-disasters/air-quality?fbclid=IwAR1LUgtJqhKJTMTyE-Azq7Xqio7um1tMA4C0sNo9mJuPsbK1b-k8-MRP8WY")
                 .catch(err => {
                   console.error("Failed opening page because: ", err)
                   alert('Failed to open page')
                 })
             }}>
               <Image style={styles.Im} source={require('../assets/air.jpg')} />
-              <Text style={styles.txt}>Air</Text>
+              <Text style={styles.txt}>Air pollution</Text>
             </TouchableOpacity>
 
           </View>
@@ -51,7 +51,7 @@ export default function News() {
           <View style={styles.news}>
 
             <TouchableOpacity style={styles.touch1} onPress={() => {
-              Linking.openURL("https://google.com")
+              Linking.openURL("https://www.euronews.com/tag/forest-fires?fbclid=IwAR2tZQylS_RksI1zMoWbP1v3KuGVmqQ41jx3iBJptSSAPzu2TrOFYDdIu7U")
                 .catch(err => {
                   console.error("Failed opening page because: ", err)
                   alert('Failed to open page')
@@ -62,7 +62,7 @@ export default function News() {
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.touch2} onPress={() => {
-              Linking.openURL("https://google.com")
+              Linking.openURL("https://climate.nasa.gov/?fbclid=IwAR3__rxOBcjmpReS-Ti-JEtqcxDXhdotOEINBPFZNn4wz1cfxd1UjyYBl6w")
                 .catch(err => {
                   console.error("Failed opening page because: ", err)
                   alert('Failed to open page')
@@ -76,7 +76,7 @@ export default function News() {
           <View style={styles.news}>
 
             <TouchableOpacity style={styles.touch1} onPress={() => {
-              Linking.openURL("https://google.com")
+              Linking.openURL("https://l.facebook.com/l.php?u=https%3A%2F%2Fsealevel.nasa.gov%2Fnews-features%2F%3Ffbclid%3DIwAR2wDFbReIUwgj5Mgfm7lDJpOzda8zPdf5NWaeCvbgxxVOtWxWAAGVwoU5o%23%3A~%3Atext%3DSea%2520Level%2520to%2520Rise%2520up%2Cby%25202050%252C%2520Interagency%2520Report%2520Finds%26text%3DInteragency%2520Report%2520Finds-%2CNASA%252C%2520NOAA%252C%2520USGS%252C%2520and%2520other%2520U.S.%2520government%2520agencies%2520project%2Cover%2520the%2520past%2520100%2520years&h=AT2bCpeiGFPXn8U5Iadqd6bOEIt6kRbkM1pkZQ19RG4RaxYYmIm5cETb71DK55cyRy0AjQIlM6VWIcRjfT9elhHu7liZPwhvQ0vyPfYY7tWlcuGQDcILPYzBF8PwBPpniwVTXueY-mRpOYg")
                 .catch(err => {
                   console.error("Failed opening page because: ", err)
                   alert('Failed to open page')
@@ -87,7 +87,7 @@ export default function News() {
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.touch2} onPress={() => {
-              Linking.openURL("https://google.com")
+              Linking.openURL("https://earthdata.nasa.gov/learn/articles/ocean-plastic?fbclid=IwAR1C0f3qAVx0qchwqormgFn9VVVi1ml9fj0SVoNhemZCzm3q67gAKBRxwiw")
                 .catch(err => {
                   console.error("Failed opening page because: ", err)
                   alert('Failed to open page')
