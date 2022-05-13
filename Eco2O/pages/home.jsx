@@ -6,7 +6,7 @@ const Tab = createBottomTabNavigator();
 
 export default function Home({ navigation }) {
   return (
-    <ScrollView>
+    <View>
 
       <View>
         <View>
@@ -16,39 +16,44 @@ export default function Home({ navigation }) {
             color="#00cc00"
           />
         </View>
-        <View style={styles.con1}>
-          <Image style={styles.imH} source={require('../assets/h.jpeg')} />
-          <View style={styles.textcon}>
-            <Text style={styles.H1}>Welcome in Your Home </Text>
-            <Text style={styles.H2} >Choose Your Feature Now</Text>
-          </View>
+      </View>
+
+      <View style={styles.con1}>
+        <Image style={styles.imH} source={require('../assets/h.jpeg')} />
+        <View style={styles.textcon}>
+          <Text style={styles.H1}>Welcome in Your Home </Text>
+          <Text style={styles.H2} >Choose Your Feature Now</Text>
         </View>
+      </View>
 
         <View style={styles.con}>
           <View style={styles.con2}>
             <Text style={styles.options}>Options for You</Text>
-            <View style={styles.optionsCon}>
 
-              <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Scan')}>
-                <Image style={styles.Im} source={require('../assets/scan.jpg')} />
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('News')}>
-                <Image style={styles.Im} source={require('../assets/news.webp')} />
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Suggestion')}>
-                <Image style={styles.Im} source={require('../assets/questions.webp')} />
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Question1')}>
-                <Image style={styles.Im} source={require('../assets/sug.jpg')} />
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
+            <ScrollView>
+              <View style={styles.optionsCon}>
+                <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Scan')}>
+                  <Image style={styles.Im} source={require('../assets/scan.jpg')} />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('News')}>
+                  <Image style={styles.Im} source={require('../assets/news.webp')} />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Suggestion')}>
+                  <Image style={styles.Im} source={require('../assets/questions.webp')} />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Question1')}>
+                  <Image style={styles.Im} source={require('../assets/sug.jpg')} />
+                </TouchableOpacity>
+                </View>
+            </ScrollView>
       </View>
-    </ScrollView>
+    </View>
+
+    <View style={styles.FooterStyle}>
+      {/* For footer navigation buttons */}
+
+    </View>
+  </View>
   )
 }
 
@@ -120,6 +125,9 @@ const styles = StyleSheet.create({
   txt: {
     fontSize: 20,
     fontWeight: 'bold',
+
+  },
+  FooterStyle:{
 
   },
 })

@@ -46,4 +46,10 @@ async function logout() {
     authentication.signOut().then().catch((e) => console.log(e.message));
 }
 
-export {register, login, isSignedIn, getUserUId, logout, getUserToken};
+
+async function forgetpassword(emailforget ,newpassword) {
+    console.log("here is the forget password");
+    await  updatePassword(emailforget, newpassword)
+}
+
+export {register, login, isSignedIn, getUserUId, logout, getUserToken ,forgetpassword};
