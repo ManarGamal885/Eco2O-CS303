@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { StatusBar } from "expo-status-bar";
 import { getUserUId } from "../../firebase/Auth";
-
+import { getBounsByUserId } from "../../firebase/Bouns";
 import {
   Button,
   ScrollView,
@@ -18,15 +18,30 @@ import { addBouns } from '../../firebase/Bouns';
 export default function Question3({ navigation, route }) {
   let { buons } = route.params;
   console.log("the number of the score", buons);
+  let [bounsondatabase, setbounsondatabase] = useState(0);
+  let finalbouns;
   //function to add bouns 
-  function registerUser() {
+
+  
+  React.useEffect(() => {
+    getUserUId().then((id) => {
+      console.log(id);
+      getBounsByUserId(id).then((user) => {
+        setbounsondatabase(user[0].buons);
+      });
+    });
+  }, []);
+
+  function addBounsAndCheck() {
 
     if (buons === 0) {
       alert("There is no bouns :( !!");
       navigation.navigate('Home');
     } else {
       getUserUId().then((id) => {
-        addBouns({ id: id, buons });
+        console.log("ther is the number of data in data base" , bounsondatabase)
+         finalbouns = bounsondatabase + buons;
+        addBouns({ id: id, finalbouns });
         console.log(id);
         navigation.navigate('Home');
       });
@@ -64,7 +79,7 @@ export default function Question3({ navigation, route }) {
 
         <View style={{ padding: 50 }}>
           <View style={styles.button}>
-            <Button title={"Back to home"} color='#004D2' onPress={registerUser} />
+            <Button title={"Back to home"} color='#004D2' onPress={addBounsAndCheck} />
 
           </View>
         </View>

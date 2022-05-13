@@ -14,7 +14,6 @@ import {
 } from "react-native";
 import Home from "./pages/home";
 import News from "./pages/news";
-import Scan from "./pages/scancode";
 import Suggestion from "./pages/suggestionBox";
 import Contact from "./pages/contactUs";
 import Start from "./pages/start";
@@ -24,8 +23,10 @@ import Forget from "./pages/forgetPass";
 import Question1 from './pages/Questions/question1';
 import Question2 from './pages/Questions/question2';
 import Question3 from './pages/Questions/question3';
-import Scanner from './pages/scancode';
+import Scancode from './pages/scancode';
+import Scanner2 from './pages/Scanner';
 import Profile from './pages/profile';
+
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {AuthContext} from "./pages/Utils";
 
@@ -95,32 +96,33 @@ const authContext = React.useMemo(
     []
 );
 
-const MainStackNavigator = () => {
-  return (
-    <NavigationContainer>
-      
-      <Stack.Navigator initialRouteName="SignIn">
-        <Stack.Screen name="Home" component={Home} options={{
-            headerTitle: (props) => <LogoTitle {...props} />
+// const MainStackNavigator = () => {
+//   return (
+//     <NavigationContainer>
+        
+//       <Stack.Navigator initialRouteName="SignIn">
+//         <Stack.Screen name="Home" component={Home} options={{
+//             headerTitle: (props) => <LogoTitle {...props} />
             
-          }} />
-        <Stack.Screen name="News" component={News} />
-        <Stack.Screen name="Scan" component={Scan} />
-        <Stack.Screen name="Suggestion" component={Suggestion} />
-        <Stack.Screen name="Contact" component={Contact} />
-        <Stack.Screen name="Start" component={Start} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="SignIn" component={SignIn}  options={{headerShown: false}}/>
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="Forget" component={Forget} />
-        <Stack.Screen name="Question1" component={Question1} />
-        <Stack.Screen name="Question2" component={Question2} />
-        <Stack.Screen name="Question3" component={Question3} />
-        <Stack.Screen name="Scanner" component={Scanner} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
+//           }} />
+//         <Stack.Screen name="News" component={News} />
+       
+//         <Stack.Screen name="Suggestion" component={Suggestion} />
+//         <Stack.Screen name="Contact" component={Contact} />
+//         <Stack.Screen name="Start" component={Start} />
+//         <Stack.Screen name="Profile" component={Profile} />
+//         <Stack.Screen name="SignIn" component={SignIn}  options={{headerShown: false}}/>
+//         <Stack.Screen name="Register" component={Register} />
+//         <Stack.Screen name="Forget" component={Forget} />
+//         <Stack.Screen name="Question1" component={Question1} />
+//         <Stack.Screen name="Question2" component={Question2} />
+//         <Stack.Screen name="Question3" component={Question3} />
+//         <Stack.Screen name="Scancode" component={Scancode} />
+//         <Stack.Screen name="Scanner2" component={Scanner2} />
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+// }
 
   return (
     <AuthContext.Provider value={authContext}>
@@ -132,7 +134,6 @@ const MainStackNavigator = () => {
             
           }} />
         <Stack.Screen name="News" component={News} />
-        <Stack.Screen name="Scan" component={Scan} />
         <Stack.Screen name="Suggestion" component={Suggestion} />
         <Stack.Screen name="Contact" component={Contact} />
         <Stack.Screen name="Start" component={Start} />
@@ -143,7 +144,8 @@ const MainStackNavigator = () => {
         <Stack.Screen name="Question1" component={Question1} />
         <Stack.Screen name="Question2" component={Question2} />
         <Stack.Screen name="Question3" component={Question3} />
-        <Stack.Screen name="Scanner" component={Scanner} />
+        <Stack.Screen name="Scancode" component={Scancode} />
+        <Stack.Screen name="Scanner2" component={Scanner2} />
       </Stack.Navigator>
     </NavigationContainer>
     </AuthContext.Provider>
