@@ -8,14 +8,32 @@ import {
   ScrollView,
   Button,
 } from "react-native";
-import React from "react";
+
+import * as React from "react";
+import {AuthContext} from "./Utils";
+import { isSignedIn, logout } from "../firebase/Auth";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Tab = createBottomTabNavigator();
 
 export default function Home({ navigation }) {
+  const { signOut } = React.useContext(AuthContext);
+
+  function signOutUser() {
+    signOut();
+    logout();
+    // no need explicitly to redirect for the sign-in screen
+    // navigation.navigate('SignIn');
+  }
+
+
+
+function signout(){
+  signOutUser();
+
+  navigation.navigate("SignIn")
+}
   return (
     <View>
-      
       <View style={styles.con1}>
         <Image style={styles.imH} source={require("../assets/h.jpeg")} />
         <View style={styles.textcon}>
@@ -113,7 +131,7 @@ export default function Home({ navigation }) {
           />
 
           <TouchableOpacity
-            onPress={() => navigation.navigate("SignIn")}
+            onPress={signout}
             style={styles.FooterButton}
           >
             <Text style={styles.FooterButtonText}>Log out</Text>
@@ -137,7 +155,7 @@ const styles = StyleSheet.create({
     width: 414,
     height: 198,
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
   },
   con2: {
     width: 414,
@@ -199,9 +217,9 @@ const styles = StyleSheet.create({
     height: 70,
     flexDirection: "row",
     flex: 1,
-    justifyContent: 'center',
-    alignContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
   },
   FooterImage: {
     width: 35,
@@ -212,11 +230,11 @@ const styles = StyleSheet.create({
     color: "gray",
   },
   FooterIcons: {
-    padding: 10
+    padding: 10,
   },
   ScrollStyle: {
     height: 550,
     alignContent: "center",
-    padding: 10
+    padding: 10,
   },
 });
