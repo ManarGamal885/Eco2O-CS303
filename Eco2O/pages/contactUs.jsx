@@ -1,6 +1,6 @@
 //Manar
 import { StyleSheet, Text, View, Image } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState }  from 'react'
 import { Dimensions } from 'react-native-web'
 
 
