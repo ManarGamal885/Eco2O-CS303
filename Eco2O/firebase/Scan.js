@@ -11,7 +11,7 @@ async function getBouns() {
 }
 
 //add to database
-async function addBouns(bouns) {
+async function addBarcod(bouns) {
     await setDoc(doc(firestoreDB, "Scan", bouns.id), bouns);
 }
 
@@ -28,4 +28,4 @@ async function addBouns(bouns) {
     });
 }
 
-export {getBouns,addBouns,getparcodByUserId};
+export {getBouns,addBarcod,getparcodByUserId};

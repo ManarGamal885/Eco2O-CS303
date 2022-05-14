@@ -8,42 +8,30 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
   View,
   Image,
-  ImageBackground,
 } from "react-native";
 import { addBouns } from '../../firebase/Bouns';
 
 export default function Question3({ navigation, route }) {
   let { buons } = route.params;
   console.log("the number of the score", buons);
-  let [bounsondatabase, setbounsondatabase] = useState(0);
   let finalbouns;
   //function to add bouns 
-
-  
-  React.useEffect(() => {
-    getUserUId().then((id) => {
-      console.log(id);
-      getBounsByUserId(id).then((user) => {
-        setbounsondatabase(user[0].buons);
-      });
-    });
-  }, []);
-
   function addBounsAndCheck() {
-
     if (buons === 0) {
       alert("There is no bouns :( !!");
       navigation.navigate('Home');
     } else {
       getUserUId().then((id) => {
-        console.log("ther is the number of data in data base" , bounsondatabase)
-         finalbouns = bounsondatabase + buons;
-        addBouns({ id: id, finalbouns });
-        console.log(id);
-        navigation.navigate('Home');
+        getBounsByUserId(id).then((val) => {
+          console.log("ther is the number of data in data base", val[0].finalbouns)
+          console.log("the bounsfrom data ", val[0].finalbouns, "the bouns here =", buons)
+          finalbouns = val[0].finalbouns + buons;
+          addBouns({ id: id, finalbouns });
+          console.log(id);
+          navigation.navigate('Home');
+        })
       });
 
     }

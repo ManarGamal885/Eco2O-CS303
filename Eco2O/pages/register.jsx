@@ -95,7 +95,8 @@ export default function Register({ navigation }) {
                 style={styles.fullText}
                 placeholder='Password'
                 onChangeText={setPassword}
-
+                secureTextEntry={true}
+                
 
               />
 
@@ -103,6 +104,8 @@ export default function Register({ navigation }) {
                 style={styles.fullText}
                 placeholder='Confirm password'
                 onChangeText={setconfirmPassword}
+                secureTextEntry={true}
+               
               />
             </View>
 

@@ -74,6 +74,8 @@ export default function SignIn({navigation}) {
             style={styles.input}
             placeholder='Password'
             onChangeText={setPassword}
+            secureTextEntry={true}
+            
           />
         </View>
 

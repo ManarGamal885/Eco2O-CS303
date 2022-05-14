@@ -30,7 +30,7 @@ export default function Home({ navigation }) {
           <View style={styles.optionsCon}>
             <TouchableOpacity
               style={styles.touch}
-              onPress={() => navigation.navigate("Scan")}
+              onPress={() => navigation.navigate("Scancode")}
             >
               <Image style={styles.Im} source={require("../assets/scan.jpg")} />
             </TouchableOpacity>
@@ -56,7 +56,7 @@ export default function Home({ navigation }) {
               style={styles.touch}
               onPress={() => navigation.navigate("Question1")}
             >
-              <Image style={styles.Im} source={require("../assets/sug.jpg")} />
+              <Image style={styles.Im} source={require("../assets/quiz.jpg")} />
             </TouchableOpacity>
           </View>
         </ScrollView>

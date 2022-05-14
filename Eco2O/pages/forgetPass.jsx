@@ -10,14 +10,19 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { login, getUserToken } from "../firebase/Auth";
+import {sendRequestOfChangingPassword} from "../firebase/Auth";
 
 export default function ForgetPass({ navigation }) {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
+  function changePassword() {
+    sendRequestOfChangingPassword(email).then().catch((e) => {
+        alert(e.message);
+        console.log(e.message);
+    });
+    navigation.navigate("SignIn")
+}
 
-  function setnewnewpassword() {
-    forgetpassword
-    navigation.navigate("SignIn");
-  }
+ 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -48,14 +53,14 @@ export default function ForgetPass({ navigation }) {
           <TextInput
             style={styles.input}
             placeholder="Email"
-            onChangeText={setEmail}
+            onChangeText={setEmail} value={email}
           />
         </View>
 
         <View style={styles.button}>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={setnewnewpassword}
+            onPress={() => changePassword()}
           >
             <Text style={styles.buttonText}>Send</Text>
           </TouchableOpacity>

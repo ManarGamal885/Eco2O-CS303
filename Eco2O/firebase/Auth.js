@@ -1,5 +1,6 @@
 import {app} from "./Confi";
-import {onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, getAuth} from "firebase/auth";
+import {onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, getAuth,
+    sendPasswordResetEmail} from "firebase/auth";
 
 const authentication = getAuth(app);
 
@@ -36,6 +37,10 @@ async function register(email, password,name,usename,confirmpassword,city,state,
     await createUserWithEmailAndPassword(authentication, email, password,name,usename,confirmpassword,city,state,gender,age,phone);
    
 }
+async function sendRequestOfChangingPassword(email) {
+    console.log('begin the method sendRequestOfChangingPassword with email=', email);
+    sendPasswordResetEmail(authentication, email);
+}
 
 async function login(email, password) {
     console.log('login method with email=', email, ' and password=', password)
@@ -47,9 +52,6 @@ async function logout() {
 }
 
 
-async function forgetpassword(emailforget ,newpassword) {
-    console.log("here is the forget password");
-    await  updatePassword(emailforget, newpassword)
-}
 
-export {register, login, isSignedIn, getUserUId, logout, getUserToken ,forgetpassword};
+
+export {register, login, isSignedIn, getUserUId, logout, getUserToken ,sendRequestOfChangingPassword};
