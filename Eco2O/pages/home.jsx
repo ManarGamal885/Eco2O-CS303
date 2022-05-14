@@ -5,13 +5,11 @@ import {
   View,
   Image,
   TouchableOpacity,
-  ScrollView,
-  Button,
+  ScrollView
 } from "react-native";
-
 import * as React from "react";
 import {AuthContext} from "./Utils";
-import { isSignedIn, logout } from "../firebase/Auth";
+import {  logout } from "../firebase/Auth";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Tab = createBottomTabNavigator();
 
@@ -21,15 +19,9 @@ export default function Home({ navigation }) {
   function signOutUser() {
     signOut();
     logout();
-    // no need explicitly to redirect for the sign-in screen
-    // navigation.navigate('SignIn');
   }
-
-
-
 function signout(){
   signOutUser();
-
   navigation.navigate("SignIn")
 }
   return (

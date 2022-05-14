@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, Button } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { addBarcod } from "../firebase/Scan";
-import { getUserUId } from "../firebase/Auth";
 import { getparcodByUserId } from "../firebase/Scan";
+import { getUserUId } from "../firebase/Auth";
 import { addBouns } from '../firebase/Bouns';
 import { getBounsByUserId } from "../firebase/Bouns";
-
-
 
 export default function Scanner2({ navigation, route  }) {
 
@@ -22,16 +20,22 @@ export default function Scanner2({ navigation, route  }) {
   // دي المفروض بتجيب البونص من الداتابيز و بتزود عليه عدد الازايز فيه مش كلة مش عارف ايه هي لسه 
   //بحاول اكتشف ده 
   function addBounsAndCheck() {
+    if (numberofbottle === 0) {
+      alert("There is no bouns :( !!");
+      navigation.navigate('Home');
+    } else {
       getUserUId().then((id) => {
         getBounsByUserId(id).then((val) => {
           console.log("ther is the number of data in data base", val[0].finalbouns)
-          console.log("the bounsfrom data ", val[0].finalbouns, "the bouns here =", buons)
+          console.log("the bounsfrom data ", val[0].finalbouns, "the bouns here =", numberofbottle)
           finalbouns = val[0].finalbouns + numberofbottle;
           addBouns({ id: id, finalbouns });
           console.log(id);
-          navigation.navigate('Home');
+         
         })
       });
+
+    }
   }
 
 //و دي بتزود الاسكان في الداتا بيز و شغالة و كل حاجة تمام هنا 

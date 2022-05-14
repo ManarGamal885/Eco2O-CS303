@@ -129,10 +129,7 @@ const authContext = React.useMemo(
     <NavigationContainer>
       
       <Stack.Navigator initialRouteName="SignIn">
-        <Stack.Screen name="Home" component={Home} options={{
-            headerTitle: (props) => <LogoTitle {...props} />
-            
-          }} />
+        <Stack.Screen name="Home" component={Home}  />
         <Stack.Screen name="News" component={News} />
         <Stack.Screen name="Suggestion" component={Suggestion} />
         <Stack.Screen name="Contact" component={Contact} />
