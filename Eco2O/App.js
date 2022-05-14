@@ -26,7 +26,7 @@ import Question3 from './pages/Questions/question3';
 import Scancode from './pages/scancode';
 import Scanner2 from './pages/Scanner';
 import Profile from './pages/profile';
-import Home1 from './pages/home1';
+import Home1 from './pages/home';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {AuthContext} from "./pages/Utils";
 

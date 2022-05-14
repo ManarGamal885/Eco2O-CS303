@@ -70,7 +70,7 @@ export default function Home({ navigation }) {
             >
               <ImageBackground
                 style={styles.Im}
-                source={require("../assets/scan.jpg")}
+                source={require("../assets/maxresdefault.jpg")}
                 imageStyle={{ borderRadius: 20 }}
               >
                 <View style={styles.TextInsideImageStyle}>
@@ -142,6 +142,8 @@ export default function Home({ navigation }) {
       {/* Footer bar */}
       <View style={styles.FooterStyle}>
         {/* For footer navigation buttons */}
+
+        {/* Profile button */}
         <View style={styles.FooterIcons}>
           <Image
             style={styles.FooterImage}
@@ -156,6 +158,7 @@ export default function Home({ navigation }) {
           </TouchableOpacity>
         </View>
 
+        {/* Home button */}
         <View style={styles.FooterIcons}>
           <Image
             style={styles.FooterImage}
@@ -170,6 +173,7 @@ export default function Home({ navigation }) {
           </TouchableOpacity>
         </View>
 
+        {/* Contact us button */}
         <View style={styles.FooterIcons}>
           <Image
             style={styles.FooterImage}
@@ -184,6 +188,22 @@ export default function Home({ navigation }) {
           </TouchableOpacity>
         </View>
 
+        {/* Settings us button */}
+        <View style={styles.FooterIcons}>
+          <Image
+            style={styles.FooterImage}
+            source={require("../assets/icons/icons8-settings-64.png")}
+          />
+
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Contact")}
+            style={styles.FooterButton}
+          >
+            <Text style={styles.FooterButtonText}>Settings</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Logout button */}
         <View style={styles.FooterIcons}>
           <Image
             style={styles.FooterImage}
@@ -191,7 +211,7 @@ export default function Home({ navigation }) {
           />
 
           <TouchableOpacity onPress={signout} style={styles.FooterButton}>
-            <Text style={styles.FooterButtonText}>Log out</Text>
+            <Text style={styles.FooterButtonText}>Logout</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -254,13 +274,13 @@ const styles = StyleSheet.create({
     // height: 686,
     // backgroundColor: "#EEEDED",
     // paddingTop: 20,
-    paddingBottom: 15,
+    paddingBottom: 8,
   },
   ScrollStyle: {
     width: 313,
     height: 550,
     alignContent: "center",
-    paddingBottom: 10,
+    paddingBottom: 20,
     borderRadius: 20,
     backgroundColor: "#EEEDED",
     padding: 20,
@@ -338,7 +358,7 @@ const styles = StyleSheet.create({
     color: "gray",
   },
   FooterIcons: {
-    padding: 30,
+    padding: 13,
     alignContent: 'center',
     alignItems: 'center',
     justifyContent: 'center',
