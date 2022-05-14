@@ -32,9 +32,10 @@ function signout(){
           <Text style={styles.H1}>Welcome in Your Home </Text>
           <Text style={styles.H2}>Choose Your Feature Now</Text>
         </View>
-        <Text style={styles.options}>Options for You</Text>
       </View>
-
+      <View>
+      <Text style={styles.options}>Options for You</Text>
+      </View>
       <View>
         <ScrollView style={styles.ScrollStyle}>
           <View style={styles.optionsCon}>
@@ -153,12 +154,11 @@ const styles = StyleSheet.create({
     width: 414,
     height: 758,
     backgroundColor: "#F9F9F9",
-
     bottom: 0,
   },
   imH: {
-    width: 171,
-    height: 124,
+    width: 160,
+    height: 100,
   },
   H1: {
     fontSize: 20,
@@ -206,12 +206,13 @@ const styles = StyleSheet.create({
   },
   FooterStyle: {
     width: 414,
-    height: 70,
+    height: 10,
     flexDirection: "row",
     flex: 1,
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
+    backgroundColor:"red"
   },
   FooterImage: {
     width: 35,

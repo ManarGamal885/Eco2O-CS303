@@ -26,7 +26,7 @@ import Question3 from './pages/Questions/question3';
 import Scancode from './pages/scancode';
 import Scanner2 from './pages/Scanner';
 import Profile from './pages/profile';
-
+import Home1 from './pages/home1';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {AuthContext} from "./pages/Utils";
 
@@ -130,6 +130,7 @@ const authContext = React.useMemo(
       
       <Stack.Navigator initialRouteName="SignIn">
         <Stack.Screen name="Home" component={Home}  />
+        <Stack.Screen name="Home1" component={Home1}  />
         <Stack.Screen name="News" component={News} />
         <Stack.Screen name="Suggestion" component={Suggestion} />
         <Stack.Screen name="Contact" component={Contact} />
