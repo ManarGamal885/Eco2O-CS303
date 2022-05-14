@@ -42,10 +42,12 @@ export default function Home({ navigation }) {
       {/* Header */}
       <View style={styles.HeaderStyle}>
         {/* Header Image */}
+        <View style={styles.HeaderImageStyle}>
         <Image
           style={styles.HeaderImage}
           source={require("../assets/h.jpeg")}
         />
+        </View>
 
         <View style={styles.HeaderText}>
           {/* Header Texts */}
@@ -234,7 +236,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     flex: 1,
     width: 414,
-    height: 150,
+    height: 138,
     backgroundColor: "white",
     paddingTop: 40,
     // paddingBottom: 10,
@@ -244,10 +246,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingBottom: 15
   },
+  HeaderImageStyle: {
+    padding: 10,
+  },
   HeaderImage: {
-    width: 100,
-    height: 100,
-    paddingBottom: 15,
+    width: 95,
+    height: 95,
+    // paddingBottom: 15,
   },
   HeaderText: {
     justifyContent: "center",
@@ -276,15 +281,15 @@ const styles = StyleSheet.create({
   },
   ScrolledItems: {
     // flex: 1,
-    width: 350,
-    height: 480,
+    // width: 350,
+    // height: 600,
     // backgroundColor: "#EEEDED",
     // paddingTop: 20,
     paddingBottom: 15,
   },
   ScrollStyle: {
     width: 350,
-    height: 460,
+    height: 550,
     alignContent: "center",
     paddingBottom: 20,
     borderRadius: 20,
