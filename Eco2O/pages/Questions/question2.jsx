@@ -109,8 +109,6 @@ export default function Question2({ navigation }) {
             label="Sulphur Dioxide"
             value="third" />
         </RadioButton.Group>
-
-
         {/* Q5 */}
         <View style={{ paddingTop: 50, paddingLeft: 120 }} >
           <Text style={{ fontSize: 15 }}>Which of the following is the cause of soil pollution ?</Text>
