@@ -28,7 +28,7 @@ export default function SignIn({navigation}) {
         login(email, password).then(() => {
           console.log('here sign in*****')
             signIn({email, password, token : getUserToken()});
-            navigation.navigate('Home1');
+            navigation.navigate('Home');
         }).catch((e) => {
             alert(e.message);
             console.log(e.message);
