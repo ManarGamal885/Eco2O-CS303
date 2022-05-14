@@ -7,12 +7,18 @@ import {
   Text,
   TextInput,
   Image,
+  TouchableOpacity,
+  ImageBackground,
 } from "react-native";
 import { getUsers } from "../firebase/User";
 import { getUserUId } from "../firebase/Auth";
 import { getUserById } from "../firebase/User";
 import { useState } from "react";
 import * as React from "react";
+import { AuthContext } from "./Utils";
+import { logout } from "../firebase/Auth";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import ProfileBackground from "../assets/ProfileBackgound.jpg";
 
 const routeName = "Profile";
 
@@ -49,128 +55,262 @@ export default function Profile({ navigation }) {
     });
   }, []);
 
+  const { signOut } = React.useContext(AuthContext);
+  function signOutUser() {
+    signOut();
+    logout();
+  }
+  function signout() {
+    signOutUser();
+    navigation.navigate("SignIn");
+  }
+
   return (
-    <View style={styles.Container}>
-      <View >
-        {/* <ScrollView> */}
-          <View style={styles.ProfileStyle}>
-            <View style={styles.headerImageStyle}>
+    <ImageBackground
+      style={styles.ProfileBackground}
+      source={ProfileBackground}
+    >
+      <View style={styles.Header}>
+        {/* Pic at the top */}
+        {/* <View style={styles.headerImageStyle}> */}
+        {/* <Image
+            source={require("../assets/undraw_Profile_data_re_v81r.png")}
+            style={styles.headerImage}
+          /> */}
+        {/* </View> */}
+
+        <View style={styles.TextStyle}>
+          <Text style={styles.txtStyle}>Profile Information</Text>
+          {/* <Text style={styles.txtStyle}>Information:</Text> */}
+        </View>
+      </View>
+
+      {/* Contant Veiw */}
+      <View style={styles.ContantStyle}>
+        <ScrollView style={styles.ScrollStyle}>
+          {/* Email info */}
+          <View style={styles.InsideScroll}>
+            <View style={styles.Contant}>
               <Image
-                source={require("../assets/undraw_Profile_data_re_v81r.png")}
-                style={styles.headerImage}
+                source={require("../assets/icons/icons8-circled-envelope-50.png")}
+                style={styles.Icons}
               />
+              <Text style={styles.iconText}>{email}</Text>
             </View>
-
-            <View style={styles.contant}>
-              <View style={styles.info}>
-                <Image
-                  source={require("../assets/icons/icons8-circled-envelope-50.png")}
-                  style={styles.Icons}
-                />
-                <Text style={styles.iconText}>{email}</Text>
-              </View>
-
-              <View style={styles.info}>
-                <Image
-                  source={require("../assets/icons/password.png")}
-                  style={styles.Icons}
-                />
-                <Text style={styles.iconText}>{password}</Text>
-              </View>
-
-              <View style={styles.info}>
-                <Image
-                  source={require("../assets/icons/icons8-badge-80.png")}
-                  style={styles.Icons}
-                />
-                <Text style={styles.iconText}>{name}</Text>
-              </View>
-
-              <View style={styles.info}>
-                <Image
-                  source={require("../assets/icons/user.png")}
-                  style={styles.Icons}
-                />
-                <Text style={styles.iconText}>{usename}</Text>
-              </View>
-
-              <View style={styles.info}>
-                <Image
-                  source={require("../assets/icons/icons8-chicago-50.png")}
-                  style={styles.Icons}
-                />
-                <Text style={styles.iconText}>{city}</Text>
-              </View>
-
-              <View style={styles.info}>
-                <Image
-                  source={require("../assets/icons/icons8-bench-50.png")}
-                  style={styles.Icons}
-                />
-                <Text style={styles.iconText}>{state}</Text>
-              </View>
-
-              <View style={styles.info}>
-                <Image
-                  source={require("../assets/icons/icons8-gender-equality-50.png")}
-                  style={styles.Icons}
-                />
-                <Text style={styles.iconText}>{gender}</Text>
-              </View>
-
-              <View style={styles.info}>
-                <Image
-                  source={require("../assets/icons/icons8-old-age-home-48.png")}
-                  style={styles.Icons}
-                />
-                <Text style={styles.iconText}>{age}</Text>
-              </View>
+            {/* Password info */}
+            <View style={styles.Contant}>
+              <Image
+                source={require("../assets/icons/password.png")}
+                style={styles.Icons}
+              />
+              <Text style={styles.iconText}>{password}</Text>
+            </View>
+            {/* Name info */}
+            <View style={styles.Contant}>
+              <Image
+                source={require("../assets/icons/icons8-badge-80.png")}
+                style={styles.Icons}
+              />
+              <Text style={styles.iconText}>{name}</Text>
+            </View>
+            {/* Username info */}
+            <View style={styles.Contant}>
+              <Image
+                source={require("../assets/icons/user.png")}
+                style={styles.Icons}
+              />
+              <Text style={styles.iconText}>{usename}</Text>
+            </View>
+            {/* City info */}
+            <View style={styles.Contant}>
+              <Image
+                source={require("../assets/icons/icons8-chicago-50.png")}
+                style={styles.Icons}
+              />
+              <Text style={styles.iconText}>{city}</Text>
+            </View>
+            {/* State info */}
+            <View style={styles.Contant}>
+              <Image
+                source={require("../assets/icons/icons8-bench-50.png")}
+                style={styles.Icons}
+              />
+              <Text style={styles.iconText}>{state}</Text>
+            </View>
+            {/* Gender info */}
+            <View style={styles.Contant}>
+              <Image
+                source={require("../assets/icons/icons8-gender-equality-50.png")}
+                style={styles.Icons}
+              />
+              <Text style={styles.iconText}>{gender}</Text>
+            </View>
+            {/* Age info */}
+            <View style={styles.Contant}>
+              <Image
+                source={require("../assets/icons/icons8-old-age-home-48.png")}
+                style={styles.Icons}
+              />
+              <Text style={styles.iconText}>{age}</Text>
             </View>
           </View>
-          <StatusBar style="auto" />
-        {/* </ScrollView> */}
+        </ScrollView>
       </View>
-    </View>
+
+      {/* Footer bar */}
+      <View style={styles.FooterStyle}>
+        {/* For footer navigation buttons */}
+
+        {/* Profile button */}
+        <View style={styles.FooterIcons}>
+          <Image
+            style={styles.FooterImage}
+            source={require("../assets/icons/icons8-verified-account-64.png")}
+          />
+
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Profile")}
+            style={styles.FooterButton}
+          >
+            <Text style={styles.FooterButtonText}>Profile</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Home button */}
+        <View style={styles.FooterIcons}>
+          <Image
+            style={styles.FooterImage}
+            source={require("../assets/icons/icons8-home-50.png")}
+          />
+
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Home")}
+            style={styles.FooterButton}
+          >
+            <Text style={styles.FooterButtonText}>Home</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Contact us button */}
+        <View style={styles.FooterIcons}>
+          <Image
+            style={styles.FooterImage}
+            source={require("../assets/icons/icons8-contact-us-64.png")}
+          />
+
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Contact")}
+            style={styles.FooterButton}
+          >
+            <Text style={styles.FooterButtonText}>Contact us</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Settings us button */}
+        <View style={styles.FooterIcons}>
+          <Image
+            style={styles.FooterImage}
+            source={require("../assets/icons/icons8-settings-64.png")}
+          />
+
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Contact")}
+            style={styles.FooterButton}
+          >
+            <Text style={styles.FooterButtonText}>Settings</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Logout button */}
+        <View style={styles.FooterIcons}>
+          <Image
+            style={styles.FooterImage}
+            source={require("../assets/icons/icons8-log-out-64.png")}
+          />
+
+          <TouchableOpacity onPress={signout} style={styles.FooterButton}>
+            <Text style={styles.FooterButtonText}>Logout</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      {/* Footer bar ending */}
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  Container: {
+  ProfileBackground: {
+    width: 414,
+    height: 904,
     flex: 1,
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center",
+  },
+  Header: {
+    flexDirection: "row",
   },
   ProfileStyle: {
     // justifyContent: 'center',
     // alignContent: 'center',
     // alignItems: 'center',
-    backgroundColor: "white",
+    backgroundColor: "#EEEDED",
+    width: 283,
+    height: 488,
+    paddingTop: 20,
   },
-  headerImageStyle: {
-    justifyContent: "center",
+  // headerImageStyle: {
+  //   justifyContent: "center",
+  //   alignContent: "center",
+  //   alignItems: "center",
+  //   paddingBottom: 20,
+  //   // paddingTop: 20
+  //   // position: "absolute",
+  //   borderRadius: 60,
+  // },
+  // headerImage: {
+  //   width: 117,
+  //   height: 117,
+  //   borderRadius: 50,
+  //   // position: 'relative'
+  // },
+  TextStyle: {
+    paddingTop: 40,
+    paddingLeft: 20,
+    // paddingLeft: 3,
+    // paddingBottom: 10,
+    paddingRight: 105,
+  },
+  txtStyle: {
+    fontSize: 30,
+    textShadowColor: "gray",
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 6,
+    fontWeight: "bold",
     alignContent: "center",
     alignItems: "center",
-    paddingBottom: 20,
-  },
-  headerImage: {
-    width: 414,
-    height: 200,
-  },
-  contant: {
-    // justifyContent: 'center',
-    // alignContent: 'center',
-    // alignItems: 'center',
-    // textAlign: 'center',
-    // paddingTop: 10,
-    paddingLeft: 20,
-    width: 290,
-    height: 490,
-    // paddingRight: 10
-  },
-  info: {
-    flexDirection: "row",
+    justifyContent: "center",
     textAlign: "center",
+  },
+  ContantStyle: {
+    // width: 283,
+    // height: 488,
+    paddingLeft: 20,
+  },
+  ScrollStyle: {
+    // width: 283,
+    // height: 400,
+    paddingRight: 10,
+  },
+  InsideScroll: {
+    width: 283,
+    height: 488,
+  },
+  Contant: {
+    flexDirection: "row",
+    // width: 283,
+    // height: 488,
+    // justifyContent: "center",
+    // alignContent: "center",
+    // alignItems: "center",
+    // textAlign: "center",
     paddingRight: 10,
   },
   Icons: {
@@ -179,7 +319,7 @@ const styles = StyleSheet.create({
     paddingTop: 3,
   },
   iconText: {
-    fontSize: 20,
+    fontSize: 15,
     textShadowColor: "gray",
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 6,
@@ -189,5 +329,35 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 8,
     paddingLeft: 10,
+  },
+  FooterStyle: {
+    width: 420,
+    height: 70,
+    flexDirection: "row",
+    flex: 1,
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
+    // paddingTop: 40,
+    position: "absolute",
+    bottom: 0,
+    // zIndex: 1,
+  },
+  FooterImage: {
+    width: 35,
+    height: 35,
+    // position: 'absolute',
+    // bottom:0,
+  },
+  FooterButtonText: {
+    fontSize: 15,
+    color: "gray",
+  },
+  FooterIcons: {
+    padding: 13,
+    alignContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

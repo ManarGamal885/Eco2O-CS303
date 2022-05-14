@@ -6,12 +6,13 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  ImageBackground
 } from "react-native";
 import * as React from "react";
 import { AuthContext } from "./Utils";
 import { logout } from "../firebase/Auth";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { ImageBackground } from "react-native-web";
+// import { ImageBackground } from "react-native-web";
 // import { createDrawerNavigator } from "@react-navigation/drawer";
 // import { NavigationContainer } from "@react-navigation/native";
 const Tab = createBottomTabNavigator();
@@ -124,7 +125,7 @@ export default function Home({ navigation }) {
             >
               <ImageBackground
                 style={styles.Im}
-                source={require("../assets/quiz.jpg")}
+                source={require("../assets/questionsPic.jpg")}
                 imageStyle={{ borderRadius: 20 }}
               >
                 <View style={styles.TextInsideImageStyle}>
@@ -233,13 +234,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     flex: 1,
     width: 414,
-    height: 200,
+    height: 150,
     backgroundColor: "white",
     paddingTop: 40,
     // paddingBottom: 10,
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    paddingBottom: 15
   },
   HeaderImage: {
-    width: 150,
+    width: 100,
     height: 100,
     paddingBottom: 15,
   },
@@ -270,15 +276,15 @@ const styles = StyleSheet.create({
   },
   ScrolledItems: {
     // flex: 1,
-    // width: 414,
-    // height: 686,
+    width: 350,
+    height: 480,
     // backgroundColor: "#EEEDED",
     // paddingTop: 20,
-    paddingBottom: 8,
+    paddingBottom: 15,
   },
   ScrollStyle: {
-    width: 313,
-    height: 550,
+    width: 350,
+    height: 460,
     alignContent: "center",
     paddingBottom: 20,
     borderRadius: 20,
