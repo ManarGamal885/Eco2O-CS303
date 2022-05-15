@@ -196,6 +196,7 @@ const styles = StyleSheet.create({
     // bottom: 0,
     width: 414,
     height: 400,
+    paddingLeft:20
   },
   news: {
     marginTop: 50,
@@ -229,6 +230,7 @@ const styles = StyleSheet.create({
     textShadowColor: "#B7B7B7",
     textShadowOffset: { width: 0, height: 2 },
     textShadowRadius: 6,
+    paddingLeft:20
     // margin: 20,
   },
   Im: {

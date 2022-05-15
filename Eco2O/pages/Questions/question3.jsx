@@ -42,7 +42,7 @@ export default function Question3({ navigation, route }) {
       <View>
         <View style={styles.header}>
           <Image source={require("../../assets/undraw_Questions_re_1fy7.png")}
-            style={{ width: 120, height: 120 }} />
+            style={{ width: 120, height: 120,borderRadius:100 }} />
 
         </View>
         <View style={{ flexDirection: 'row' }}>
@@ -67,7 +67,7 @@ export default function Question3({ navigation, route }) {
 
         <View style={{ padding: 50 }}>
           <View style={styles.button}>
-            <Button title={"Back to home"} color='#004D2' onPress={addBounsAndCheck} />
+            <Button title={"Back to home"} color='white' onPress={addBounsAndCheck} />
 
           </View>
         </View>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     height: 40,
     overflow: 'hidden',
     borderRadius: 50,
-    backgroundColor: 'silver'
+    backgroundColor: '#004D25',
   },
   styletext: {
     borderRadius: 50,

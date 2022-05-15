@@ -17,7 +17,7 @@ export default function Question1({ navigation }) {
       <View>
         <View style={styles.header}>
           <Image source={require("../../assets/undraw_Questions_re_1fy7.png")}
-            style={{ width: 110, height: 110 }} />
+            style={{ width: 110, height: 110,borderRadius:100 }} />
           <View>
             <Text style={{ marginLeft: 60, marginTop: 30, fontSize: 35 }}>Question</Text>
             <Text style={{ marginLeft: 70, marginTop: 0, opacity: 0.6 }}>Take A Quize And</Text>
@@ -38,7 +38,7 @@ export default function Question1({ navigation }) {
         </View >
         <View style={{ padding: 50 }}>
           <View style={styles.button}>
-            <Button title={"take Quiz"} color='##004D25' onPress={() => navigation.navigate('Question2')} />
+            <Button title={"take Quiz"} color='white' onPress={() => navigation.navigate('Question2')} />
           </View>
         </View>
         <StatusBar style="auto"></StatusBar>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     height: 40,
     overflow: 'hidden',
     borderRadius: 50,
-    backgroundColor: 'silver'
+    backgroundColor: '#004D25'
 
   },
   image: {

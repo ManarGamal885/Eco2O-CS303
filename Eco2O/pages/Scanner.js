@@ -56,7 +56,7 @@ export default function Scanner2({ navigation, route  }) {
   function double (){
     addBounsAndCheck();
     AddFinalBouttles();
-    navigation.navigate('Home');
+    navigation.navigate('Scancode');
   }
 
   useEffect(() => {
@@ -87,7 +87,7 @@ export default function Scanner2({ navigation, route  }) {
       />
       {/* <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} /> || */}
 
-      {scanned && <Button title={"Tap to go home"} onPress={double} />}
+      {scanned && <Button title={"Tap to scan again"} onPress={double} />}
     </View>
   );
 }

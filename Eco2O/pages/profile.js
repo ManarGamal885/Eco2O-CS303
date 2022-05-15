@@ -27,10 +27,8 @@ export { routeName };
 export default function Profile({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [id, setId] = useState("");
   const [name, setname] = useState("");
   const [usename, setusername] = useState("");
-  const [confirmpassword, setconfirmPassword] = useState("");
   const [city, setcity] = useState("");
   const [state, setstate] = useState("");
   const [gender, setgender] = useState("");
@@ -261,10 +259,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: 414,
-    height: 85,
-    backgroundColor: "#056935",
-    marginTop: 125,
-    borderRadius: 30
+    height: 200,
+    backgroundColor: "#004D25",
+    marginBottom:80,
+    borderBottomLeftRadius:50,
+    borderBottomRightRadius:50,
+    
 
     // textAlign: 'center'
   },
@@ -304,6 +304,7 @@ const styles = StyleSheet.create({
   Contant: {
     flexDirection: "row",
     paddingRight: 10,
+    paddingBottom:5
   },
   Icons: {
     width: 50,
@@ -321,7 +322,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 8,
     paddingLeft: 10,
-    color: "#004D25",
+    color: "black",
   },
   FooterStyle: {
     width: 420,

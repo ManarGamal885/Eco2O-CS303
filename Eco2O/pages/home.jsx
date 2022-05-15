@@ -83,7 +83,7 @@ export default function Home({ navigation }) {
                 </View>
               </ImageBackground>
             </TouchableOpacity>
-        //this is the map part
+        {/* this is the map part */}
             <TouchableOpacity
               style={styles.touch}
               onPress={() => navigation.navigate("Map")}

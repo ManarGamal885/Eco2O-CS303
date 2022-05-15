@@ -136,14 +136,13 @@ const authContext = React.useMemo(
     <NavigationContainer>
       
       <Stack.Navigator initialRouteName="SignIn">
-        <Stack.Screen name="Home" component={Home}  />
-        <Stack.Screen name="Home1" component={Home1}  />
+        <Stack.Screen name="Home" component={Home} options={{headerShown: false}}  />
         <Stack.Screen name="News" component={News} />
         <Stack.Screen name="Suggestion" component={Suggestion} />
-        <Stack.Screen name="Contact" component={Contact} />
+        <Stack.Screen name="Contact" component={Contact} options={{headerShown: false}} />
         <Stack.Screen name="Start" component={Start} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="Profile" component={Profile} options={{headerShown: false}}/>
+        <Stack.Screen name="SignIn" component={SignIn}   options={{headerShown: false}} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Forget" component={Forget} />
         <Stack.Screen name="Question1" component={Question1} />

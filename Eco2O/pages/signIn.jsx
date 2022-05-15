@@ -99,7 +99,7 @@ export default function SignIn({navigation}) {
           </View>
                 
           <View style={styles.forgetpassLineStyle}>
-            <Text style={styles.forgetpassLine} onPress={() => navigation.navigate('Forget')}>forget Password</Text>
+            <Text style={styles.forgetpassLine} onPress={() => navigation.navigate('Forget')}>forget password</Text>
           </View>
         </View>
       </View>
@@ -175,6 +175,7 @@ inputStyle: {
   borderBottomWidth: 1,
   borderColor: '#9C8A8A',
   width: 250,
+  paddingBottom:15
 },
 buttonsStyle: {
   alignItems: 'center',

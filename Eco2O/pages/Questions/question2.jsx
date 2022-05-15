@@ -10,7 +10,7 @@ import {
   View,
   Image,
 } from "react-native";
- let countAns = 0;
+let countAns = 0;
 export default function Question2({ navigation }) {
   const ans1 = "second";
   const ans2 = "third";
@@ -42,8 +42,8 @@ export default function Question2({ navigation }) {
 
 
         {/* Q1 */}
-        <View style={{ paddingTop: 50, padding: 10 }} >
-          <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 10 }}>Which of the following is the main reason for producing
+        <View style={styles.first} >
+          <Text style={styles.textstyl}>Which of the following is the main reason for producing
             the atmospheriic greenhouse effect: </Text>
         </View>
         <RadioButton.Group onValueChange={value1 => setValue1(value1)} value={value1} >
@@ -61,8 +61,8 @@ export default function Question2({ navigation }) {
 
 
         {/* Q2 */}
-        <View style={{ paddingTop: 50, paddingLeft: 120 }} >
-          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>The salinization can be defined as : </Text>
+        <View style={styles.first} >
+          <Text style={styles.textstyl}>The salinization can be defined as : </Text>
         </View>
         <RadioButton.Group onValueChange={value2 => setValue2(value2)} value={value2}>
           <RadioButton.Item
@@ -78,8 +78,8 @@ export default function Question2({ navigation }) {
 
 
         {/* Q3 */}
-        <View style={{ paddingTop: 50, paddingLeft: 120 }} >
-          <Text style={{ fontSize: 25 }}>The main reason for blueness of the sky is : </Text>
+        <View style={styles.first} >
+          <Text style={styles.textstyl}>The main reason for blueness of the sky is : </Text>
         </View>
         <RadioButton.Group onValueChange={value3 => setValue3(value3)} value={value3}>
           <RadioButton.Item
@@ -95,8 +95,8 @@ export default function Question2({ navigation }) {
 
 
         {/* Q4 */}
-        <View style={{ paddingTop: 50, paddingLeft: 120 }} >
-          <Text style={{ fontSize: 25 }}>Ultraviolet rays of the sunlight results in formation of</Text>
+        <View style={styles.first} >
+          <Text style={styles.textstyl}>Ultraviolet rays of the sunlight results in formation of</Text>
         </View>
         <RadioButton.Group onValueChange={value4 => setValue4(value4)} value={value4}>
           <RadioButton.Item
@@ -110,8 +110,8 @@ export default function Question2({ navigation }) {
             value="third" />
         </RadioButton.Group>
         {/* Q5 */}
-        <View style={{ paddingTop: 50, paddingLeft: 120 }} >
-          <Text style={{ fontSize: 15 }}>Which of the following is the cause of soil pollution ?</Text>
+        <View style={styles.first}   >
+          <Text style={styles.textstyl}>Which of the following is the cause of soil pollution ?</Text>
         </View>
         <RadioButton.Group onValueChange={value5 => setValue5(value5)} value={value5}>
           <RadioButton.Item
@@ -127,13 +127,14 @@ export default function Question2({ navigation }) {
 
 
         <View style={{ padding: 50 }}>
-          <View style={{
-            height: 40, overflow: 'hidden',
-            borderRadius: 50, backgroundColor: 'silver'
-          }}>
-            <Button title={"sumite"} color='#004D25' onPress={onPressQuestionHandler} />
+        <View style={styles.button}>
+            <Button title={"submit"} color='white'  onPress={onPressQuestionHandler} />
           </View>
         </View>
+
+        
+
+
 
         <StatusBar style="auto"></StatusBar>
       </View>
@@ -143,10 +144,24 @@ export default function Question2({ navigation }) {
 
 const styles = StyleSheet.create({
   header: {
-
     flexDirection: 'column',
     marginLeft: 90,
     marginTop: 50
+  },
+  textstyl: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10
+  },
+  first: {
+    paddingTop: 50, padding: 10
+  },
+  button: {
+    height: 40,
+    overflow: 'hidden',
+    borderRadius: 50,
+    backgroundColor: '#004D25',
+    marginBottom:20
 
   },
 })

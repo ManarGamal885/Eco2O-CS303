@@ -16,7 +16,7 @@ export default function SuggestionBox({ navigation }) {
   function Suggestion() {
     getUserUId().then((id) => {
       if (text === "") {
-        alert("There is no bouns :( !!");
+        alert("There is no suggestion :( !!");
         navigation.navigate("Home");
       } else {
         addSug({ id: id, text });
@@ -39,6 +39,8 @@ export default function SuggestionBox({ navigation }) {
           style={styles.textIn}
           placeholder="        Enter Your Suggestion"
           onChangeText={settext}
+          placeholderTextColor="gray" 
+          
         />
         <TouchableOpacity style={styles.button} onPress={Suggestion}>
           <Text style={styles.textBu}>Send</Text>

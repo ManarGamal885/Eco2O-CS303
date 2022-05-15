@@ -28,10 +28,10 @@ export default function Scancode({ navigation }) {
       <View>
         <View style={styles.header}>
           <Image source={require("../../Eco2O/assets/qrcode.png")}
-            style={{ width: 100, height: 100, paddingTop: 20 }} />
+            style={{ width: 100, height: 100, paddingTop: 20,borderRadius:100 }} />
           <View>
-            <Text style={{ marginLeft: 45, marginTop: 30, fontSize: 30 }}>Scane your code</Text>
-            <Text style={{ marginLeft: 50, marginTop: 0, opacity: 0.6 }}>Scane Your Code Now And we</Text>
+            <Text style={{ marginLeft: 45, marginTop: 30, fontSize: 30 }}>Scan your code</Text>
+            <Text style={{ marginLeft: 50, marginTop: 0, opacity: 0.6 }}>Scan Your Code Now And we</Text>
             <Text style={{ marginLeft: 70, marginTop: 0, fontSize: 15, opacity: 0.6 }}>And take Your bouns</Text>
           </View >
         </View >
@@ -40,33 +40,36 @@ export default function Scancode({ navigation }) {
             style={{ width: 110, height: 110, borderRadius: "40" }} />
         </View>
         <View>
-          <Text style={{ marginLeft: 81, marginTop: 30, fontSize: 30 }}>Scane your code</Text>
+          <Text style={{ marginLeft: 81, marginTop: 30, fontSize: 30 }}>Scan your code</Text>
         </View>
+        <View style={{paddingLeft:20}}>
         <View style={{ paddingTop: 70, paddingLeft: 90, flexDirection: "row" }}>
           <View style={{
             height: 40, overflow: 'hidden', width: 40,
-            borderRadius: "50", backgroundColor: 'silver'
+            borderRadius: "50", backgroundColor: '#004D25'
           }}>
-            <Button title={"+"} color='#004D25' onPress={setnumberincr} />
+            <Button title={"+"} color='white' onPress={setnumberincr} />
           </View>
           <View style={{ padding: 15 }}>
             <Text style={{ fontSize: 24 }}> {number} </Text>
           </View>
           <View style={{
             height: 40, overflow: 'hidden', width: 40,
-            borderRadius: "50", backgroundColor: 'silver'
+            borderRadius: "50", backgroundColor: '#004D25'
           }}>
-            <Button title={"-"} color='#004D25' onPress={setnumberdecr} />
+            <Button title={"-"} color='white' onPress={setnumberdecr} />
           </View>
         </View>
+        
         <View style={{ padding: 50 }}>
           <View style={{
             height: 40, overflow: 'hidden',
-            borderRadius: "50", backgroundColor: 'silver',
+            borderRadius: "50", backgroundColor: '#004D25',
           }}>
-            <Button title={"scane"} color='#004D25' onPress={() => navigation.navigate('Scanner2', { numberofbottle: number })} />
+            <Button title={"scan"} color='white' onPress={() => navigation.navigate('Scanner2', { numberofbottle: number })} />
 
           </View>
+        </View>
         </View>
         <StatusBar style="auto"></StatusBar>
 
