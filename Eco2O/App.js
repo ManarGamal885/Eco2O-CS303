@@ -10,7 +10,8 @@ import {
   View,
   Image,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity,
+  NavigationActions
 } from "react-native";
 import Home from "./pages/home";
 import News from "./pages/news";
@@ -26,12 +27,17 @@ import Question3 from './pages/Questions/question3';
 import Scancode from './pages/scancode';
 import Scanner2 from './pages/Scanner';
 import Profile from './pages/profile';
-import Home1 from './pages/home';
+import Home1 from './pages/home1';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {AuthContext} from "./pages/Utils";
-
+import Map from './pages/map';
+import Map2 from './pages/Map2';
+import Firstimg from './pages/firstimg';
+import Settings from './pages/Settings';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
+
 
 function LogoTitle() {
     return (
@@ -44,6 +50,7 @@ function LogoTitle() {
     );
   }
 export default function App() {
+
 
   const [state, dispatch] = React.useReducer(
     (prevState, action) => {
@@ -144,6 +151,12 @@ const authContext = React.useMemo(
         <Stack.Screen name="Question3" component={Question3} />
         <Stack.Screen name="Scancode" component={Scancode} />
         <Stack.Screen name="Scanner2" component={Scanner2} />
+        <Stack.Screen name="Map" component={Map} />
+        <Stack.Screen name="Map2" component={Map2} />
+        <Stack.Screen name="Firstimg" component={Firstimg} />
+        <Stack.Screen name="Settings" component={Settings} />
+
+        
       </Stack.Navigator>
     </NavigationContainer>
     </AuthContext.Provider>

@@ -6,7 +6,8 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-  ImageBackground
+  ImageBackground,
+  Button
 } from "react-native";
 import * as React from "react";
 import { AuthContext } from "./Utils";
@@ -18,7 +19,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Tab = createBottomTabNavigator();
 // const Drawer = createDrawerNavigator();
 
-export default function Home({ navigation }) {
+export default function Home1({ navigation }) {
   // const DrawerNavigator = () => {
   //   return (
   //     <DrawerNavigator>
@@ -64,7 +65,10 @@ export default function Home({ navigation }) {
         <ScrollView style={styles.ScrollStyle}>
           {/* Buttons icons to navigat into pages */}
           <View style={styles.optionsCon}>
-            {/* Scan code button */}
+            {/* Scan code button
+                        <Button title={"sumite"} color='#004D25' onPress={onPressQuestionHandler} />
+
+            */}
             <TouchableOpacity
               style={styles.touch}
               onPress={() => navigation.navigate("Scancode")}
@@ -78,6 +82,22 @@ export default function Home({ navigation }) {
                   <Text style={styles.bigText}>Scan Code</Text>
                   <Text style={styles.smallText}>Scan your code and</Text>
                   <Text style={styles.smallText}>take more points</Text>
+                </View>
+              </ImageBackground>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.touch}
+              onPress={() => navigation.navigate("Map")}
+            >
+              <ImageBackground
+                style={styles.Im}
+                source={require("../assets/map.png")}
+                imageStyle={{ borderRadius: 20 }}
+              >
+                <View style={styles.TextInsideImageStyle}>
+                  <Text style={styles.bigText}>Go to Map</Text>
+                
                 </View>
               </ImageBackground>
             </TouchableOpacity>

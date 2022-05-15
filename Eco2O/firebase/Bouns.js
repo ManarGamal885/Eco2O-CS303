@@ -30,7 +30,7 @@ async function editBouns(city) {
 //     }
 //   }
 
-  
+
 //get the bouns of the user using the id 
  async function getBounsByUserId(id) {
     const usersRef = collection(firestoreDB, "Bouns");

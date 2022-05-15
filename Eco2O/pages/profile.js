@@ -153,6 +153,14 @@ export default function Profile({ navigation }) {
               />
               <Text style={styles.iconText}>{age}</Text>
             </View>
+             {/* phone info */}
+             <View style={styles.Contant}>
+              <Image
+                source={require("../assets/icons/phone.png")}
+                style={styles.Icons}
+              />
+              <Text style={styles.iconText}>{phone}</Text>
+            </View>
           </View>
         </ScrollView>
       </View>
