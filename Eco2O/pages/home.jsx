@@ -83,6 +83,23 @@ export default function Home({ navigation }) {
                 </View>
               </ImageBackground>
             </TouchableOpacity>
+        //this is the map part
+            <TouchableOpacity
+              style={styles.touch}
+              onPress={() => navigation.navigate("Map")}
+            >
+              <ImageBackground
+                style={styles.Im}
+                source={require("../assets/map.png")}
+                imageStyle={{ borderRadius: 20 }}
+              >
+                <View style={styles.TextInsideImageStyle}>
+                  <Text style={styles.bigText}>Go to Map</Text>
+                
+                </View>
+              </ImageBackground>
+            </TouchableOpacity>
+
 
             {/* News button */}
             <TouchableOpacity
