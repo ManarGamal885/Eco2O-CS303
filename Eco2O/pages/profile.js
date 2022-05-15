@@ -18,7 +18,7 @@ import * as React from "react";
 import { AuthContext } from "./Utils";
 import { logout } from "../firebase/Auth";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import ProfileBackground from "../assets/ProfileBackgound.jpg";
+import ProfileBackground from "../assets/c2b37edc71d4943cc2c51f202a5e41dd.jpg";
 
 const routeName = "Profile";
 
@@ -70,24 +70,18 @@ export default function Profile({ navigation }) {
       style={styles.ProfileBackground}
       source={ProfileBackground}
     >
+      {/* Header */}
       <View style={styles.Header}>
-        {/* Pic at the top */}
-        {/* <View style={styles.headerImageStyle}> */}
-        {/* <Image
-            source={require("../assets/undraw_Profile_data_re_v81r.png")}
-            style={styles.headerImage}
-          /> */}
-        {/* </View> */}
-
         <View style={styles.TextStyle}>
           <Text style={styles.txtStyle}>Profile Information</Text>
           {/* <Text style={styles.txtStyle}>Information:</Text> */}
         </View>
       </View>
 
-      {/* Contant Veiw */}
-      <View style={styles.ContantStyle}>
-        <ScrollView style={styles.ScrollStyle}>
+      <View style={styles.AllItems}>
+        {/* Contant Veiw */}
+        <View style={styles.ContantStyle}>
+          {/* <ScrollView style={styles.ScrollStyle}> */}
           {/* Email info */}
           <View style={styles.InsideScroll}>
             <View style={styles.Contant}>
@@ -116,7 +110,7 @@ export default function Profile({ navigation }) {
             {/* Username info */}
             <View style={styles.Contant}>
               <Image
-                source={require("../assets/icons/user.png")}
+                source={require("../assets/icons/icons8-verified-account-64.png")}
                 style={styles.Icons}
               />
               <Text style={styles.iconText}>{usename}</Text>
@@ -137,7 +131,7 @@ export default function Profile({ navigation }) {
               />
               <Text style={styles.iconText}>{state}</Text>
             </View>
-            {/* Gender info */}
+            {/* Gender info*/}
             <View style={styles.Contant}>
               <Image
                 source={require("../assets/icons/icons8-gender-equality-50.png")}
@@ -162,7 +156,8 @@ export default function Profile({ navigation }) {
               <Text style={styles.iconText}>{phone}</Text>
             </View>
           </View>
-        </ScrollView>
+        </View>
+        {/* </ScrollView> */}
       </View>
 
       {/* Footer bar */}
@@ -252,59 +247,54 @@ const styles = StyleSheet.create({
     height: 904,
     flex: 1,
   },
+  AllItems: {
+    paddingTop: 25,
+    // paddingLeft: 10,
+    alignContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
+  },
   Header: {
-    flexDirection: "row",
+    // flexDirection: "row",
+    // paddingTop: 50,
+    alignContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    width: 414,
+    height: 85,
+    backgroundColor: "#056935",
+    marginTop: 125,
+    borderRadius: 30
+
+    // textAlign: 'center'
   },
   ProfileStyle: {
-    // justifyContent: 'center',
-    // alignContent: 'center',
-    // alignItems: 'center',
     backgroundColor: "#EEEDED",
     width: 283,
     height: 488,
     paddingTop: 20,
   },
-  // headerImageStyle: {
-  //   justifyContent: "center",
-  //   alignContent: "center",
-  //   alignItems: "center",
-  //   paddingBottom: 20,
-  //   // paddingTop: 20
-  //   // position: "absolute",
-  //   borderRadius: 60,
-  // },
-  // headerImage: {
-  //   width: 117,
-  //   height: 117,
-  //   borderRadius: 50,
-  //   // position: 'relative'
-  // },
+
   TextStyle: {
-    paddingTop: 40,
-    paddingLeft: 20,
-    // paddingLeft: 3,
-    // paddingBottom: 10,
-    paddingRight: 105,
+    // paddingBottom: 10
   },
   txtStyle: {
-    fontSize: 30,
+    fontSize: 25,
     textShadowColor: "gray",
-    textShadowOffset: { width: 0, height: 4 },
+    textShadowOffset: { width: 0, height: 2 },
     textShadowRadius: 6,
     fontWeight: "bold",
     alignContent: "center",
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
+    color: "white",
+    // paddingBottom: 5,
   },
   ContantStyle: {
-    // width: 283,
-    // height: 488,
     paddingLeft: 20,
   },
   ScrollStyle: {
-    // width: 283,
-    // height: 400,
     paddingRight: 10,
   },
   InsideScroll: {
@@ -313,12 +303,6 @@ const styles = StyleSheet.create({
   },
   Contant: {
     flexDirection: "row",
-    // width: 283,
-    // height: 488,
-    // justifyContent: "center",
-    // alignContent: "center",
-    // alignItems: "center",
-    // textAlign: "center",
     paddingRight: 10,
   },
   Icons: {
@@ -327,9 +311,9 @@ const styles = StyleSheet.create({
     paddingTop: 3,
   },
   iconText: {
-    fontSize: 15,
+    fontSize: 17,
     textShadowColor: "gray",
-    textShadowOffset: { width: 0, height: 4 },
+    textShadowOffset: { width: 0, height: 2 },
     textShadowRadius: 6,
     textAlign: "center",
     justifyContent: "center",
@@ -337,6 +321,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 8,
     paddingLeft: 10,
+    color: "#004D25",
   },
   FooterStyle: {
     width: 420,
@@ -347,16 +332,12 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     backgroundColor: "white",
-    // paddingTop: 40,
     position: "absolute",
     bottom: 0,
-    // zIndex: 1,
   },
   FooterImage: {
     width: 35,
     height: 35,
-    // position: 'absolute',
-    // bottom:0,
   },
   FooterButtonText: {
     fontSize: 15,

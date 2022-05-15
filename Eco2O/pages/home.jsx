@@ -42,10 +42,12 @@ export default function Home({ navigation }) {
       {/* Header */}
       <View style={styles.HeaderStyle}>
         {/* Header Image */}
+        <View style={styles.HeaderImageStyle}>
         <Image
           style={styles.HeaderImage}
           source={require("../assets/h.jpeg")}
         />
+        </View>
 
         <View style={styles.HeaderText}>
           {/* Header Texts */}
@@ -233,21 +235,27 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#FFFFFF",
     flex: 1,
-    width: 414,
-    height: 150,
+    width: 425,
+    height: 138,
     backgroundColor: "white",
-    paddingTop: 40,
+    // paddingTop: 40,
     // paddingBottom: 10,
     justifyContent: 'center',
     alignContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    paddingBottom: 15
+    // paddingBottom: 15,
+    position: 'absolute',
+    top: 0,
+    borderRadius: 30
+  },
+  HeaderImageStyle: {
+    padding: 10,
   },
   HeaderImage: {
-    width: 100,
-    height: 100,
-    paddingBottom: 15,
+    width: 95,
+    height: 95,
+    // paddingBottom: 15,
   },
   HeaderText: {
     justifyContent: "center",
@@ -277,19 +285,20 @@ const styles = StyleSheet.create({
   ScrolledItems: {
     // flex: 1,
     width: 350,
-    height: 480,
+    height: 540,
     // backgroundColor: "#EEEDED",
-    // paddingTop: 20,
-    paddingBottom: 15,
+    paddingTop: 20,
+    // paddingBottom: 15,
+    borderRadius: 20
   },
   ScrollStyle: {
     width: 350,
-    height: 460,
+    height: 400,
     alignContent: "center",
-    paddingBottom: 20,
+    // paddingBottom: 0,
     borderRadius: 20,
     backgroundColor: "#EEEDED",
-    padding: 20,
+    // padding: 20,
   },
   optionsCon: {
     alignItems: "center",
