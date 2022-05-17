@@ -30,7 +30,7 @@ export default function SignIn({navigation}) {
             signIn({email, password, token : getUserToken()});
             navigation.navigate('Home');
         }).catch((e) => {
-            alert(e.message);
+            alert("invalid email or password");
             console.log(e.message);
         });
     }
@@ -68,6 +68,7 @@ export default function SignIn({navigation}) {
             style={styles.input}
             placeholder='Email'
             onChangeText={setEmail}
+            placeholderTextColor="gray"
           />
 
           <TextInput
@@ -75,6 +76,7 @@ export default function SignIn({navigation}) {
             placeholder='Password'
             onChangeText={setPassword}
             secureTextEntry={true}
+            placeholderTextColor="gray"
             
           />
         </View>

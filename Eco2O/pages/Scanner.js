@@ -14,8 +14,7 @@ export default function Scanner2({ navigation, route  }) {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const [parcode1, setparcode1] = useState("");
-  let finalbottles;
-  let finalbouns;
+
 
   // دي المفروض بتجيب البونص من الداتابيز و بتزود عليه عدد الازايز فيه مش كلة مش عارف ايه هي لسه 
   //بحاول اكتشف ده 
@@ -25,37 +24,58 @@ export default function Scanner2({ navigation, route  }) {
       navigation.navigate('Home');
     } else {
       getUserUId().then((id) => {
-        getBounsByUserId(id).then((val) => {
-          console.log("ther is the number of data in data base", val[0].finalbouns)
-          console.log("the bounsfrom data ", val[0].finalbouns, "the bouns here =", numberofbottle)
-          finalbouns = val[0].finalbouns + numberofbottle;
-          addBouns({ id: id, finalbouns });
+        getBounsByUserId(id).then((data) => {
+          let obj = {};
+          console.log("data =" ,data)
+
+          if(data.length===0){
+            console.log("object is null")
+            obj={id:id,finalbouns:0}
+          }
+          else{
+            obj={id:id,finalbouns:data[0].finalbouns}
+          }
+        //   console.log("ther is the vale of val", val)
+        //   console.log("ther is the number of data in data base", val[0].finalbouns)
+        //   console.log("the bounsfrom data ", val[0].finalbouns, "the bouns here =", buons)
+          // finalbouns = val[0].finalbouns + buons;
+          console.log("the numberofbottle here =", numberofbottle,"the final bouns" , obj.finalbouns)
+          addBouns({ id: id, finalbouns:(numberofbottle + obj.finalbouns) });
           console.log(id);
-         
+          navigation.navigate('Home');
         })
       });
 
     }
   }
 
-//و دي بتزود الاسكان في الداتا بيز و شغالة و كل حاجة تمام هنا 
   function AddFinalBouttles() {
     getUserUId().then((id) => {
-      getparcodByUserId(id).then((val) => {
-        console.log("ther is the number of data in data base scaner =", val[0].finalbottles)
-        console.log("the parcode from data ", val[0].finalbottles, "the bouns here =", numberofbottle)
-      finalbottles = val[0].finalbottles + numberofbottle;
-      addBarcod({ id: id, parcode1, finalbottles,numberofbottle });
+      getparcodByUserId(id).then((data) => {
+        let obj = {};
+        console.log("data =" ,data)
+
+        if(data.length===0){
+          console.log("object is null")
+          obj={id:id,finalbottles:0}
+        }
+        else{
+          obj={id:id,finalbottles:data[0].finalbottles}
+        }
+      //   console.log("ther is the number of data in data base scaner =", val[0].finalbottles)
+      //   console.log("the parcode from data ", val[0].finalbottles, "the bouns here =", numberofbottle)
+      // finalbottles = val[0].finalbottles + numberofbottle;
+     
+      addBarcod({ id: id, parcode1, finalbottles:(numberofbottle + obj.finalbottles),numberofbottle });
       console.log(id);
       setScanned(false);
       })
       
     }); 
   }
-// هنا عندانا دي بتستخدم الاتنين الي فوق 
   function double (){
-    addBounsAndCheck();
     AddFinalBouttles();
+    addBounsAndCheck();
     navigation.navigate('Scancode');
   }
 

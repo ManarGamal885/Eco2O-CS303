@@ -28,4 +28,5 @@ async function addBarcod(bouns) {
     });
 }
 
+
 export {getBouns,addBarcod,getparcodByUserId};

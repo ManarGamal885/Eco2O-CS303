@@ -21,18 +21,18 @@ export default function Map({ navigation }) {
       source={ProfileBackground}
     >
       <ScrollView>
-        <View style={{ marginTop: 100, paddingLeft: 50 }}>
-          <Text style={styles.text}>1- elgiza st: ahmed maher</Text>
-          <Text style={styles.text}>2- elgiza st: ahmed maher</Text>
-          <Text style={styles.text}>3- elgiza st: ahmed maher</Text>
-          <Text style={styles.text}>4- elgiza st: ahmed maher</Text>
-          <Text style={styles.text}>5- elgiza st: ahmed maher</Text>
-          <Text style={styles.text}>6- elgiza st: ahmed maher</Text>
-          <Text style={styles.text}>7- elgiza st: ahmed maher</Text>
-          <Text style={styles.text}>8- elgiza st: ahmed maher</Text>
-          <Text style={styles.text}>9- elgiza st: ahmed maher</Text>
-          <Text style={styles.text}>10- elgiza st: ahmed maher</Text>
-          <Text style={styles.text}>11- elgiza st: ahmed maher</Text>
+        <View style={{ marginTop: 10, paddingLeft: 50 }}>
+          <Text style={styles.text}>1- Giza : ahmed maher</Text>
+          <Text style={styles.text}>2- Giza : Elmarotya</Text>
+          <Text style={styles.text}>3- Giza :  cairo mall</Text>
+          <Text style={styles.text}>4- Ciro : El bassatine</Text>
+          <Text style={styles.text}>5- Ciro : El helmia</Text>
+          <Text style={styles.text}>6- Ciro : Naser city</Text>
+          <Text style={styles.text}>7- Ciro : El shrouk city</Text>
+          <Text style={styles.text}>8- Ciro: Down town</Text>
+          <Text style={styles.text}>9- Ciro: Doki</Text>
+          <Text style={styles.text}>10-Ciro: El Saida Aisa</Text>
+          <Text style={styles.text}>11-Ciro: El Sida Zainab</Text>
         </View>
         <View style={{ paddingBottom: 40,paddingTop:40 }}>
           <Button
@@ -56,5 +56,8 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
     color: "black",
+    textShadowColor: "gray",
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 6,
   },
 });

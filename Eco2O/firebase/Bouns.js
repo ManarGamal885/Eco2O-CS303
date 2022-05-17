@@ -33,11 +33,13 @@ async function editBouns(city) {
 
 //get the bouns of the user using the id 
  async function getBounsByUserId(id) {
+    console.log( "get bouns by user id",id)
     const usersRef = collection(firestoreDB, "Bouns");
     const q = query(usersRef, where("id", "==", id));
     const querySnapshot = await getDocs(q);
     return querySnapshot.docs.map((doc) => {
-        return {id: doc.id, ...doc.data()};
+    console.log( "here doc",doc)
+        return {id: doc.id, ...doc.data() };
     });
 }
 

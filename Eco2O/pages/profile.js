@@ -48,7 +48,7 @@ export default function Profile({ navigation }) {
         setgender(user[0].gender);
         setage(user[0].age);
         setphone(user[0].phone);
-        setId(user[0].id);
+     
       });
     });
   }, []);
@@ -246,7 +246,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   AllItems: {
-    paddingTop: 25,
     // paddingLeft: 10,
     alignContent: "center",
     alignItems: "center",

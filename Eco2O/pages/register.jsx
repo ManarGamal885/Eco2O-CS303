@@ -72,6 +72,7 @@ export default function Register({ navigation }) {
                   style={styles.halfText}
                   placeholder='Name'
                   onChangeText={setname}
+                  placeholderTextColor="gray" 
                 />
               </View>
 
@@ -80,6 +81,7 @@ export default function Register({ navigation }) {
                   style={styles.halfText}
                   placeholder='Username'
                   onChangeText={setusername}
+                  placeholderTextColor="gray" 
                 />
               </View>
             </View>
@@ -89,6 +91,7 @@ export default function Register({ navigation }) {
                 style={styles.fullText}
                 placeholder='Email'
                 onChangeText={setEmail}
+                placeholderTextColor="gray" 
               />
 
               <TextInput
@@ -96,6 +99,7 @@ export default function Register({ navigation }) {
                 placeholder='Password'
                 onChangeText={setPassword}
                 secureTextEntry={true}
+                placeholderTextColor="gray" 
                 
 
               />
@@ -105,7 +109,7 @@ export default function Register({ navigation }) {
                 placeholder='Confirm password'
                 onChangeText={setconfirmPassword}
                 secureTextEntry={true}
-               
+                placeholderTextColor="gray" 
               />
             </View>
 
@@ -115,6 +119,7 @@ export default function Register({ navigation }) {
                   style={styles.halfText}
                   placeholder='City'
                   onChangeText={setcity}
+                  placeholderTextColor="gray" 
                 />
               </View>
 
@@ -123,6 +128,7 @@ export default function Register({ navigation }) {
                   style={styles.halfText}
                   placeholder='State'
                   onChangeText={setstate}
+                  placeholderTextColor="gray" 
                 />
               </View>
             </View>
@@ -133,6 +139,7 @@ export default function Register({ navigation }) {
                   style={styles.halfText}
                   placeholder='Gender'
                   onChangeText={setgender}
+                  placeholderTextColor="gray" 
                 />
               </View>
 
@@ -141,6 +148,7 @@ export default function Register({ navigation }) {
                   style={styles.halfText}
                   placeholder='Age'
                   onChangeText={setage}
+                  placeholderTextColor="gray" 
                 />
               </View>
             </View>
@@ -150,6 +158,7 @@ export default function Register({ navigation }) {
                 style={styles.fullText}
                 placeholder='Phone number'
                 onChangeText={setphone}
+                placeholderTextColor="gray" 
               />
             </View>
 

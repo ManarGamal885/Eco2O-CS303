@@ -141,7 +141,7 @@ export default function News() {
                 style={styles.Im}
                 source={require("../assets/global.jpg")}
               />
-              <Text style={styles.txt}>Global Warming</Text>
+              <Text style={styles.txt}>  Global Warming</Text>
             </TouchableOpacity>
           </View>
 

@@ -151,7 +151,10 @@ const styles = StyleSheet.create({
   textstyl: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 10
+    marginBottom: 10,
+    textShadowColor: "gray",
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 3,
   },
   first: {
     paddingTop: 50, padding: 10

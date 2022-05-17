@@ -1,15 +1,13 @@
 //Mabrouk
-import React from  'react'
+import React from 'react'
 import { StatusBar } from "expo-status-bar";
 import {
   Button,
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
   View,
   Image,
-  ImageBackground,
 } from "react-native";
 export default function Question1({ navigation }) {
   return (
@@ -17,9 +15,13 @@ export default function Question1({ navigation }) {
       <View>
         <View style={styles.header}>
           <Image source={require("../../assets/undraw_Questions_re_1fy7.png")}
-            style={{ width: 110, height: 110,borderRadius:100 }} />
+            style={{ width: 110, height: 110, borderRadius: 100 }} />
           <View>
-            <Text style={{ marginLeft: 60, marginTop: 30, fontSize: 35 }}>Question</Text>
+            <Text style={{
+              marginLeft: 60, marginTop: 30, fontSize: 35, textShadowColor: "gray",
+              textShadowOffset: { width: 0, height: 2 },
+              textShadowRadius: 6,
+            }}>Question</Text>
             <Text style={{ marginLeft: 70, marginTop: 0, opacity: 0.6 }}>Take A Quize And</Text>
             <Text style={{ marginLeft: 70, marginTop: 0, fontSize: 15, opacity: 0.6 }}>Increaze you Bouns</Text>
           </View >
