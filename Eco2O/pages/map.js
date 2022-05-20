@@ -51,7 +51,7 @@ export default function Map({ navigation }) {
               <TextInput placeholder="Enter the city"></TextInput>
               <TouchableOpacity style={styles.buttonStyle} onPress={registerUser}>
                 <Text style={styles.buttonText}>
-                  Sign up
+                  Add City
                 </Text>
               </TouchableOpacity>
             </View>
