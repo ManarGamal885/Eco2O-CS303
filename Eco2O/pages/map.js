@@ -62,6 +62,7 @@ export default function Map({ navigation }) {
     >
       <ScrollView>
         <View style={{ marginTop: 10, paddingLeft: 50 }}>
+          <Text></Text>
           <Text style={styles.text}>1- Giza : ahmed maher</Text>
           <Text style={styles.text}>2- Giza : Elmarotya</Text>
           <Text style={styles.text}>3- Giza : cairo mall</Text>
