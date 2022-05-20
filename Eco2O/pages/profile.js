@@ -34,6 +34,7 @@ export default function Profile({ navigation }) {
   const [gender, setgender] = useState("");
   const [age, setage] = useState("");
   const [phone, setphone] = useState("");
+  const [userId, setUserId] = useState("");
 
   React.useEffect(() => {
     getUserUId().then((id) => {
@@ -48,7 +49,8 @@ export default function Profile({ navigation }) {
         setgender(user[0].gender);
         setage(user[0].age);
         setphone(user[0].phone);
-     
+        setUserId(id);
+
       });
     });
   }, []);
@@ -145,14 +147,17 @@ export default function Profile({ navigation }) {
               />
               <Text style={styles.iconText}>{age}</Text>
             </View>
-             {/* phone info */}
-             <View style={styles.Contant}>
+            {/* phone info */}
+            <View style={styles.Contant}>
               <Image
                 source={require("../assets/icons/phone.png")}
                 style={styles.Icons}
               />
               <Text style={styles.iconText}>{phone}</Text>
             </View>
+            {userId == "FE4p2azjSDTlYy8FRL8DSyMx1vs1" ?
+              <Button title="Admin features" />
+              : null}
           </View>
         </View>
         {/* </ScrollView> */}
@@ -260,10 +265,10 @@ const styles = StyleSheet.create({
     width: 414,
     height: 200,
     backgroundColor: "#004D25",
-    marginBottom:80,
-    borderBottomLeftRadius:50,
-    borderBottomRightRadius:50,
-    
+    marginBottom: 80,
+    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 50,
+
 
     // textAlign: 'center'
   },
@@ -303,7 +308,7 @@ const styles = StyleSheet.create({
   Contant: {
     flexDirection: "row",
     paddingRight: 10,
-    paddingBottom:5
+    paddingBottom: 5
   },
   Icons: {
     width: 50,

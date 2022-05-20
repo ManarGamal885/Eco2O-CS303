@@ -127,15 +127,10 @@ export default function Question2({ navigation }) {
 
 
         <View style={{ padding: 50 }}>
-        <View style={styles.button}>
-            <Button title={"submit"} color='white'  onPress={onPressQuestionHandler} />
+          <View style={styles.button}>
+            <Button title={"submit"} color='white' onPress={onPressQuestionHandler} />
           </View>
         </View>
-
-        
-
-
-
         <StatusBar style="auto"></StatusBar>
       </View>
     </ScrollView>
@@ -164,7 +159,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderRadius: 50,
     backgroundColor: '#004D25',
-    marginBottom:20
+    marginBottom: 20
 
   },
 })
