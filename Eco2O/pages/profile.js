@@ -9,17 +9,25 @@ import {
   Image,
   TouchableOpacity,
   ImageBackground,
+  KeyboardAvoidingView,
+  Platform,
+  TouchableWithoutFeedback,
+  Keyboard  
 } from "react-native";
 import { getUsers } from "../firebase/User";
 import { getUserUId } from "../firebase/Auth";
 import { getUserById } from "../firebase/User";
+import { getBounsByUserId } from "../firebase/Bouns";
 import { useState } from "react";
 import * as React from "react";
 import { AuthContext } from "./Utils";
 import { logout } from "../firebase/Auth";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ProfileBackground from "../assets/c2b37edc71d4943cc2c51f202a5e41dd.jpg";
-
+import { useHeaderHeight } from "@react-navigation/elements";
+// import Constants from 'expo-constants';
+// import AssetExample from './components/AssetExample';
+// import * as ImagePicker from 'expo-image-picker';
 const routeName = "Profile";
 
 export { routeName };
@@ -35,7 +43,7 @@ export default function Profile({ navigation }) {
   const [age, setage] = useState("");
   const [phone, setphone] = useState("");
   const [userId, setUserId] = useState("");
-
+  const [bouns, setbouns] = useState("");
   React.useEffect(() => {
     getUserUId().then((id) => {
       console.log(id);
@@ -50,8 +58,12 @@ export default function Profile({ navigation }) {
         setage(user[0].age);
         setphone(user[0].phone);
         setUserId(id);
-
-      });
+      }
+      ),
+      getBounsByUserId(id).then((user) => {
+        setbouns(user[0].finalbouns); 
+      }
+      );
     });
   }, []);
 
@@ -65,25 +77,72 @@ export default function Profile({ navigation }) {
     navigation.navigate("SignIn");
   }
 
+function  bounsuser(){
+  navigation.navigate("Bounsalluser");
+}
+const headerHeight = useHeaderHeight();
+//here is img**********************************************************************
+// let [selectedImage, setSelectedImage] = React.useState(null);
+
+// let openImagePickerAsync = async () => {
+//   let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
+
+//   if (permissionResult.granted === false) {
+//     alert('Permission to access camera roll is required!');
+//     return;
+//   }
+
+//   let pickerResult = await ImagePicker.launchImageLibraryAsync();
+//   if (pickerResult.cancelled === true) {
+//     return;
+//   }
+
+//   setSelectedImage({ localUri: pickerResult.uri });
+// };
+
+// if (selectedImage !== null) {
+//   return (
+//     <View style={styles.container}>
+//       <Image source={{ uri: selectedImage.localUri }} style={styles.thumbnail} />
+//     </View>
+//   );
+// }
+
+//*************************************************************************************** */
+
+
   return (
-    <ImageBackground
-      style={styles.ProfileBackground}
-      source={ProfileBackground}
-    >
-      {/* Header */}
+
+   <View>
+          {/* Header */}
       <View style={styles.Header}>
         <View style={styles.TextStyle}>
           <Text style={styles.txtStyle}>Profile Information</Text>
           {/* <Text style={styles.txtStyle}>Information:</Text> */}
         </View>
       </View>
-
+      
       <View style={styles.AllItems}>
         {/* Contant Veiw */}
         <View style={styles.ContantStyle}>
           {/* <ScrollView style={styles.ScrollStyle}> */}
+          
           {/* Email info */}
           <View style={styles.InsideScroll}>
+          <ScrollView> 
+            {/* **************************************************** */}
+
+            {/* <View style={styles.container}>
+      <Image source={{ uri: 'https://i.imgur.com/TkIrScD.png' }} style={styles.logo} />
+      <Text style={styles.instructions}>
+        To share a photo from your phone with a friend, just press the button below!
+      </Text>
+
+      <TouchableOpacity onPress={openImagePickerAsync} style={styles.button}>
+        <Text style={styles.buttonText}>Pick a photo</Text>
+      </TouchableOpacity>
+    </View> */}
+            {/* ********************************************************* */}
             <View style={styles.Contant}>
               <Image
                 source={require("../assets/icons/icons8-circled-envelope-50.png")}
@@ -155,20 +214,33 @@ export default function Profile({ navigation }) {
               />
               <Text style={styles.iconText}>{phone}</Text>
             </View>
-            {userId == "FE4p2azjSDTlYy8FRL8DSyMx1vs1" ?
-              <Button title="Admin features" />
+             {/* bouns info */}
+             <View style={styles.Contant}>
+              <Image
+                source={require("../assets/icons/icons8-old-age-home-48.png")}
+                style={styles.Icons}
+              />
+              <Text style={styles.iconText}>{bouns}</Text>
+              
+            </View>
+
+            {userId == "L31hcVXWGwbVRhGiqZfHXJO6RC83" ?
+              <Button title="Bouns of User" onPress={bounsuser} />
               : null}
+</ScrollView>
           </View>
         </View>
+        
         {/* </ScrollView> */}
       </View>
-
+      
       {/* Footer bar */}
       <View style={styles.FooterStyle}>
         {/* For footer navigation buttons */}
 
         {/* Profile button */}
         <View style={styles.FooterIcons}>
+          
           <Image
             style={styles.FooterImage}
             source={require("../assets/icons/icons8-verified-account-64.png")}
@@ -214,9 +286,11 @@ export default function Profile({ navigation }) {
 
         {/* Settings us button */}
         <View style={styles.FooterIcons}>
+
           <Image
             style={styles.FooterImage}
             source={require("../assets/icons/icons8-settings-64.png")}
+            
           />
 
           <TouchableOpacity
@@ -240,7 +314,12 @@ export default function Profile({ navigation }) {
         </View>
       </View>
       {/* Footer bar ending */}
-    </ImageBackground>
+      
+      </View>
+    
+      
+    
+    
   );
 }
 
@@ -251,7 +330,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   AllItems: {
-    // paddingLeft: 10,
+    paddingLeft: 10,
     alignContent: "center",
     alignItems: "center",
     justifyContent: "center",
@@ -276,7 +355,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#EEEDED",
     width: 283,
     height: 488,
-    paddingTop: 20,
+    // paddingTop: 20,
   },
 
   TextStyle: {
@@ -303,7 +382,8 @@ const styles = StyleSheet.create({
   },
   InsideScroll: {
     width: 283,
-    height: 488,
+    height: 600,
+    paddingBottom:100
   },
   Contant: {
     flexDirection: "row",
@@ -337,8 +417,10 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     backgroundColor: "white",
+    // paddingTop: 40,
     position: "absolute",
     bottom: 0,
+    // zIndex: 1,
   },
   FooterImage: {
     width: 35,
@@ -349,9 +431,41 @@ const styles = StyleSheet.create({
     color: "gray",
   },
   FooterIcons: {
+    
     padding: 13,
-    alignContent: "center",
-    alignItems: "center",
-    justifyContent: "center",
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  logo: {
+    width: 305,
+    height: 159,
+    marginBottom: 20,
+  },
+  instructions: {
+    color: '#888',
+    fontSize: 18,
+    marginHorizontal: 15,
+    marginBottom: 10,
+  },
+  button: {
+    backgroundColor: 'blue',
+    padding: 20,
+    borderRadius: 5,
+  },
+  buttonText: {
+    fontSize: 20,
+    color: '#fff',
+  },
+  thumbnail: {
+    width: 300,
+    height: 300,
+    resizeMode: 'contain',
   },
 });

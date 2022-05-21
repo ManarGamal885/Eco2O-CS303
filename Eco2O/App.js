@@ -34,6 +34,7 @@ import Map from './pages/map';
 import Map2 from './pages/Map2';
 import Firstimg from './pages/firstimg';
 import Settings from './pages/Settings';
+import Bounsalluser from "./pages/bounsalluser";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -154,8 +155,7 @@ const authContext = React.useMemo(
         <Stack.Screen name="Map2" component={Map2} />
         <Stack.Screen name="Firstimg" component={Firstimg} />
         <Stack.Screen name="Settings" component={Settings} />
-
-        
+        <Stack.Screen name="Bounsalluser" component={Bounsalluser} />
       </Stack.Navigator>
     </NavigationContainer>
     </AuthContext.Provider>

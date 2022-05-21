@@ -15,9 +15,6 @@ export default function Scanner2({ navigation, route  }) {
   const [scanned, setScanned] = useState(false);
   const [parcode1, setparcode1] = useState("");
 
-
-  // دي المفروض بتجيب البونص من الداتابيز و بتزود عليه عدد الازايز فيه مش كلة مش عارف ايه هي لسه 
-  //بحاول اكتشف ده 
   function addBounsAndCheck() {
     if (numberofbottle === 0) {
       alert("There is no bouns :( !!");
@@ -27,7 +24,6 @@ export default function Scanner2({ navigation, route  }) {
         getBounsByUserId(id).then((data) => {
           let obj = {};
           console.log("data =" ,data)
-
           if(data.length===0){
             console.log("object is null")
             obj={id:id,finalbouns:0}
@@ -35,10 +31,6 @@ export default function Scanner2({ navigation, route  }) {
           else{
             obj={id:id,finalbouns:data[0].finalbouns}
           }
-        //   console.log("ther is the vale of val", val)
-        //   console.log("ther is the number of data in data base", val[0].finalbouns)
-        //   console.log("the bounsfrom data ", val[0].finalbouns, "the bouns here =", buons)
-          // finalbouns = val[0].finalbouns + buons;
           console.log("the numberofbottle here =", numberofbottle,"the final bouns" , obj.finalbouns)
           addBouns({ id: id, finalbouns:(numberofbottle + obj.finalbouns) });
           console.log(id);
@@ -62,10 +54,6 @@ export default function Scanner2({ navigation, route  }) {
         else{
           obj={id:id,finalbottles:data[0].finalbottles}
         }
-      //   console.log("ther is the number of data in data base scaner =", val[0].finalbottles)
-      //   console.log("the parcode from data ", val[0].finalbottles, "the bouns here =", numberofbottle)
-      // finalbottles = val[0].finalbottles + numberofbottle;
-     
       addBarcod({ id: id, parcode1, finalbottles:(numberofbottle + obj.finalbottles),numberofbottle });
       console.log(id);
       setScanned(false);
@@ -105,8 +93,6 @@ export default function Scanner2({ navigation, route  }) {
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
       />
-      {/* <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} /> || */}
-
       {scanned && <Button title={"Tap to scan again"} onPress={double} />}
     </View>
   );
