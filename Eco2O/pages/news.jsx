@@ -9,8 +9,7 @@ import {
   Button,
 } from "react-native";
 import React from "react";
-import { Dimensions } from "react-native-web";
-import { Constants } from "expo";
+
 
 export default function News() {
   return (

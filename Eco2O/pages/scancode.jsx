@@ -62,12 +62,8 @@ export default function Scancode({ navigation }) {
         </View>
         
         <View style={{ padding: 50 }}>
-          <View style={{
-            height: 40, overflow: 'hidden',
-            borderRadius: "50", backgroundColor: '#004D25',
-          }}>
+          <View style={{height: 40, overflow: 'hidden',borderRadius: "50", backgroundColor: '#004D25',}}>
             <Button title={"scan"} color='white' onPress={() => navigation.navigate('Scanner2', { numberofbottle: number })} />
-
           </View>
         </View>
         </View>

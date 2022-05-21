@@ -3,7 +3,7 @@ import { setUserId } from 'firebase/analytics';
 import React, { useState } from 'react';
 import {
   StyleSheet, Text, View, Image,
-  TouchableOpacity, TextInput
+  TouchableOpacity, TextInput, KeyboardAvoidingView,Platform,TouchableWithoutFeedback,  Keyboard,
 } from 'react-native';
 import { register, getUserUId } from "../firebase/Auth";
 import { addUser, getUserById } from "../firebase/User";
@@ -43,6 +43,10 @@ export default function Register({ navigation }) {
     }
   }
   return (
+    <KeyboardAvoidingView
+    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    style={styles.container1}>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
@@ -173,10 +177,15 @@ export default function Register({ navigation }) {
         </View>
       </View>
     </View>
+    </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
+  container1: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',

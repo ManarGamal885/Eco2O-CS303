@@ -24,6 +24,7 @@ async function isSignedIn() {
 
 async function getUserUId() {
   if (authentication.currentUser != null) {
+    console.log("this here =",authentication.currentUser.uid)
     return authentication.currentUser.uid;
   } else {
     return null;
@@ -38,29 +39,10 @@ async function getUserToken() {
 }
 
 async function register(
-  email,
-  password,
-  name,
-  usename,
-  confirmpassword,
-  city,
-  state,
-  gender,
-  age,
-  phone
+  email,password,name, usename,confirmpassword,city,state,gender,age,phone
 ) {
   await createUserWithEmailAndPassword(
-    authentication,
-    email,
-    password,
-    name,
-    usename,
-    confirmpassword,
-    city,
-    state,
-    gender,
-    age,
-    phone
+     authentication,email,password,name, usename,confirmpassword,city,state,gender,age,phone
   );
 }
 async function sendRequestOfChangingPassword(email) {
@@ -83,12 +65,4 @@ async function logout() {
     .catch((e) => console.log(e.message));
 }
 
-export {
-  register,
-  login,
-  isSignedIn,
-  getUserUId,
-  logout,
-  getUserToken,
-  sendRequestOfChangingPassword,
-};
+export {register,login,isSignedIn,getUserUId,logout,getUserToken,sendRequestOfChangingPassword};
