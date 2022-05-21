@@ -16,7 +16,7 @@ import { addBouns } from '../../firebase/Bouns';
 export default function Question3({ navigation, route }) {
   let { buons } = route.params;
   console.log("the number of the score", buons);
-  let finalbouns;
+  
   //function to add bouns 
   function addBounsAndCheck() {
     if (buons === 0) {

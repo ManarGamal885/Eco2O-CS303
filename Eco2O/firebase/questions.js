@@ -13,39 +13,34 @@ import {
 import { app } from "./Confi";
 const firestoreDB = getFirestore(app);
 //get from database
-async function getAddress() {
-    const addressCol = collection(firestoreDB, "Address");
-    const addressSnapshot = await getDocs(addressCol);
-    return addressSnapshot.docs.map((doc) => {
+
+async function getQuestion() {
+    const questionCol = collection(firestoreDB, "Questions");
+    const questionSnapshot = await getDocs(questionCol);
+    return questionSnapshot.docs.map((doc) => {
         return { id: doc.id, ...doc.data() };
     });
 }
 
 //add to database
-async function addAddress(addres) {
-    await addDoc(collection(firestoreDB, "Address"), addres);
+async function setQuestion(addres) {
+    await setDoc(collection(firestoreDB, "Questions"), addres);
+}
+async function addQuestion(addres) {
+    await addDoc(collection(firestoreDB, "Questions"), addres);
 }
 
-
 //delete from database
-async function deleteAdress(id) {
-        await deleteDoc(doc(firestoreDB, "Address", id));
+async function deleteQuestion(id) {
+        await deleteDoc(doc(firestoreDB, "Questions", id));
      }
 
 
 //get the bouns of the user using the id 
-async function getAddressByUserId(id) {
-    const usersRef = collection(firestoreDB, "Address");
-    const q = query(usersRef, where("id", "==", id));
-    const querySnapshot = await getDocs(q);
-    return querySnapshot.docs.map((doc) => {
-        console.log("here doc", doc)
-        return { id: doc.id, ...doc.data() };
-    });
-}
+
 function subscribe(callback) {
     const unsubscribe = onSnapshot(
-      query(collection(firestoreDB, "Address")),
+      query(collection(firestoreDB, "Questions")),
       (snapshot) => {
         const source = snapshot.metadata.hasPendingWrites ? "Local" : "Server";
         snapshot.docChanges().forEach((change) => {
@@ -57,4 +52,5 @@ function subscribe(callback) {
     );
     return unsubscribe;
   }
-export { getAddress,deleteAdress, addAddress,subscribe, getAddressByUserId };
+
+export { getQuestion,addQuestion, deleteQuestion,subscribe,setQuestion};
