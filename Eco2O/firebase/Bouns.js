@@ -43,4 +43,9 @@ async function editBouns(city) {
     });
 }
 
-export {getBouns,addBouns,editBouns,getBounsByUserId};
+//Update Username
+async function UpdateUsername(username) {
+    await setDoc(doc(firestoreDB, "Users", username.id), username);
+}
+
+export {getBouns,addBouns,editBouns,getBounsByUserId, UpdateUsername};

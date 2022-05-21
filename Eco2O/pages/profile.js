@@ -19,6 +19,7 @@ import { AuthContext } from "./Utils";
 import { logout } from "../firebase/Auth";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ProfileBackground from "../assets/c2b37edc71d4943cc2c51f202a5e41dd.jpg";
+import UpdateInfo from "./UpdateInfo";
 
 const routeName = "Profile";
 
@@ -48,7 +49,6 @@ export default function Profile({ navigation }) {
         setgender(user[0].gender);
         setage(user[0].age);
         setphone(user[0].phone);
-     
       });
     });
   }, []);
@@ -62,6 +62,21 @@ export default function Profile({ navigation }) {
     signOutUser();
     navigation.navigate("SignIn");
   }
+
+  const onPressSetting = () => {
+    console.log("UpdateInfoPage");
+    navigation.navigate('UpdateInfo', {
+      Email: email,
+      PassWord: password,
+      Name: name,
+      UserName: usename,
+      City: city,
+      State: state,
+      Gender:gender,
+      Age:age,
+      PhoneNum:phone
+    });
+  };
 
   return (
     <ImageBackground
@@ -78,14 +93,21 @@ export default function Profile({ navigation }) {
 
       <View style={styles.AllItems}>
         {/* Contant Veiw */}
+        <TouchableOpacity onPress={onPressSetting}>
+          <Image
+            source={require("../assets/icons/icons8-settings-64.png")}
+            resizeMode="contain"
+            style={styles.FooterIcons}
+          />
+        </TouchableOpacity>
         <View style={styles.ContantStyle}>
           {/* <ScrollView style={styles.ScrollStyle}> */}
           {/* Email info */}
           <View style={styles.InsideScroll}>
             <View style={styles.Contant}>
               <Image
+                style={styles.FooterImage}
                 source={require("../assets/icons/icons8-circled-envelope-50.png")}
-                style={styles.Icons}
               />
               <Text style={styles.iconText}>{email}</Text>
             </View>
@@ -145,8 +167,8 @@ export default function Profile({ navigation }) {
               />
               <Text style={styles.iconText}>{age}</Text>
             </View>
-             {/* phone info */}
-             <View style={styles.Contant}>
+            {/* phone info */}
+            <View style={styles.Contant}>
               <Image
                 source={require("../assets/icons/phone.png")}
                 style={styles.Icons}
@@ -260,10 +282,9 @@ const styles = StyleSheet.create({
     width: 414,
     height: 200,
     backgroundColor: "#004D25",
-    marginBottom:80,
-    borderBottomLeftRadius:50,
-    borderBottomRightRadius:50,
-    
+    marginBottom: 80,
+    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 50,
 
     // textAlign: 'center'
   },
@@ -303,7 +324,7 @@ const styles = StyleSheet.create({
   Contant: {
     flexDirection: "row",
     paddingRight: 10,
-    paddingBottom:5
+    paddingBottom: 5,
   },
   Icons: {
     width: 50,

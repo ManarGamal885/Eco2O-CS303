@@ -1,4 +1,4 @@
-import { StatusBar } from "expo-status-bar";
+import { Component } from "react";
 import {
   Button,
   ScrollView,
@@ -19,38 +19,20 @@ import { AuthContext } from "./Utils";
 import { logout } from "../firebase/Auth";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ProfileBackground from "../assets/c2b37edc71d4943cc2c51f202a5e41dd.jpg";
-import { UpdateUsername } from "../firebase/Bouns";
+import { updateEmail } from "firebase/auth";
+
 const routeName = "Profile";
 
 export { routeName };
 
-export default function Settings({ navigation }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setname] = useState("");
-  const [usename, setusername] = useState("");
-  const [city, setcity] = useState("");
-  const [state, setstate] = useState("");
-  const [gender, setgender] = useState("");
-  const [age, setage] = useState("");
-  const [phone, setphone] = useState("");
+export default function UpdateInfo({ navigation, route }) {
+  const { Email, PassWord, Name, UserName, City, State, Gender, Age, PhonNum } =
+    route.params;
 
-  React.useEffect(() => {
-    getUserUId().then((id) => {
-      console.log(id);
-      getUserById(id).then((user) => {
-        setEmail(user[0].email);
-        setPassword(user[0].password);
-        setname(user[0].name);
-        setusername(user[0].usename);
-        setcity(user[0].city);
-        setstate(user[0].state);
-        setgender(user[0].gender);
-        setage(user[0].age);
-        setphone(user[0].phone);
-      });
-    });
-  }, []);
+  const HandleOnChangeText = (vale, fieldName) => {
+    setUserInfo({ ...route, [fieldName]: vale });
+  };
+  console.log(route);
 
   const { signOut } = React.useContext(AuthContext);
   function signOutUser() {
@@ -60,12 +42,6 @@ export default function Settings({ navigation }) {
   function signout() {
     signOutUser();
     navigation.navigate("SignIn");
-  }
-
-  function setTextInput() {
-    console.log("Update username");
-
-    UpdateUsername({ id: id, usename: usename });
   }
 
   return (
@@ -82,102 +58,69 @@ export default function Settings({ navigation }) {
       </View>
 
       <View style={styles.AllItems}>
-        {/* Contant Veiw */}
-
-        <View style={styles.ContantStyle}>
-          {/* <ScrollView style={styles.ScrollStyle}> */}
-          {/* Email info */}
-          <View style={styles.InsideScroll}>
-            <View style={styles.Contant}>
-              <Image
-                style={styles.FooterImage}
-                source={require("../assets/icons/icons8-circled-envelope-50.png")}
-              />
-              <Text style={styles.iconText}>{email}</Text>
-            </View>
-            {/* Password info */}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/password.png")}
-                style={styles.Icons}
-              />
-              <Text style={styles.iconText}>{password}</Text>
-            </View>
-            {/* Name info */}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/icons8-badge-80.png")}
-                style={styles.Icons}
-              />
-              <Text style={styles.iconText}>{name}</Text>
-            </View>
-            {/* Username info */}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/icons8-verified-account-64.png")}
-                style={styles.Icons}
-              />
-              <View>
-                <Text style={styles.iconText}>{usename}</Text>
-
-                <TextInput
-                  placeholder="Name"
-                  onChangeText={setusername}
-                  placeholderTextColor="gray"
-                />
-
-                <TouchableOpacity onPress={setTextInput}>
-                  <Image
-                    source={require("../assets/icons/icons8-settings-64.png")}
-                    resizeMode="contain"
-                    style={styles.FooterIcons}
-                  />
-                </TouchableOpacity>
-              </View>
-            </View>
-            {/* City info */}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/icons8-chicago-50.png")}
-                style={styles.Icons}
-              />
-              <Text style={styles.iconText}>{city}</Text>
-            </View>
-            {/* State info */}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/icons8-bench-50.png")}
-                style={styles.Icons}
-              />
-              <Text style={styles.iconText}>{state}</Text>
-            </View>
-            {/* Gender info*/}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/icons8-gender-equality-50.png")}
-                style={styles.Icons}
-              />
-              <Text style={styles.iconText}>{gender}</Text>
-            </View>
-            {/* Age info */}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/icons8-old-age-home-48.png")}
-                style={styles.Icons}
-              />
-              <Text style={styles.iconText}>{age}</Text>
-            </View>
-            {/* phone info */}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/phone.png")}
-                style={styles.Icons}
-              />
-              <Text style={styles.iconText}>{phone}</Text>
-            </View>
-          </View>
-        </View>
-        {/* </ScrollView> */}
+        <TextInput
+          style={styles.textIn}
+          value={Email}
+          placeholder="Email"
+          placeholderTextColor="gray"
+          onChangeText={(value) => HandleOnChangeText(value, "Email")}
+        />
+        <TextInput
+          style={styles.textIn}
+          value={PassWord}
+          placeholder="Password"
+          placeholderTextColor="gray"
+          onChangeText={(value) => HandleOnChangeText(value, "PassWord")}
+        />
+        <TextInput
+          style={styles.textIn}
+          value={Name}
+          placeholder="Name"
+          placeholderTextColor="gray"
+          onChangeText={(value) => HandleOnChangeText(value, "Name")}
+        />
+        <TextInput
+          style={styles.textIn}
+          value={UserName}
+          placeholder="Username"
+          placeholderTextColor="gray"
+          onChangeText={(value) => HandleOnChangeText(value, "UserName")}
+        />
+        <TextInput
+          style={styles.textIn}
+          value={City}
+          placeholder="City"
+          placeholderTextColor="gray"
+          onChangeText={(value) => HandleOnChangeText(value, "City")}
+        />
+        <TextInput
+          style={styles.textIn}
+          value={State}
+          placeholder="State"
+          placeholderTextColor="gray"
+          onChangeText={(value) => HandleOnChangeText(value, "State")}
+        />
+        <TextInput
+          style={styles.textIn}
+          value={Gender}
+          placeholder="Gender"
+          placeholderTextColor="gray"
+          onChangeText={(value) => HandleOnChangeText(value, "Gender")}
+        />
+        <TextInput
+          style={styles.textIn}
+          value={Age}
+          placeholder="Age"
+          placeholderTextColor="gray"
+          onChangeText={(value) => HandleOnChangeText(value, "Age")}
+        />
+        <TextInput
+          style={styles.textIn}
+          value={PhonNum}
+          placeholder="Phon Number"
+          placeholderTextColor="gray"
+          onChangeText={(value) => HandleOnChangeText(value, "PhonNum")}
+        />
       </View>
 
       {/* Footer bar */}
@@ -369,5 +312,9 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     justifyContent: "center",
+  },
+  textIn: {
+    borderColor: "#004D25",
+    borderWidth: 1,
   },
 });
