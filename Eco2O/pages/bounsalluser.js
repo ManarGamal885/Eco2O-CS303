@@ -169,14 +169,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   AllItems: {
-    // paddingLeft: 10,
     alignContent: "center",
     alignItems: "center",
     justifyContent: "center",
   },
   Header: {
-    // flexDirection: "row",
-    // paddingTop: 50,
     alignContent: "center",
     alignItems: "center",
     justifyContent: "center",
@@ -186,8 +183,6 @@ const styles = StyleSheet.create({
     marginBottom: 80,
     borderBottomLeftRadius: 50,
     borderBottomRightRadius: 50,
-
-    // textAlign: 'center'
   },
   ProfileStyle: {
     backgroundColor: "#EEEDED",
@@ -196,9 +191,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
 
-  TextStyle: {
-    // paddingBottom: 10
-  },
   txtStyle: {
     fontSize: 25,
     textShadowColor: "gray",
@@ -210,7 +202,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     textAlign: "center",
     color: "white",
-    // paddingBottom: 5,
   },
   ContantStyle: {
     paddingLeft: 20,

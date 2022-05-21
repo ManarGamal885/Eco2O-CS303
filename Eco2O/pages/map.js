@@ -2,8 +2,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
-  TouchableOpacity,
   ScrollView,
   ImageBackground,
   Button,
@@ -45,7 +43,6 @@ export default function Map({ navigation }) {
           else{
             obj={id:id,City:data[0].city}
           }
-        
           addAddress({ id: id, city:newcity });
           console.log(id);
           
@@ -121,18 +118,5 @@ const styles = StyleSheet.create({
     width: 300,
     height: 72,
     justifyContent: "space-between",
-    buttonText: {
-      color: "white",
-      textShadowColor: "#424242",
-      textShadowOffset: { width: 0, height: 4 },
-      textShadowRadius: 6,
-      textAlign: "center",
-      fontSize: 30,
-      justifyContent: "center",
-      alignContent: "center",
-      alignItems: "center",
-      flexDirection: "column",
-      paddingTop: 10,
-    },
   },
 });

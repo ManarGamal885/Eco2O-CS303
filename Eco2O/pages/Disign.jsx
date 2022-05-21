@@ -1,10 +1,8 @@
 import {
   Button,
-  ScrollView,
   StyleSheet,
   Text,
   View,
-  Image,
 } from "react-native";
 import { useState ,useEffect } from "react";
 

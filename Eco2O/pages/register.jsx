@@ -3,10 +3,11 @@ import { setUserId } from 'firebase/analytics';
 import React, { useState } from 'react';
 import {
   StyleSheet, Text, View, Image,
-  TouchableOpacity, TextInput, KeyboardAvoidingView,Platform,TouchableWithoutFeedback,  Keyboard,
+  TouchableOpacity, TextInput, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard, ScrollView
 } from 'react-native';
 import { register, getUserUId } from "../firebase/Auth";
 import { addUser, getUserById } from "../firebase/User";
+import { useHeaderHeight } from "@react-navigation/elements";
 export default function Register({ navigation }) {
 
   const [text, setText] = useState('');
@@ -22,7 +23,7 @@ export default function Register({ navigation }) {
   const [phone, setphone] = useState('');
 
 
-  function registerUser () {
+  function registerUser() {
     console.log('this is email ', email);
     if (email === '' || password === '' || name === '' ||
       usename === '' || confirmpassword === '' || city === ''
@@ -34,7 +35,7 @@ export default function Register({ navigation }) {
         console.log(getUserUId());
         getUserUId().then((id) => {
           // console.log(id);
-          addUser({ id: id, email, password,name,usename,confirmpassword,city,state,gender,age,phone });
+          addUser({ id: id, email, password, name, usename, confirmpassword, city, state, gender, age, phone });
         });
         navigation.navigate('SignIn');
       }).catch((e) => {
@@ -42,8 +43,9 @@ export default function Register({ navigation }) {
       });
     }
   }
+  const headerHeight = useHeaderHeight();
   return (
-    
+
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
@@ -68,144 +70,152 @@ export default function Register({ navigation }) {
         <View style={styles.rectangle}>
           <View style={styles.rectangleContant}>
 
-         
-             
+
+          <ScrollView>
             <View style={styles.name_username}>
-            <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : undefined}
-        style={{flex:1}}
-        keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
-      >
-              <View style={styles.Space}>
-                <TextInput
-                  style={styles.halfText}
-                  placeholder='Name'
-                  onChangeText={setname}
-                  placeholderTextColor="gray" 
-                />
-              </View>
+              <KeyboardAvoidingView
+                behavior={Platform.OS === "ios" ? "padding" : "height"}
+                style={styles.container}
+              >
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                  <View style={styles.Space}>
+                    <TextInput
+                      style={styles.halfText}
+                      placeholder='Name'
+                      onChangeText={setname}
+                      placeholderTextColor="gray"
+                    />
+                  </View>
+                </TouchableWithoutFeedback>
               </KeyboardAvoidingView>
               <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : undefined}
-        style={{flex:1}}
-        keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
-      >
-              <View style={styles.Space}>
-                <TextInput
-                  style={styles.halfText}
-                  placeholder='Username'
-                  onChangeText={setusername}
-                  placeholderTextColor="gray" 
-                />
-              </View>
+                behavior={Platform.OS === "ios" ? "padding" : "height"}
+                style={styles.container}
+              >
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                  <View style={styles.Space}>
+                    <TextInput
+                      style={styles.halfText}
+                      placeholder='Username'
+                      onChangeText={setusername}
+                      placeholderTextColor="gray"
+                    />
+                  </View>
+                </TouchableWithoutFeedback>
               </KeyboardAvoidingView>
             </View>
             <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : undefined}
-        style={{flex:1}}
-        keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
-      >
-            <View style={styles.EPC}>
-              <TextInput
-                style={styles.fullText}
-                placeholder='Email'
-                onChangeText={setEmail}
-                placeholderTextColor="gray" 
-              />
+              behavior={Platform.OS === "ios" ? "padding" : "height"}
+              style={styles.container}
+            >
+              <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                <View style={styles.EPC}>
+                  <TextInput
+                    style={styles.fullText}
+                    placeholder='Email'
+                    onChangeText={setEmail}
+                    placeholderTextColor="gray"
+                  />
 
-              <TextInput
-                style={styles.fullText}
-                placeholder='Password'
-                onChangeText={setPassword}
-                secureTextEntry={true}
-                placeholderTextColor="gray" 
-                
+                  <TextInput
+                    style={styles.fullText}
+                    placeholder='Password'
+                    onChangeText={setPassword}
+                    secureTextEntry={true}
+                    placeholderTextColor="gray"
 
-              />
 
-              <TextInput
-                style={styles.fullText}
-                placeholder='Confirm password'
-                onChangeText={setconfirmPassword}
-                secureTextEntry={true}
-                placeholderTextColor="gray" 
-              />
-            </View>
+                  />
+
+                  <TextInput
+                    style={styles.fullText}
+                    placeholder='Confirm password'
+                    onChangeText={setconfirmPassword}
+                    secureTextEntry={true}
+                    placeholderTextColor="gray"
+                  />
+                </View>
+              </TouchableWithoutFeedback>
             </KeyboardAvoidingView>
             <View style={styles.name_username}>
-            <KeyboardAvoidingView
-              behavior={Platform.OS === "ios" ? "padding" : undefined}
-                style={{flex:1}}
-                 keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
-                >
-              <View style={styles.Space}>
-                <TextInput
-                  style={styles.halfText}
-                  placeholder='City'
-                  onChangeText={setcity}
-                  placeholderTextColor="gray" 
-                />
-              </View>
+              <KeyboardAvoidingView
+                behavior={Platform.OS === "ios" ? "padding" : "height"}
+                style={styles.container}
+              >
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                  <View style={styles.Space}>
+                    <TextInput
+                      style={styles.halfText}
+                      placeholder='City'
+                      onChangeText={setcity}
+                      placeholderTextColor="gray"
+                    />
+                  </View>
+                </TouchableWithoutFeedback>
               </KeyboardAvoidingView>
               <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : undefined}
-        style={{flex:1}}
-        keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
-      >
-              <View style={styles.Space}>
-                <TextInput
-                  style={styles.halfText}
-                  placeholder='State'
-                  onChangeText={setstate}
-                  placeholderTextColor="gray" 
-                />
-              </View>
+                behavior={Platform.OS === "ios" ? "padding" : "height"}
+                style={styles.container}
+              >
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                  <View style={styles.Space}>
+                    <TextInput
+                      style={styles.halfText}
+                      placeholder='State'
+                      onChangeText={setstate}
+                      placeholderTextColor="gray"
+                    />
+                  </View>
+                </TouchableWithoutFeedback>
               </KeyboardAvoidingView>
             </View>
 
             <View style={styles.name_username}>
-            <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : undefined}
-        style={{flex:1}}
-        keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
-      >
-              <View style={styles.Space}>
-                <TextInput
-                  style={styles.halfText}
-                  placeholder='Gender'
-                  onChangeText={setgender}
-                  placeholderTextColor="gray" 
-                />
-              </View>
+              <KeyboardAvoidingView
+                behavior={Platform.OS === "ios" ? "padding" : "height"}
+                style={styles.container}
+              >
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                  <View style={styles.Space}>
+                    <TextInput
+                      style={styles.halfText}
+                      placeholder='Gender'
+                      onChangeText={setgender}
+                      placeholderTextColor="gray"
+                    />
+                  </View>
+                </TouchableWithoutFeedback>
               </KeyboardAvoidingView>
               <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : undefined}
-        style={{flex:1}}
-        keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
-      >
-              <View style={styles.Space}>
-                <TextInput
-                  style={styles.halfText}
-                  placeholder='Age'
-                  onChangeText={setage}
-                  placeholderTextColor="gray" 
-                />
-              </View>
+                behavior={Platform.OS === "ios" ? "padding" : "height"}
+                style={styles.container}
+              >
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                  <View style={styles.Space}>
+                    <TextInput
+                      style={styles.halfText}
+                      placeholder='Age'
+                      onChangeText={setage}
+                      placeholderTextColor="gray"
+                    />
+                  </View>
+                </TouchableWithoutFeedback>
               </KeyboardAvoidingView>
             </View>
             <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : undefined}
-        style={{flex:1}}
-        keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
-      >
-            <View style={styles.EPC}>
-              <TextInput
-                style={styles.fullText}
-                placeholder='Phone number'
-                onChangeText={setphone}
-                placeholderTextColor="gray" 
-              />
-            </View>
+              behavior={Platform.OS === "ios" ? "padding" : "height"}
+              style={styles.container}
+            >
+              <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                <View style={styles.EPC}>
+                  <TextInput
+                    style={styles.fullText}
+                    placeholder='Phone number'
+                    onChangeText={setphone}
+                    placeholderTextColor="gray"
+                  />
+                </View>
+              </TouchableWithoutFeedback>
             </KeyboardAvoidingView>
             <View style={styles.button}>
               <TouchableOpacity style={styles.buttonStyle} onPress={registerUser}>
@@ -214,12 +224,12 @@ export default function Register({ navigation }) {
                 </Text>
               </TouchableOpacity>
             </View>
-          
+            </ScrollView>
           </View>
         </View>
       </View>
     </View>
-  
+
   );
 }
 
@@ -236,7 +246,7 @@ const styles = StyleSheet.create({
   header: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 260
+    paddingTop: 100
   },
   headerStyle: {
     flexDirection: 'row',
@@ -270,15 +280,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignContent: 'center',
     textAlign: 'center',
-    paddingTop: 30,
+    paddingTop: 0,
 
   },
   rectangle: {
     backgroundColor: '#F9F9F9',
     width: 414,
-    height: 788,
+    height: 700,
     borderRadius: 50,
-    paddingTop: 100,
+    paddingTop: 50,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'
@@ -288,7 +298,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-    paddingBottom: 350
+    paddingBottom: 100
   },
   name_username: {
     flexDirection: 'row',
@@ -310,12 +320,10 @@ const styles = StyleSheet.create({
     borderColor: '#9C8A8A',
     width: 143,
     justifyContent: 'space-between',
-
-
   },
   EPC: {
     justifyContent: 'center',
-    paddingBottom:20,
+    paddingBottom: 20,
     paddingTop: 5,
   },
   fullText: {
@@ -343,9 +351,6 @@ const styles = StyleSheet.create({
     width: 300,
     height: 72,
     justifyContent: 'space-between',
-    // shadowColor: 'black',
-    // shadowOffset: {width: 0, height: 4},
-    // shadowRadius: 100,
   },
   buttonText: {
     paddingTop: 8,
@@ -359,6 +364,5 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    // paddingTop: 10
   }
 });

@@ -214,7 +214,6 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     justifyContent: "center",
-    // paddingTop:
   },
   image: {
     width: 414,
@@ -236,11 +235,6 @@ const styles = StyleSheet.create({
     height: 500,
     borderRadius: 50,
     backgroundColor: "#F9F9F9",
-    // flexDirection: "row",
-    // alignContent: "center",
-    // alignItems: "center",
-    // justifyContent: "center",
-    // textAlign: "center",
     paddingTop: 35,
     paddingLeft: 60
   },
@@ -251,9 +245,6 @@ const styles = StyleSheet.create({
   textCont: {
     fontSize: 22,
     fontWeight: "500",
-    // marginTop: 30,
-    // marginBottom: 50,
-    // marginLeft: 100,
     textShadowColor: "#B7B7B7",
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 6,
@@ -262,98 +253,20 @@ const styles = StyleSheet.create({
   call: {
     width: 40,
     height: 55,
-    // marginBottom: 15,
-    // marginLeft: 20,
     paddingRight: 50
   },
   msg: {
     width: 50,
     height: 50,
-    // marginLeft: 20,
   },
   face: {
     width: 50,
     height: 50,
-    // marginBottom: 15,
-    
   },
   ins: {
     width: 55,
     height: 55,
-    // marginBottom: 15,
-    // marginLeft: 20,
   },
-  // cont1: {
-  //   backgroundColor: "#F9F9F9",
-  //   height: 500,
-  //   width: Dimensions.get("window").width,
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   position: "absolute",
-  //   bottom: 0,
-  //   borderTopLeftRadius: 50,
-  //   borderTopRightRadius: 50,
-  // },
-  // cont2: {
-  //   backgroundColor: "white",
-  //   height: 500,
-  //   width: Dimensions.get("window").width,
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   position: "absolute",
-  //   top: 0,
-  // },
-  // text: {
-  //   fontSize: 35,
-  //   marginTop: 10,
-  //   marginBottom: 130,
-  //   fontWeight: "800",
-  //   textShadowColor: "#B7B7B7",
-  //   textShadowOffset: { width: 0, height: 4 },
-  //   textShadowRadius: 6,
-  // },
-  // HeaderImageStyle: {
-  //   marginBottom: 600
-
-  // },
-  // image: {
-  //   width: 414,
-  //   height: 248,
-  //   // marginBottom: 20,
-  // },
-  // v: {
-  //   flexDirection: "row",
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  // },
-  // textCont: {
-  //   fontSize: 20,
-  //   fontWeight: "500",
-  //   marginTop: 30,
-  //   marginBottom: 50,
-  //   marginLeft: 100,
-  // },
-  // call: {
-  //   width: 25,
-  //   height: 25,
-  //   marginBottom: 15,
-  //   marginLeft: 20,
-  // },
-
-  // msg: {
-  //   width: 30,
-  //   height: 30,
-  //   marginLeft: 20,
-  // },
-
-  // ContantStyle: {
-  //   backgroundColor: "#F9F9F9",
-  //   borderRadius: 50,
-  //   width: 414,
-  //   height: 500,
-  //   // paddingBottom: 10
-  //   marginBottom: 400
-  // },
   FooterStyle: {
     width: 420,
     height: 70,
@@ -363,16 +276,12 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     backgroundColor: "white",
-    // paddingTop: 40,
     position: "absolute",
     bottom: 0,
-    // zIndex: 1,
   },
   FooterImage: {
     width: 35,
     height: 35,
-    // position: 'absolute',
-    // bottom:0,
   },
   FooterButtonText: {
     fontSize: 15,
