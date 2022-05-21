@@ -112,11 +112,7 @@ const headerHeight = useHeaderHeight();
 
 
   return (
-    <KeyboardAvoidingView
-    behavior={Platform.OS === "ios" ? "padding" : "height"}
-    style={{flex: 1}}
-  >
-     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+
    <View>
           {/* Header */}
       <View style={styles.Header}>
@@ -320,8 +316,7 @@ const headerHeight = useHeaderHeight();
       {/* Footer bar ending */}
       
       </View>
-      </TouchableWithoutFeedback>
-      </KeyboardAvoidingView>
+    
       
     
     
