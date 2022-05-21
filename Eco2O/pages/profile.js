@@ -25,9 +25,9 @@ import { logout } from "../firebase/Auth";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ProfileBackground from "../assets/c2b37edc71d4943cc2c51f202a5e41dd.jpg";
 import { useHeaderHeight } from "@react-navigation/elements";
-// import Constants from 'expo-constants';
-// import AssetExample from './components/AssetExample';
-// import * as ImagePicker from 'expo-image-picker';
+import Constants from 'expo-constants';
+import AssetExample from '../assets/map.png';
+import * as ImagePicker from 'expo-image-picker';
 const routeName = "Profile";
 
 export { routeName };
@@ -82,31 +82,31 @@ function  bounsuser(){
 }
 const headerHeight = useHeaderHeight();
 //here is img**********************************************************************
-// let [selectedImage, setSelectedImage] = React.useState(null);
+let [selectedImage, setSelectedImage] = React.useState(null);
 
-// let openImagePickerAsync = async () => {
-//   let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
+let openImagePickerAsync = async () => {
+  let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
 
-//   if (permissionResult.granted === false) {
-//     alert('Permission to access camera roll is required!');
-//     return;
-//   }
+  if (permissionResult.granted === false) {
+    alert('Permission to access camera roll is required!');
+    return;
+  }
 
-//   let pickerResult = await ImagePicker.launchImageLibraryAsync();
-//   if (pickerResult.cancelled === true) {
-//     return;
-//   }
+  let pickerResult = await ImagePicker.launchImageLibraryAsync();
+  if (pickerResult.cancelled === true) {
+    return;
+  }
 
-//   setSelectedImage({ localUri: pickerResult.uri });
-// };
+  setSelectedImage({ localUri: pickerResult.uri });
+};
 
-// if (selectedImage !== null) {
-//   return (
-//     <View style={styles.container}>
-//       <Image source={{ uri: selectedImage.localUri }} style={styles.thumbnail} />
-//     </View>
-//   );
-// }
+if (selectedImage !== null) {
+  return (
+    <View style={styles.container}>
+      <Image source={{ uri: selectedImage.localUri }} style={styles.thumbnail} />
+    </View>
+  );
+}
 
 //*************************************************************************************** */
 
@@ -132,7 +132,7 @@ const headerHeight = useHeaderHeight();
           <ScrollView> 
             {/* **************************************************** */}
 
-            {/* <View style={styles.container}>
+            <View style={styles.container}>
       <Image source={{ uri: 'https://i.imgur.com/TkIrScD.png' }} style={styles.logo} />
       <Text style={styles.instructions}>
         To share a photo from your phone with a friend, just press the button below!
@@ -141,7 +141,7 @@ const headerHeight = useHeaderHeight();
       <TouchableOpacity onPress={openImagePickerAsync} style={styles.button}>
         <Text style={styles.buttonText}>Pick a photo</Text>
       </TouchableOpacity>
-    </View> */}
+    </View>
             {/* ********************************************************* */}
             <View style={styles.Contant}>
               <Image
