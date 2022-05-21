@@ -9,6 +9,10 @@ import {
   Image,
   TouchableOpacity,
   ImageBackground,
+  KeyboardAvoidingView,
+  Platform,
+  TouchableWithoutFeedback,
+  Keyboard  
 } from "react-native";
 import { getUsers } from "../firebase/User";
 import { getUserUId } from "../firebase/Auth";
@@ -106,6 +110,11 @@ function  bounsuser(){
 
 
   return (
+    <KeyboardAvoidingView
+    behavior={Platform.OS === "ios" ? "padding" : "height"}
+    style={{flex: 1}}
+  >
+     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
    <View>
           {/* Header */}
       <View style={styles.Header}>
@@ -233,6 +242,7 @@ function  bounsuser(){
 
         {/* Profile button */}
         <View style={styles.FooterIcons}>
+          
           <Image
             style={styles.FooterImage}
             source={require("../assets/icons/icons8-verified-account-64.png")}
@@ -278,9 +288,11 @@ function  bounsuser(){
 
         {/* Settings us button */}
         <View style={styles.FooterIcons}>
+
           <Image
             style={styles.FooterImage}
             source={require("../assets/icons/icons8-settings-64.png")}
+            
           />
 
           <TouchableOpacity
@@ -306,6 +318,9 @@ function  bounsuser(){
       {/* Footer bar ending */}
       
       </View>
+      </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
+      
     
     
   );

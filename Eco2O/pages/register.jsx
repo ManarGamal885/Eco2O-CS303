@@ -43,10 +43,7 @@ export default function Register({ navigation }) {
     }
   }
   return (
-    <KeyboardAvoidingView
-    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    style={styles.container1}>
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
@@ -177,8 +174,7 @@ export default function Register({ navigation }) {
         </View>
       </View>
     </View>
-    </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+  
   );
 }
 
