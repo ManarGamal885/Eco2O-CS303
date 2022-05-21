@@ -6,6 +6,7 @@ import {
   ImageBackground,
   Button,
   TextInput,
+  TouchableOpacity
 } from "react-native";
 import * as React from "react";
 import { getUserUId } from "../firebase/Auth";
