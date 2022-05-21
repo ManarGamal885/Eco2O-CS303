@@ -405,9 +405,10 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     backgroundColor: "white",
+    // paddingTop: 40,
     position: "absolute",
     bottom: 0,
-    paddingLeft:10
+    // zIndex: 1,
   },
   FooterImage: {
     width: 35,
@@ -419,9 +420,10 @@ const styles = StyleSheet.create({
   },
   FooterIcons: {
     
-    alignContent: "center",
-    alignItems: "center",
-    justifyContent: "center",
+    padding: 13,
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   container: {
     flex: 1,
