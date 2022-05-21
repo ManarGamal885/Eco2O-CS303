@@ -75,7 +75,7 @@ export default function Map({ navigation }) {
           <Text style={styles.text}>10-Ciro: El Saida Aisa</Text>
           <Text style={styles.text}>11-Ciro: El Sida Zainab</Text>
           <Text style={styles.text}>{newcity}</Text>
-          {userId == "FE4p2azjSDTlYy8FRL8DSyMx1vs1" ? 
+          {userId == "L31hcVXWGwbVRhGiqZfHXJO6RC83" ? 
           <View style={{paddingTop:20,justifyContent:"center" ,alignItems:"center" }}> 
             <TextInput placeholder="enter your city" onChangeText={(val)=>{setnewcity(val)}}/>
             <View  style={{paddingTop:20}}>

@@ -67,7 +67,15 @@ export default function Register({ navigation }) {
       <View style={styles.inputs}>
         <View style={styles.rectangle}>
           <View style={styles.rectangleContant}>
+
+         
+             
             <View style={styles.name_username}>
+            <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        style={{flex:1}}
+        keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
+      >
               <View style={styles.Space}>
                 <TextInput
                   style={styles.halfText}
@@ -76,7 +84,12 @@ export default function Register({ navigation }) {
                   placeholderTextColor="gray" 
                 />
               </View>
-
+              </KeyboardAvoidingView>
+              <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        style={{flex:1}}
+        keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
+      >
               <View style={styles.Space}>
                 <TextInput
                   style={styles.halfText}
@@ -85,8 +98,13 @@ export default function Register({ navigation }) {
                   placeholderTextColor="gray" 
                 />
               </View>
+              </KeyboardAvoidingView>
             </View>
-
+            <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        style={{flex:1}}
+        keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
+      >
             <View style={styles.EPC}>
               <TextInput
                 style={styles.fullText}
@@ -113,8 +131,13 @@ export default function Register({ navigation }) {
                 placeholderTextColor="gray" 
               />
             </View>
-
+            </KeyboardAvoidingView>
             <View style={styles.name_username}>
+            <KeyboardAvoidingView
+              behavior={Platform.OS === "ios" ? "padding" : undefined}
+                style={{flex:1}}
+                 keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
+                >
               <View style={styles.Space}>
                 <TextInput
                   style={styles.halfText}
@@ -123,7 +146,12 @@ export default function Register({ navigation }) {
                   placeholderTextColor="gray" 
                 />
               </View>
-
+              </KeyboardAvoidingView>
+              <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        style={{flex:1}}
+        keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
+      >
               <View style={styles.Space}>
                 <TextInput
                   style={styles.halfText}
@@ -132,9 +160,15 @@ export default function Register({ navigation }) {
                   placeholderTextColor="gray" 
                 />
               </View>
+              </KeyboardAvoidingView>
             </View>
 
             <View style={styles.name_username}>
+            <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        style={{flex:1}}
+        keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
+      >
               <View style={styles.Space}>
                 <TextInput
                   style={styles.halfText}
@@ -143,7 +177,12 @@ export default function Register({ navigation }) {
                   placeholderTextColor="gray" 
                 />
               </View>
-
+              </KeyboardAvoidingView>
+              <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        style={{flex:1}}
+        keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
+      >
               <View style={styles.Space}>
                 <TextInput
                   style={styles.halfText}
@@ -152,8 +191,13 @@ export default function Register({ navigation }) {
                   placeholderTextColor="gray" 
                 />
               </View>
+              </KeyboardAvoidingView>
             </View>
-
+            <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        style={{flex:1}}
+        keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight + Constants.statusBarHeight : 0}
+      >
             <View style={styles.EPC}>
               <TextInput
                 style={styles.fullText}
@@ -162,7 +206,7 @@ export default function Register({ navigation }) {
                 placeholderTextColor="gray" 
               />
             </View>
-
+            </KeyboardAvoidingView>
             <View style={styles.button}>
               <TouchableOpacity style={styles.buttonStyle} onPress={registerUser}>
                 <Text style={styles.buttonText}>
@@ -170,6 +214,7 @@ export default function Register({ navigation }) {
                 </Text>
               </TouchableOpacity>
             </View>
+          
           </View>
         </View>
       </View>
@@ -270,7 +315,7 @@ const styles = StyleSheet.create({
   },
   EPC: {
     justifyContent: 'center',
-    paddingBottom: 5,
+    paddingBottom:20,
     paddingTop: 5,
   },
   fullText: {

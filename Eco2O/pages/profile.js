@@ -24,6 +24,7 @@ import { AuthContext } from "./Utils";
 import { logout } from "../firebase/Auth";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ProfileBackground from "../assets/c2b37edc71d4943cc2c51f202a5e41dd.jpg";
+import { useHeaderHeight } from "@react-navigation/elements";
 // import Constants from 'expo-constants';
 // import AssetExample from './components/AssetExample';
 // import * as ImagePicker from 'expo-image-picker';
@@ -77,8 +78,9 @@ export default function Profile({ navigation }) {
   }
 
 function  bounsuser(){
-  navigation.navigate("bounsalluser");
+  navigation.navigate("Bounsalluser");
 }
+const headerHeight = useHeaderHeight();
 //here is img**********************************************************************
 // let [selectedImage, setSelectedImage] = React.useState(null);
 

@@ -21,7 +21,7 @@ export { routeName };
 import { AuthContext } from "./Utils";
 import { addBouns } from "../firebase/Bouns";
 import Disign from "./Disign";
-export default function bounsalluser({ navigation }) {
+export default function Bounsalluser({ navigation }) {
 
   let [bouns, setbouns] = useState("");
   let [allbouns, setallbouns] = useState("");
