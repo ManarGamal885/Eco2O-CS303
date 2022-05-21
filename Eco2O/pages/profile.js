@@ -217,7 +217,7 @@ const headerHeight = useHeaderHeight();
              {/* bouns info */}
              <View style={styles.Contant}>
               <Image
-                source={require("../assets/icons/icons8-old-age-home-48.png")}
+                source={require("../assets/bouns.png")}
                 style={styles.Icons}
               />
               <Text style={styles.iconText}>{bouns}</Text>

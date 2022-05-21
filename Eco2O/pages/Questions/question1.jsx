@@ -28,7 +28,7 @@ export default function Question1({ navigation }) {
         </View >
         <View style={styles.mid}>
           <Text></Text>
-          <Text style={{ fontSize: 20 }} >you will get three questions</Text>
+          <Text style={{ fontSize: 20 }} >you will get five questions</Text>
           <Text style={{ fontSize: 20 }}>one point for each correct</Text>
           <Text style={{ fontSize: 20 }}>answer</Text>
           <Text></Text>
