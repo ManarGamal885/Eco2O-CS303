@@ -11,18 +11,23 @@ import {
 import { useState ,useEffect  } from "react";
 import * as React from "react";
 import { subscribe ,deleteUser,getUsers } from "../firebase/User";
+import { addBouns } from '../firebase/Bouns';
 export default function Disign({email,name,id,bons }) {
 
+  let [inc , setinc] =useState(bons);
+const x =bons;
  const [userdel , setuserdel] =useState("");
-  let [number, setnumber] = useState(0);
-  function setnumberincr() {
-    setnumber(number++);
+
+  function setnumberincr() { 
+    setinc(inc++);
   }
 
   function setnumberdecr() {
-    if (number >= 0)
-      setnumber(number--);
+    if (inc >= 0)
+      setinc(inc--);
   }
+
+
   const getuserList = async () => {
     const userdel = await getUsers();
     setuserdel(userdel);
@@ -62,13 +67,13 @@ export default function Disign({email,name,id,bons }) {
             <Button title={"+"}  onPress={setnumberincr} />
           </View>
           <View style={{ padding: 15 }}>
-            <Text style={{ fontSize: 24 }}> {bons} </Text>
+            <Text style={{ fontSize: 24 }}> {inc} </Text>
           </View>
           <View >
             <Button title={"-"}  onPress={setnumberdecr} />
           </View>
         </View>
-        <Button title={"cleck here to chang"}  onPress={setnumberdecr} />
+        <Button title={"cleck here to chang"}   />
         <TouchableOpacity
                    style={
                      {width:100,
