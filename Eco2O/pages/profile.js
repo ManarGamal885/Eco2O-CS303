@@ -75,6 +75,22 @@ export default function Profile({ navigation }) {
     navigation.navigate("SignIn");
   }
 
+  const onPressSetting = () => {
+    console.log("UpdateInfoPage");
+    navigation.navigate("UpdateInfo", {
+      ID: userId,
+      // Email: email,
+      // PassWord: password,
+      Name: name,
+      UserName: usename,
+      City: city,
+      State: state,
+      Gender: gender,
+      Age: age,
+      // PhoneNum: phone,
+    });
+  };
+
   function bounsuser() {
     navigation.navigate("Bounsalluser");
   }
@@ -99,6 +115,17 @@ export default function Profile({ navigation }) {
     setSelectedImage({ localUri: pickerResult.uri });
   };
 
+  if (selectedImage !== null) {
+    return (
+      <View style={styles.container}>
+        <Image
+          source={{ uri: selectedImage.localUri }}
+          style={styles.thumbnail}
+        />
+      </View>
+    );
+  }
+ 
 
   return (
     <View>
@@ -112,6 +139,13 @@ export default function Profile({ navigation }) {
 
       <View style={styles.AllItems}>
         {/* Contant Veiw */}
+        <TouchableOpacity onPress={onPressSetting}>
+          <Image
+            source={require("../assets/icons/icons8-settings-64.png")}
+            resizeMode="contain"
+            style={styles.FooterIcons}
+          />
+        </TouchableOpacity>
         <View style={styles.ContantStyle}>
           {/* <ScrollView style={styles.ScrollStyle}> */}
 
