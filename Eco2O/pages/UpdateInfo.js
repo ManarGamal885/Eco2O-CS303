@@ -1,4 +1,3 @@
-
 import {
   Button,
   ScrollView,
@@ -20,15 +19,14 @@ import { logout } from "../firebase/Auth";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ProfileBackground from "../assets/c2b37edc71d4943cc2c51f202a5e41dd.jpg";
 import { updateEmail } from "firebase/auth";
-import { updateUser } from '../firebase/User';
+import { updateUser } from "../firebase/User";
 
 const routeName = "Profile";
 
 export { routeName };
 
 export default function UpdateInfo({ navigation, route }) {
-  const {  ID, Name, UserName, City, State, Gender, Age } =
-    route.params;
+  const { ID, Name, UserName, City, State, Gender, Age } = route.params;
 
   // const EmailText = (vale, fieldName) => {
   //   setEmail(fieldName);
@@ -67,7 +65,6 @@ export default function UpdateInfo({ navigation, route }) {
   //   setphone(vale);
   // };
 
-
   let [userId, setID] = useState(ID);
   // let [email, setEmail] = useState(Email);
   // let [password, setPassword] = useState(PassWord);
@@ -78,7 +75,6 @@ export default function UpdateInfo({ navigation, route }) {
   let [gender, setgender] = useState(Gender);
   let [age, setage] = useState(Age);
   // let [phone, setphone] = useState(PhonNum);
-
 
   // setEmail(Email);
 
@@ -95,22 +91,30 @@ export default function UpdateInfo({ navigation, route }) {
   }
 
   function Finish() {
-    if( name === '' ||usename === '' ||  city === '' ||state === '' || gender === '' || age === '' ) {
-    alert("email or password is empty!");
-  } else{
-    // setEmail(email);
-    // setPassword(password);
-    setname(name);
-    setusername(usename);
-    setcity(city);
-    setstate(state);
-    setgender(gender);
-    setage(age);
-    // setphone(phone);
-    updateUser({ id: userId, name, usename, city, state, gender, age });
-    // console.log("email = ", email);
+    if (
+      name === "" ||
+      usename === "" ||
+      city === "" ||
+      state === "" ||
+      gender === "" ||
+      age === ""
+    ) {
+      alert("email or password is empty!");
+    } else {
+      // setEmail(email);
+      // setPassword(password);
+      setname(name);
+      setusername(usename);
+      setcity(city);
+      setstate(state);
+      setgender(gender);
+      setage(age);
+      // setphone(phone);
+      updateUser({ id: userId, name, usename, city, state, gender, age });
+      navigation.navigate("Profile");
+      // console.log("email = ", email);
+    }
   }
-}
 
   return (
     <ImageBackground
@@ -140,48 +144,66 @@ export default function UpdateInfo({ navigation, route }) {
           placeholderTextColor="gray"
           onChangeText={(value) => PassText(value, "PassWord")}
         /> */}
-        <TextInput
-          style={styles.textIn}
-          value={name}
-          placeholder="Name"
-          placeholderTextColor="gray"
-          onChangeText={(value) => NameText(value, "Name")}
-        />
-        <TextInput
-          style={styles.textIn}
-          value={usename}
-          placeholder="Username"
-          placeholderTextColor="gray"
-          onChangeText={(value) => UserNameText(value, "UserName")}
-        />
-        <TextInput
-          style={styles.textIn}
-          value={city}
-          placeholder="City"
-          placeholderTextColor="gray"
-          onChangeText={(value) => CityText(value, "City")}
-        />
-        <TextInput
-          style={styles.textIn}
-          value={state}
-          placeholder="State"
-          placeholderTextColor="gray"
-          onChangeText={(value) => StateText(value, "State")}
-        />
-        <TextInput
-          style={styles.textIn}
-          value={gender}
-          placeholder="Gender"
-          placeholderTextColor="gray"
-          onChangeText={(value) => GenderText(value, "Gender")}
-        />
-        <TextInput
-          style={styles.textIn}
-          value={age}
-          placeholder="Age"
-          placeholderTextColor="gray"
-          onChangeText={(value) => AgeText(value, "Age")}
-        />
+        <View style={{ padding: 10, flexDirection: "row" }}>
+          <Text style={{ fontSize: 20 }}>Change Nam</Text>
+          <TextInput
+            style={styles.textIn}
+            value={name}
+            placeholder="Name"
+            placeholderTextColor="gray"
+            onChangeText={(value) => NameText(value, "Name")}
+          />
+        </View>
+        <View style={{ padding: 15, flexDirection: "row" }}>
+          <Text style={{ fontSize: 20 }}>Change Usr</Text>
+          <TextInput
+            style={styles.textIn}
+            value={usename}
+            placeholder="Username"
+            placeholderTextColor="gray"
+            onChangeText={(value) => UserNameText(value, "UserName")}
+          />
+        </View>
+        <View style={{ padding: 10, flexDirection: "row" }}>
+          <Text style={{ fontSize: 20,  }}>Change Cit</Text>
+          <TextInput
+            style={styles.textIn}
+            value={city}
+            placeholder="City"
+            placeholderTextColor="gray"
+            onChangeText={(value) => CityText(value, "City")}
+          />
+        </View>
+        <View style={{ padding: 10, flexDirection: "row" }}>
+          <Text style={{ fontSize: 20,  }}>Change Sta</Text>
+          <TextInput
+            style={styles.textIn}
+            value={state}
+            placeholder="State"
+            placeholderTextColor="gray"
+            onChangeText={(value) => StateText(value, "State")}
+          />
+        </View>
+        <View style={{ padding: 10, flexDirection: "row" }}>
+          <Text style={{ fontSize: 20,  }}>Change Gen</Text>
+          <TextInput
+            style={styles.textIn}
+            value={gender}
+            placeholder="Gender"
+            placeholderTextColor="gray"
+            onChangeText={(value) => GenderText(value, "Gender")}
+          />
+        </View>
+        <View style={{ padding: 10, flexDirection: "row" }}>
+          <Text style={{ fontSize: 20,  }}>Change Age</Text>
+          <TextInput
+            style={styles.textIn}
+            value={age}
+            placeholder="Age"
+            placeholderTextColor="gray"
+            onChangeText={(value) => AgeText(value, "Age")}
+          />
+        </View>
         {/* <TextInput
           style={styles.textIn}
           value={phone}
@@ -190,15 +212,15 @@ export default function UpdateInfo({ navigation, route }) {
           onChangeText={(value) => PhonText(value, "PhonNum")}
         /> */}
       </View>
-
-      <TouchableOpacity onPress={Finish}>
+      <View style={{ paddingTop: 20,paddingLeft:160 }}>
+        <TouchableOpacity onPress={Finish}>
           <Image
             source={require("../assets/icons/icons8-settings-64.png")}
             resizeMode="contain"
             style={styles.FooterIcons}
           />
         </TouchableOpacity>
-
+      </View>
       {/* <Text>{Email}</Text> */}
 
       {/* Footer bar */}
@@ -219,14 +241,12 @@ export default function UpdateInfo({ navigation, route }) {
             <Text style={styles.FooterButtonText}>Profile</Text>
           </TouchableOpacity>
         </View>
-
         {/* Home button */}
         <View style={styles.FooterIcons}>
           <Image
             style={styles.FooterImage}
             source={require("../assets/icons/icons8-home-50.png")}
           />
-
           <TouchableOpacity
             onPress={() => navigation.navigate("Home")}
             style={styles.FooterButton}
@@ -234,14 +254,12 @@ export default function UpdateInfo({ navigation, route }) {
             <Text style={styles.FooterButtonText}>Home</Text>
           </TouchableOpacity>
         </View>
-
         {/* Contact us button */}
         <View style={styles.FooterIcons}>
           <Image
             style={styles.FooterImage}
             source={require("../assets/icons/icons8-contact-us-64.png")}
           />
-
           <TouchableOpacity
             onPress={() => navigation.navigate("Contact")}
             style={styles.FooterButton}
@@ -249,29 +267,13 @@ export default function UpdateInfo({ navigation, route }) {
             <Text style={styles.FooterButtonText}>Contact us</Text>
           </TouchableOpacity>
         </View>
-
-        {/* Settings us button */}
-        <View style={styles.FooterIcons}>
-          <Image
-            style={styles.FooterImage}
-            source={require("../assets/icons/icons8-settings-64.png")}
-          />
-
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Contact")}
-            style={styles.FooterButton}
-          >
-            <Text style={styles.FooterButtonText}>Settings</Text>
-          </TouchableOpacity>
-        </View>
-
+       
         {/* Logout button */}
         <View style={styles.FooterIcons}>
           <Image
             style={styles.FooterImage}
             source={require("../assets/icons/icons8-log-out-64.png")}
           />
-
           <TouchableOpacity onPress={signout} style={styles.FooterButton}>
             <Text style={styles.FooterButtonText}>Logout</Text>
           </TouchableOpacity>

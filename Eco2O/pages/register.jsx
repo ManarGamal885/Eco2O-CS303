@@ -73,11 +73,7 @@ export default function Register({ navigation }) {
 
           <ScrollView>
             <View style={styles.name_username}>
-              <KeyboardAvoidingView
-                behavior={Platform.OS === "ios" ? "padding" : "height"}
-                style={styles.container1}
-              >
-                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            
                   <View style={styles.Space}>
                     <TextInput
                       style={styles.halfText}
@@ -86,13 +82,7 @@ export default function Register({ navigation }) {
                       placeholderTextColor="gray"
                     />
                   </View>
-                </TouchableWithoutFeedback>
-              </KeyboardAvoidingView>
-              <KeyboardAvoidingView
-                behavior={Platform.OS === "ios" ? "padding" : "height"}
-                style={styles.container1}
-              >
-                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            
                   <View style={styles.Space}>
                     <TextInput
                       style={styles.halfText}
@@ -101,14 +91,9 @@ export default function Register({ navigation }) {
                       placeholderTextColor="gray"
                     />
                   </View>
-                </TouchableWithoutFeedback>
-              </KeyboardAvoidingView>
+              
             </View>
-            <KeyboardAvoidingView
-              behavior={Platform.OS === "ios" ? "padding" : "height"}
-              style={styles.container1}
-            >
-              <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          
                 <View style={styles.EPC}>
                   <TextInput
                     style={styles.fullText}
@@ -135,14 +120,9 @@ export default function Register({ navigation }) {
                     placeholderTextColor="gray"
                   />
                 </View>
-              </TouchableWithoutFeedback>
-            </KeyboardAvoidingView>
+           
             <View style={styles.name_username}>
-              <KeyboardAvoidingView
-                behavior={Platform.OS === "ios" ? "padding" : "height"}
-                style={styles.container1}
-              >
-                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            
                   <View style={styles.Space}>
                     <TextInput
                       style={styles.halfText}
@@ -151,13 +131,8 @@ export default function Register({ navigation }) {
                       placeholderTextColor="gray"
                     />
                   </View>
-                </TouchableWithoutFeedback>
-              </KeyboardAvoidingView>
-              <KeyboardAvoidingView
-                behavior={Platform.OS === "ios" ? "padding" : "height"}
-                style={styles.container1}
-              >
-                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+               
+             
                   <View style={styles.Space}>
                     <TextInput
                       style={styles.halfText}
@@ -166,16 +141,11 @@ export default function Register({ navigation }) {
                       placeholderTextColor="gray"
                     />
                   </View>
-                </TouchableWithoutFeedback>
-              </KeyboardAvoidingView>
+                
             </View>
 
             <View style={styles.name_username}>
-              <KeyboardAvoidingView
-                behavior={Platform.OS === "ios" ? "padding" : "height"}
-                style={styles.container1}
-              >
-                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+              
                   <View style={styles.Space}>
                     <TextInput
                       style={styles.halfText}
@@ -184,13 +154,8 @@ export default function Register({ navigation }) {
                       placeholderTextColor="gray"
                     />
                   </View>
-                </TouchableWithoutFeedback>
-              </KeyboardAvoidingView>
-              <KeyboardAvoidingView
-                behavior={Platform.OS === "ios" ? "padding" : "height"}
-                style={styles.container1}
-              >
-                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+               
+          
                   <View style={styles.Space}>
                     <TextInput
                       style={styles.halfText}
@@ -199,14 +164,9 @@ export default function Register({ navigation }) {
                       placeholderTextColor="gray"
                     />
                   </View>
-                </TouchableWithoutFeedback>
-              </KeyboardAvoidingView>
+              
             </View>
-            <KeyboardAvoidingView
-              behavior={Platform.OS === "ios" ? "padding" : "height"}
-              style={styles.container1}
-            >
-              <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          
                 <View style={styles.EPC}>
                   <TextInput
                     style={styles.fullText}
@@ -215,8 +175,8 @@ export default function Register({ navigation }) {
                     placeholderTextColor="gray"
                   />
                 </View>
-              </TouchableWithoutFeedback>
-            </KeyboardAvoidingView>
+           
+            </ScrollView>
             <View style={styles.button}>
               <TouchableOpacity style={styles.buttonStyle} onPress={registerUser}>
                 <Text style={styles.buttonText}>
@@ -224,7 +184,7 @@ export default function Register({ navigation }) {
                 </Text>
               </TouchableOpacity>
             </View>
-            </ScrollView>
+          
           </View>
         </View>
       </View>

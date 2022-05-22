@@ -8,7 +8,7 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
+  Image,TouchableOpacity,
 } from "react-native";
 let countAns = 0;
 export default function Question2({ navigation }) {

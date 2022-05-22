@@ -208,21 +208,6 @@ export default function Home({ navigation }) {
           </TouchableOpacity>
         </View>
 
-        {/* Settings us button */}
-        <View style={styles.FooterIcons}>
-          <Image
-            style={styles.FooterImage}
-            source={require("../assets/icons/icons8-settings-64.png")}
-          />
-
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Settings")}
-            style={styles.FooterButton}
-          >
-            <Text style={styles.FooterButtonText}>Settings</Text>
-          </TouchableOpacity>
-        </View>
-
         {/* Logout button */}
         <View style={styles.FooterIcons}>
           <Image
