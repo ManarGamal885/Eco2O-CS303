@@ -29,5 +29,5 @@ The project is divided into: <br />
 2- npm start <br />
 ### instruction1:
 you should install the following libraries
-1-expo-barcode-scanner
-2-react-native-maps
+1-expo-barcode-scanner <br />
+2-react-native-maps <br />
