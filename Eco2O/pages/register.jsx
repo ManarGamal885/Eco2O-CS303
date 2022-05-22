@@ -1,5 +1,5 @@
 //Rahma
-import { setUserId } from 'firebase/analytics';
+
 import React, { useState } from 'react';
 import {
   StyleSheet, Text, View, Image,
@@ -75,7 +75,7 @@ export default function Register({ navigation }) {
             <View style={styles.name_username}>
               <KeyboardAvoidingView
                 behavior={Platform.OS === "ios" ? "padding" : "height"}
-                style={styles.container}
+                style={styles.container1}
               >
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                   <View style={styles.Space}>
@@ -90,7 +90,7 @@ export default function Register({ navigation }) {
               </KeyboardAvoidingView>
               <KeyboardAvoidingView
                 behavior={Platform.OS === "ios" ? "padding" : "height"}
-                style={styles.container}
+                style={styles.container1}
               >
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                   <View style={styles.Space}>
@@ -106,7 +106,7 @@ export default function Register({ navigation }) {
             </View>
             <KeyboardAvoidingView
               behavior={Platform.OS === "ios" ? "padding" : "height"}
-              style={styles.container}
+              style={styles.container1}
             >
               <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View style={styles.EPC}>
@@ -140,7 +140,7 @@ export default function Register({ navigation }) {
             <View style={styles.name_username}>
               <KeyboardAvoidingView
                 behavior={Platform.OS === "ios" ? "padding" : "height"}
-                style={styles.container}
+                style={styles.container1}
               >
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                   <View style={styles.Space}>
@@ -155,7 +155,7 @@ export default function Register({ navigation }) {
               </KeyboardAvoidingView>
               <KeyboardAvoidingView
                 behavior={Platform.OS === "ios" ? "padding" : "height"}
-                style={styles.container}
+                style={styles.container1}
               >
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                   <View style={styles.Space}>
@@ -173,7 +173,7 @@ export default function Register({ navigation }) {
             <View style={styles.name_username}>
               <KeyboardAvoidingView
                 behavior={Platform.OS === "ios" ? "padding" : "height"}
-                style={styles.container}
+                style={styles.container1}
               >
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                   <View style={styles.Space}>
@@ -188,7 +188,7 @@ export default function Register({ navigation }) {
               </KeyboardAvoidingView>
               <KeyboardAvoidingView
                 behavior={Platform.OS === "ios" ? "padding" : "height"}
-                style={styles.container}
+                style={styles.container1}
               >
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                   <View style={styles.Space}>
@@ -204,7 +204,7 @@ export default function Register({ navigation }) {
             </View>
             <KeyboardAvoidingView
               behavior={Platform.OS === "ios" ? "padding" : "height"}
-              style={styles.container}
+              style={styles.container1}
             >
               <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View style={styles.EPC}>

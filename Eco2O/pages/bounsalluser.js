@@ -11,7 +11,7 @@ import {
   ImageBackground,
 } from "react-native";
 import { getUserUId } from "../firebase/Auth";
-import { getUserById, getUsers } from "../firebase/User";
+import { getUserById, getUsers ,getUserswithbouns} from "../firebase/User";
 import { getBounsByUserId, getBouns } from "../firebase/Bouns";
 import { useState ,useEffect } from "react";
 import * as React from "react";
@@ -37,12 +37,18 @@ export default function Bounsalluser({ navigation }) {
 
   
     const getUserLest = async () => {
-      const c = await getUsers();
-      const b = await getBouns();
-      setuser(c);
-      setallbouns(b)
-      console.log("users", c);
-      console.log("bouns", b);
+      // const c = await getUsers({});
+      // const b = await getBouns();
+      //  const a = await getUserswithbouns();
+      // // setuser(c);
+      // setallbouns(b)
+      // console.log("users", c);
+      // console.log("bouns", b);
+      // console.log("getbounsof all", a);
+     
+      getUserswithbouns().then((data)=>{console.log("**************data",data),setuser(data)});
+    console.log("after fanction",user)
+      
     };
   
     useEffect(() => {
@@ -75,7 +81,7 @@ export default function Bounsalluser({ navigation }) {
         <ScrollView>
           {
             user.map((elm,i)=>(
-              <Disign email={elm.email} name={elm.name} bouns={elm.finalbouns}  key={i} />
+              <Disign email={elm.email} name={elm.name} bouns={elm.finalbouns} id={elm.id} bons={elm.finalbouns} key={i} />
             ))
            
           }
