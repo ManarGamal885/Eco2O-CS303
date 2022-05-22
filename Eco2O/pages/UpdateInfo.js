@@ -111,6 +111,7 @@ export default function UpdateInfo({ navigation, route }) {
       setage(age);
       // setphone(phone);
       updateUser({ id: userId, name, usename, city, state, gender, age });
+      navigation.navigate("Profile");
       // console.log("email = ", email);
     }
   }
@@ -211,7 +212,7 @@ export default function UpdateInfo({ navigation, route }) {
           onChangeText={(value) => PhonText(value, "PhonNum")}
         /> */}
       </View>
-      <View style={{ paddingTop: 20 }}>
+      <View style={{ paddingTop: 20,paddingLeft:160 }}>
         <TouchableOpacity onPress={Finish}>
           <Image
             source={require("../assets/icons/icons8-settings-64.png")}
@@ -266,19 +267,7 @@ export default function UpdateInfo({ navigation, route }) {
             <Text style={styles.FooterButtonText}>Contact us</Text>
           </TouchableOpacity>
         </View>
-        {/* Settings us button */}
-        <View style={styles.FooterIcons}>
-          <Image
-            style={styles.FooterImage}
-            source={require("../assets/icons/icons8-settings-64.png")}
-          />
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Contact")}
-            style={styles.FooterButton}
-          >
-            <Text style={styles.FooterButtonText}>Settings</Text>
-          </TouchableOpacity>
-        </View>
+       
         {/* Logout button */}
         <View style={styles.FooterIcons}>
           <Image

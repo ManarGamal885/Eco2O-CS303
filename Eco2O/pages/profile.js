@@ -115,34 +115,19 @@ export default function Profile({ navigation }) {
     setSelectedImage({ localUri: pickerResult.uri });
   };
 
-
- 
-
   return (
     <View>
-     
       <View style={styles.Header}>
         <View style={styles.TextStyle}>
           <Text style={styles.txtStyle}>Profile Information</Text>
-      
         </View>
       </View>
 
       <View style={styles.AllItems}>
         {/* Contant Veiw */}
-        <View style={{flexDirection:"row" }}>
-        <Text style={{fontSize:20 ,paddingLeft:20}}>setting</Text>
-        <TouchableOpacity onPress={onPressSetting}>
-          <Image
-            source={require("../assets/icons/icons8-settings-64.png")}
-            resizeMode="contain"
-            style={{ padding: 13,
-              alignContent: "center",
-              alignItems: "center",
-              justifyContent: "center",}}
-          />
-        </TouchableOpacity>
-        </View>
+
+       
+
         <View style={styles.ContantStyle}>
           {/* <ScrollView style={styles.ScrollStyle}> */}
 
@@ -150,32 +135,32 @@ export default function Profile({ navigation }) {
           <View style={styles.InsideScroll}>
             <ScrollView>
               {/* **************************************************** */}
-              { selectedImage !== null ?
-               <View style={{borderRadius:100}}>
-               <Image
-                 source={{ uri: selectedImage.localUri }}
-                 style={styles.thumbnail}
-               />
-             </View>
-               :
+              {selectedImage !== null ? (
+                <View style={{ borderRadius: 100 }}>
+                  <Image
+                    source={{ uri: selectedImage.localUri }}
+                    style={styles.thumbnail}
+                  />
+                </View>
+              ) : (
                 <View style={styles.container}>
-               <Image
-                 source={{ uri: "https://i.imgur.com/TkIrScD.png" }}
-                 style={styles.logo}
-               />
-               <Text style={styles.instructions}>
-                 To share a photo from your phone with a friend, just press
-                 the button below!
-               </Text>
+                  <Image
+                    source={{ uri: "https://i.imgur.com/TkIrScD.png" }}
+                    style={styles.logo}
+                  />
+                  <Text style={styles.instructions}>
+                    To share a photo from your phone with a friend, just press
+                    the button below!
+                  </Text>
 
-               <TouchableOpacity
-                 onPress={openImagePickerAsync}
-                 style={styles.button}
-               >
-                 <Text style={styles.buttonText}>Pick a photo</Text>
-               </TouchableOpacity>
-             </View>
-              }
+                  <TouchableOpacity
+                    onPress={openImagePickerAsync}
+                    style={styles.button}
+                  >
+                    <Text style={styles.buttonText}>Pick a photo</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
               {/* ********************************************************* */}
               <View style={styles.Contant}>
                 <Image
@@ -285,14 +270,12 @@ export default function Profile({ navigation }) {
             <Text style={styles.FooterButtonText}>Profile</Text>
           </TouchableOpacity>
         </View>
-
         {/* Home button */}
         <View style={styles.FooterIcons}>
           <Image
             style={styles.FooterImage}
             source={require("../assets/icons/icons8-home-50.png")}
           />
-
           <TouchableOpacity
             onPress={() => navigation.navigate("Home")}
             style={styles.FooterButton}
@@ -300,14 +283,12 @@ export default function Profile({ navigation }) {
             <Text style={styles.FooterButtonText}>Home</Text>
           </TouchableOpacity>
         </View>
-
         {/* Contact us button */}
         <View style={styles.FooterIcons}>
           <Image
             style={styles.FooterImage}
             source={require("../assets/icons/icons8-contact-us-64.png")}
           />
-
           <TouchableOpacity
             onPress={() => navigation.navigate("Contact")}
             style={styles.FooterButton}
@@ -315,14 +296,22 @@ export default function Profile({ navigation }) {
             <Text style={styles.FooterButtonText}>Contact us</Text>
           </TouchableOpacity>
         </View>
-
+        {/* Settings us button */}
+        <View style={styles.FooterIcons}>
+          <Image
+            style={styles.FooterImage}
+            source={require("../assets/icons/icons8-settings-64.png")}
+          />
+          <TouchableOpacity onPress={onPressSetting} style={styles.FooterButton}>
+            <Text style={styles.FooterButtonText}>Settings</Text>
+          </TouchableOpacity>
+        </View>
         {/* Logout button */}
         <View style={styles.FooterIcons}>
           <Image
             style={styles.FooterImage}
             source={require("../assets/icons/icons8-log-out-64.png")}
           />
-
           <TouchableOpacity onPress={signout} style={styles.FooterButton}>
             <Text style={styles.FooterButtonText}>Logout</Text>
           </TouchableOpacity>
