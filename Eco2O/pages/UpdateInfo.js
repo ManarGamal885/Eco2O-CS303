@@ -316,5 +316,7 @@ const styles = StyleSheet.create({
   textIn: {
     borderColor: "#004D25",
     borderWidth: 1,
+    paddingBottom: 2,
+    paddingTop: 2,
   },
 });
