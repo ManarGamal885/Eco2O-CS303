@@ -81,7 +81,7 @@ export default function Map({ navigation }) {
         <View style={{ marginTop: 10, paddingLeft: 50 }}>
 
           {
-            userId == "L31hcVXWGwbVRhGiqZfHXJO6RC83" ?
+            userId == "Y4zTUzFSM2dH9rwGS1TD6p2oBag1" ?
               addresses.map((a) => (
                 <View
                   key={a.id}

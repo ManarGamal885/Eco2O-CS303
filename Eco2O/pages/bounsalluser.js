@@ -37,14 +37,6 @@ export default function Bounsalluser({ navigation }) {
 
   
     const getUserLest = async () => {
-      // const c = await getUsers({});
-      // const b = await getBouns();
-      //  const a = await getUserswithbouns();
-      // // setuser(c);
-      // setallbouns(b)
-      // console.log("users", c);
-      // console.log("bouns", b);
-      // console.log("getbounsof all", a);
      
       getUserswithbouns().then((data)=>{console.log("**************data",data),setuser(data)});
     console.log("after fanction",user)

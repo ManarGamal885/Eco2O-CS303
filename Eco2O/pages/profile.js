@@ -242,7 +242,7 @@ export default function Profile({ navigation }) {
                 <Text style={styles.iconText}>{bouns}</Text>
               </View>
 
-              {userId == "L31hcVXWGwbVRhGiqZfHXJO6RC83" ? (
+              {userId == "Y4zTUzFSM2dH9rwGS1TD6p2oBag1" ? (
                 <Button title="Bouns of User" onPress={bounsuser} />
               ) : null}
             </ScrollView>
