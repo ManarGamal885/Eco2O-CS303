@@ -15,9 +15,6 @@ async function addBarcod(bouns) {
     await setDoc(doc(firestoreDB, "Scan", bouns.id), bouns);
 }
 
-
-
-  
 //get the bouns of the user using the id 
  async function getparcodByUserId(id) {
     const usersRef = collection(firestoreDB, "Scan");
