@@ -28,5 +28,6 @@ The project is divided into: <br />
 1- npm install <br />
 2- npm start <br />
 ### instruction1:
-please use the specific branch to do your task if you are doing the styling do not give attintion to logic of project and vise versa to avoid conflict
-
+you should install the following libraries
+1-expo-barcode-scanner
+2-react-native-maps
