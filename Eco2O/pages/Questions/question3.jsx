@@ -9,7 +9,7 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
+  Image,TouchableOpacity,
 } from "react-native";
 import { addBouns } from '../../firebase/Bouns';
 

@@ -115,16 +115,7 @@ export default function Profile({ navigation }) {
     setSelectedImage({ localUri: pickerResult.uri });
   };
 
-  if (selectedImage !== null) {
-    return (
-      <View style={styles.container}>
-        <Image
-          source={{ uri: selectedImage.localUri }}
-          style={styles.thumbnail}
-        />
-      </View>
-    );
-  }
+
  
 
   return (
@@ -139,13 +130,19 @@ export default function Profile({ navigation }) {
 
       <View style={styles.AllItems}>
         {/* Contant Veiw */}
+        <View style={{flexDirection:"row" }}>
+        <Text style={{fontSize:20 ,paddingLeft:20}}>setting</Text>
         <TouchableOpacity onPress={onPressSetting}>
           <Image
             source={require("../assets/icons/icons8-settings-64.png")}
             resizeMode="contain"
-            style={styles.FooterIcons}
+            style={{ padding: 13,
+              alignContent: "center",
+              alignItems: "center",
+              justifyContent: "center",}}
           />
         </TouchableOpacity>
+        </View>
         <View style={styles.ContantStyle}>
           {/* <ScrollView style={styles.ScrollStyle}> */}
 
@@ -316,21 +313,6 @@ export default function Profile({ navigation }) {
             style={styles.FooterButton}
           >
             <Text style={styles.FooterButtonText}>Contact us</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Settings us button */}
-        <View style={styles.FooterIcons}>
-          <Image
-            style={styles.FooterImage}
-            source={require("../assets/icons/icons8-settings-64.png")}
-          />
-
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Contact")}
-            style={styles.FooterButton}
-          >
-            <Text style={styles.FooterButtonText}>Settings</Text>
           </TouchableOpacity>
         </View>
 

@@ -11,7 +11,7 @@ import {
 import { useState ,useEffect  } from "react";
 import * as React from "react";
 import { subscribe ,deleteUser,getUsers } from "../firebase/User";
-import { addBouns } from '../firebase/Bouns';
+import { updateBouns } from '../firebase/Bouns';
 export default function Disign({email,name,id,bons }) {
 
   let [inc , setinc] =useState(bons);
@@ -27,6 +27,10 @@ const x =bons;
       setinc(inc--);
   }
 
+  function finsh(){
+
+    updateBouns({ id: id, finalbouns:(inc) });
+  }
 
   const getuserList = async () => {
     const userdel = await getUsers();
@@ -73,7 +77,7 @@ const x =bons;
             <Button title={"-"}  onPress={setnumberdecr} />
           </View>
         </View>
-        <Button title={"cleck here to chang"}   />
+        <Button title={"cleck here to chang"} onPress={finsh}   />
         <TouchableOpacity
                    style={
                      {width:100,

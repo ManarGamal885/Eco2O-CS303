@@ -1,4 +1,4 @@
-import {addDoc, collection, getDocs, getFirestore, setDoc, doc, query, where} from "firebase/firestore";
+import {addDoc, collection, getDocs, getFirestore, setDoc, doc, query, where ,updateDoc} from "firebase/firestore";
 import {app} from "./Confi";
 const firestoreDB = getFirestore(app);
 //get from database
@@ -13,6 +13,10 @@ async function getBouns() {
 //add to database
 async function addBouns(bouns) {
     await setDoc(doc(firestoreDB, "Bouns", bouns.id), bouns);
+}
+
+async function updateBouns(bouns) {
+    await updateDoc(doc(firestoreDB, "Bouns", bouns.id), bouns);
 }
 //edit  in database
 async function editBouns(city) {
@@ -48,4 +52,4 @@ async function UpdateUsername(username) {
     await setDoc(doc(firestoreDB, "Users", username.id), username);
 }
 
-export {getBouns,addBouns,editBouns,getBounsByUserId, UpdateUsername};
+export {getBouns,addBouns,editBouns,getBounsByUserId, UpdateUsername,updateBouns};
