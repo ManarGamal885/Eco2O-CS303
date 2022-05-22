@@ -1,4 +1,4 @@
-import { Component } from "react";
+
 import {
   Button,
   ScrollView,
@@ -20,19 +20,69 @@ import { logout } from "../firebase/Auth";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ProfileBackground from "../assets/c2b37edc71d4943cc2c51f202a5e41dd.jpg";
 import { updateEmail } from "firebase/auth";
+import { updateUser } from '../firebase/User';
 
 const routeName = "Profile";
 
 export { routeName };
 
 export default function UpdateInfo({ navigation, route }) {
-  const { Email, PassWord, Name, UserName, City, State, Gender, Age, PhonNum } =
+  const {  ID, Name, UserName, City, State, Gender, Age } =
     route.params;
 
-  const HandleOnChangeText = (vale, fieldName) => {
-    setUserInfo({ ...route, [fieldName]: vale });
+  // const EmailText = (vale, fieldName) => {
+  //   setEmail(fieldName);
+  //   setEmail(vale);
+  // };
+  // const PassText = (vale, fieldName) => {
+  //   setPassword(fieldName);
+  //   setPassword(vale);
+  // };
+  const NameText = (vale, fieldName) => {
+    setname(fieldName);
+    setname(vale);
   };
-  console.log(route);
+  const UserNameText = (vale, fieldName) => {
+    setusername(fieldName);
+    setusername(vale);
+  };
+  const CityText = (vale, fieldName) => {
+    setcity(fieldName);
+    setcity(vale);
+  };
+  const StateText = (vale, fieldName) => {
+    setstate(fieldName);
+    setstate(vale);
+  };
+  const GenderText = (vale, fieldName) => {
+    setgender(fieldName);
+    setgender(vale);
+  };
+  const AgeText = (vale, fieldName) => {
+    setage(fieldName);
+    setage(vale);
+  };
+  // const PhonText = (vale, fieldName) => {
+  //   setphone(fieldName);
+  //   setphone(vale);
+  // };
+
+
+  let [userId, setID] = useState(ID);
+  // let [email, setEmail] = useState(Email);
+  // let [password, setPassword] = useState(PassWord);
+  let [name, setname] = useState(Name);
+  let [usename, setusername] = useState(UserName);
+  let [city, setcity] = useState(City);
+  let [state, setstate] = useState(State);
+  let [gender, setgender] = useState(Gender);
+  let [age, setage] = useState(Age);
+  // let [phone, setphone] = useState(PhonNum);
+
+
+  // setEmail(Email);
+
+  // console.log(route);
 
   const { signOut } = React.useContext(AuthContext);
   function signOutUser() {
@@ -43,6 +93,24 @@ export default function UpdateInfo({ navigation, route }) {
     signOutUser();
     navigation.navigate("SignIn");
   }
+
+  function Finish() {
+    if( name === '' ||usename === '' ||  city === '' ||state === '' || gender === '' || age === '' ) {
+    alert("email or password is empty!");
+  } else{
+    // setEmail(email);
+    // setPassword(password);
+    setname(name);
+    setusername(usename);
+    setcity(city);
+    setstate(state);
+    setgender(gender);
+    setage(age);
+    // setphone(phone);
+    updateUser({ id: userId, name, usename, city, state, gender, age });
+    // console.log("email = ", email);
+  }
+}
 
   return (
     <ImageBackground
@@ -58,70 +126,80 @@ export default function UpdateInfo({ navigation, route }) {
       </View>
 
       <View style={styles.AllItems}>
-        <TextInput
+        {/* <TextInput
           style={styles.textIn}
-          value={Email}
+          value={email}
           placeholder="Email"
           placeholderTextColor="gray"
-          onChangeText={(value) => HandleOnChangeText(value, "Email")}
+          onChangeText={(value) => EmailText(value, "email")}
         />
         <TextInput
           style={styles.textIn}
-          value={PassWord}
+          value={password}
           placeholder="Password"
           placeholderTextColor="gray"
-          onChangeText={(value) => HandleOnChangeText(value, "PassWord")}
-        />
+          onChangeText={(value) => PassText(value, "PassWord")}
+        /> */}
         <TextInput
           style={styles.textIn}
-          value={Name}
+          value={name}
           placeholder="Name"
           placeholderTextColor="gray"
-          onChangeText={(value) => HandleOnChangeText(value, "Name")}
+          onChangeText={(value) => NameText(value, "Name")}
         />
         <TextInput
           style={styles.textIn}
-          value={UserName}
+          value={usename}
           placeholder="Username"
           placeholderTextColor="gray"
-          onChangeText={(value) => HandleOnChangeText(value, "UserName")}
+          onChangeText={(value) => UserNameText(value, "UserName")}
         />
         <TextInput
           style={styles.textIn}
-          value={City}
+          value={city}
           placeholder="City"
           placeholderTextColor="gray"
-          onChangeText={(value) => HandleOnChangeText(value, "City")}
+          onChangeText={(value) => CityText(value, "City")}
         />
         <TextInput
           style={styles.textIn}
-          value={State}
+          value={state}
           placeholder="State"
           placeholderTextColor="gray"
-          onChangeText={(value) => HandleOnChangeText(value, "State")}
+          onChangeText={(value) => StateText(value, "State")}
         />
         <TextInput
           style={styles.textIn}
-          value={Gender}
+          value={gender}
           placeholder="Gender"
           placeholderTextColor="gray"
-          onChangeText={(value) => HandleOnChangeText(value, "Gender")}
+          onChangeText={(value) => GenderText(value, "Gender")}
         />
         <TextInput
           style={styles.textIn}
-          value={Age}
+          value={age}
           placeholder="Age"
           placeholderTextColor="gray"
-          onChangeText={(value) => HandleOnChangeText(value, "Age")}
+          onChangeText={(value) => AgeText(value, "Age")}
         />
-        <TextInput
+        {/* <TextInput
           style={styles.textIn}
-          value={PhonNum}
+          value={phone}
           placeholder="Phon Number"
           placeholderTextColor="gray"
-          onChangeText={(value) => HandleOnChangeText(value, "PhonNum")}
-        />
+          onChangeText={(value) => PhonText(value, "PhonNum")}
+        /> */}
       </View>
+
+      <TouchableOpacity onPress={Finish}>
+          <Image
+            source={require("../assets/icons/icons8-settings-64.png")}
+            resizeMode="contain"
+            style={styles.FooterIcons}
+          />
+        </TouchableOpacity>
+
+      {/* <Text>{Email}</Text> */}
 
       {/* Footer bar */}
       <View style={styles.FooterStyle}>

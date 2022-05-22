@@ -1,4 +1,4 @@
-import {addDoc, collection, getDocs, getFirestore, setDoc, doc, query, where} from "firebase/firestore";
+import {addDoc, collection, getDocs, getFirestore, setDoc, doc, query, where, updateDoc} from "firebase/firestore";
 import {app} from "./Confi";
 
 const firestoreDB = getFirestore(app);
@@ -16,6 +16,9 @@ async function getUsers() {
 async function addUser(user) {
     await setDoc(doc(firestoreDB, "Users", user.id), user);
 }
+async function updateUser(user) {
+    await updateDoc(doc(firestoreDB, "Users", user.id), user);
+}
 export async function getUserById(id) {
     const usersRef = collection(firestoreDB, "Users");
     const q = query(usersRef, where("id", "==", id));
@@ -26,4 +29,4 @@ export async function getUserById(id) {
 }
 
 
-export {getUsers, addUser};
+export {getUsers, addUser, updateUser};

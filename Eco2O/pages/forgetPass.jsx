@@ -86,18 +86,14 @@ const styles = StyleSheet.create({
     alignContent: "center",
     justifyContent: "center",
     alignItems: "center",
-    // paddingTop: 20,
-    // paddingBottom: 10,
   },
   imageHeader: {
     width: 60,
     height: 81,
-    // paddingBottom: 5,
   },
   text: {
     width: 349,
     height: 125,
-    // paddingTop: 45,
   },
   textStyle: {
     textAlign: "center",
@@ -132,10 +128,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: "#9C8A8A",
     width: 300,
-  },
-  Email: {
-    // paddingBottom: 10,
-    // paddingTop: 10,
   },
   button: {
     alignItems: "center",

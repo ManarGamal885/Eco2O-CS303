@@ -10,49 +10,46 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from "react-native";
-import { getUsers } from "../firebase/User";
 import { getUserUId } from "../firebase/Auth";
-import { getUserById } from "../firebase/User";
-import { useState, useContext } from "react";
-import * as ram from "react";
-import { AuthContext } from "./Utils";
-import { logout } from "../firebase/Auth";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { getUserById, getUsers } from "../firebase/User";
+import { getBounsByUserId, getBouns } from "../firebase/Bouns";
+import { useState ,useEffect } from "react";
+import * as React from "react";
 import ProfileBackground from "../assets/c2b37edc71d4943cc2c51f202a5e41dd.jpg";
-import { UpdateUsername } from "../firebase/Bouns";
 const routeName = "Profile";
-
 export { routeName };
+import { AuthContext } from "./Utils";
+import { addBouns } from "../firebase/Bouns";
+import Disign from "./Disign";
+export default function Bounsalluser({ navigation }) {
 
-export default function Settings({ navigation }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setname] = useState("");
-  const [usename, setusername] = useState("");
-  const [city, setcity] = useState("");
-  const [state, setstate] = useState("");
-  const [gender, setgender] = useState("");
-  const [age, setage] = useState("");
-  const [phone, setphone] = useState("");
-
+  let [bouns, setbouns] = useState("");
+  let [allbouns, setallbouns] = useState("");
+  let [user, setuser] = useState([]);
   React.useEffect(() => {
     getUserUId().then((id) => {
-      console.log(id);
-      getUserById(id).then((user) => {
-        setEmail(user[0].email);
-        setPassword(user[0].password);
-        setname(user[0].name);
-        setusername(user[0].usename);
-        setcity(user[0].city);
-        setstate(user[0].state);
-        setgender(user[0].gender);
-        setage(user[0].age);
-        setphone(user[0].phone);
-      });
+        getBounsByUserId(id).then((user) => {
+          setbouns(user[0].finalbouns);
+        });
     });
   }, []);
 
-  const { signOut } = ram.useContext(AuthContext);
+
+  
+    const getUserLest = async () => {
+      const c = await getUsers();
+      const b = await getBouns();
+      setuser(c);
+      setallbouns(b)
+      console.log("users", c);
+      console.log("bouns", b);
+    };
+  
+    useEffect(() => {
+        getUserLest();
+    }, []);
+
+  const { signOut } = React.useContext(AuthContext);
   function signOutUser() {
     signOut();
     logout();
@@ -60,12 +57,6 @@ export default function Settings({ navigation }) {
   function signout() {
     signOutUser();
     navigation.navigate("SignIn");
-  }
-
-  function setTextInput() {
-    console.log("Update username");
-
-    UpdateUsername({ id: id, usename: usename });
   }
 
   return (
@@ -76,110 +67,20 @@ export default function Settings({ navigation }) {
       {/* Header */}
       <View style={styles.Header}>
         <View style={styles.TextStyle}>
-          <Text style={styles.txtStyle}>Profile Information</Text>
+          <Text style={styles.txtStyle}>Profile updat bouns</Text>
           {/* <Text style={styles.txtStyle}>Information:</Text> */}
         </View>
       </View>
-
-      <View style={styles.AllItems}>
-        {/* Contant Veiw */}
-
-        <View style={styles.ContantStyle}>
-          {/* <ScrollView style={styles.ScrollStyle}> */}
-          {/* Email info */}
-          <View style={styles.InsideScroll}>
-            <View style={styles.Contant}>
-              <Image
-                style={styles.FooterImage}
-                source={require("../assets/icons/icons8-circled-envelope-50.png")}
-              />
-              <Text style={styles.iconText}>{email}</Text>
-            </View>
-            {/* Password info */}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/password.png")}
-                style={styles.Icons}
-              />
-              <Text style={styles.iconText}>{password}</Text>
-            </View>
-            {/* Name info */}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/icons8-badge-80.png")}
-                style={styles.Icons}
-              />
-              <Text style={styles.iconText}>{name}</Text>
-            </View>
-            {/* Username info */}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/icons8-verified-account-64.png")}
-                style={styles.Icons}
-              />
-              <View>
-                <Text style={styles.iconText}>{usename}</Text>
-
-                <TextInput
-                  placeholder="Name"
-                  onChangeText={setusername}
-                  placeholderTextColor="gray"
-                />
-
-                <TouchableOpacity onPress={setTextInput}>
-                  <Image
-                    source={require("../assets/icons/icons8-settings-64.png")}
-                    resizeMode="contain"
-                    style={styles.FooterIcons}
-                  />
-                </TouchableOpacity>
-              </View>
-            </View>
-            {/* City info */}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/icons8-chicago-50.png")}
-                style={styles.Icons}
-              />
-              <Text style={styles.iconText}>{city}</Text>
-            </View>
-            {/* State info */}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/icons8-bench-50.png")}
-                style={styles.Icons}
-              />
-              <Text style={styles.iconText}>{state}</Text>
-            </View>
-            {/* Gender info*/}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/icons8-gender-equality-50.png")}
-                style={styles.Icons}
-              />
-              <Text style={styles.iconText}>{gender}</Text>
-            </View>
-            {/* Age info */}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/icons8-old-age-home-48.png")}
-                style={styles.Icons}
-              />
-              <Text style={styles.iconText}>{age}</Text>
-            </View>
-            {/* phone info */}
-            <View style={styles.Contant}>
-              <Image
-                source={require("../assets/icons/phone.png")}
-                style={styles.Icons}
-              />
-              <Text style={styles.iconText}>{phone}</Text>
-            </View>
-          </View>
-        </View>
-        {/* </ScrollView> */}
-      </View>
-
+        {/* the part of user ******************************************************************************/}
+        <ScrollView>
+          {
+            user.map((elm,i)=>(
+              <Disign email={elm.email} name={elm.name} bouns={elm.finalbouns}  key={i} />
+            ))
+           
+          }
+      </ScrollView>
+ 
       {/* Footer bar */}
       <View style={styles.FooterStyle}>
         {/* For footer navigation buttons */}
@@ -268,14 +169,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   AllItems: {
-    // paddingLeft: 10,
     alignContent: "center",
     alignItems: "center",
     justifyContent: "center",
   },
   Header: {
-    // flexDirection: "row",
-    // paddingTop: 50,
     alignContent: "center",
     alignItems: "center",
     justifyContent: "center",
@@ -285,8 +183,6 @@ const styles = StyleSheet.create({
     marginBottom: 80,
     borderBottomLeftRadius: 50,
     borderBottomRightRadius: 50,
-
-    // textAlign: 'center'
   },
   ProfileStyle: {
     backgroundColor: "#EEEDED",
@@ -295,9 +191,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
 
-  TextStyle: {
-    // paddingBottom: 10
-  },
   txtStyle: {
     fontSize: 25,
     textShadowColor: "gray",
@@ -309,7 +202,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     textAlign: "center",
     color: "white",
-    // paddingBottom: 5,
   },
   ContantStyle: {
     paddingLeft: 20,

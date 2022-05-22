@@ -28,7 +28,7 @@ export default function Scancode({ navigation }) {
       <View>
         <View style={styles.header}>
           <Image source={require("../../Eco2O/assets/qrcode.png")}
-            style={{ width: 100, height: 100, paddingTop: 20,borderRadius:100 }} />
+            style={{ width: 100, height: 100, paddingTop: 20 }} />
           <View>
             <Text style={{ marginLeft: 45, marginTop: 30, fontSize: 30 }}>Scan your code</Text>
             <Text style={{ marginLeft: 50, marginTop: 0, opacity: 0.6 }}>Scan Your Code Now And we</Text>
@@ -37,7 +37,7 @@ export default function Scancode({ navigation }) {
         </View >
         <View style={{ marginTop: 170, marginLeft: 125, }}>
           <Image source={require("../../Eco2O/assets/iconecamera.png")}
-            style={{ width: 110, height: 110, borderRadius: "40" }} />
+            style={{ width: 110, height: 110 }} />
         </View>
         <View>
           <Text style={{ marginLeft: 81, marginTop: 30, fontSize: 30 }}>Scan your code</Text>
@@ -62,12 +62,8 @@ export default function Scancode({ navigation }) {
         </View>
         
         <View style={{ padding: 50 }}>
-          <View style={{
-            height: 40, overflow: 'hidden',
-            borderRadius: "50", backgroundColor: '#004D25',
-          }}>
+          <View style={{height: 40, overflow: 'hidden',borderRadius: "50", backgroundColor: '#004D25',}}>
             <Button title={"scan"} color='white' onPress={() => navigation.navigate('Scanner2', { numberofbottle: number })} />
-
           </View>
         </View>
         </View>
@@ -79,11 +75,9 @@ export default function Scancode({ navigation }) {
 }
 const styles = StyleSheet.create({
   header: {
-
     flexDirection: 'row',
     marginLeft: 7,
     marginTop: 5
-
   },
   mid: {
     marginTop: 210,

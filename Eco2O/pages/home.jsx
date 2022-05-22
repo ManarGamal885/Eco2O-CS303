@@ -255,13 +255,10 @@ const styles = StyleSheet.create({
     width: 425,
     height: 138,
     backgroundColor: "white",
-    // paddingTop: 40,
-    // paddingBottom: 10,
     justifyContent: 'center',
     alignContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    // paddingBottom: 15,
     position: 'absolute',
     top: 0,
     borderRadius: 30
@@ -272,7 +269,6 @@ const styles = StyleSheet.create({
   HeaderImage: {
     width: 95,
     height: 95,
-    // paddingBottom: 15,
   },
   HeaderText: {
     justifyContent: "center",
@@ -300,22 +296,17 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   ScrolledItems: {
-    // flex: 1,
     width: 350,
     height: 540,
-    // backgroundColor: "#EEEDED",
     paddingTop: 20,
-    // paddingBottom: 15,
     borderRadius: 20
   },
   ScrollStyle: {
     width: 350,
     height: 400,
     alignContent: "center",
-    // paddingBottom: 0,
     borderRadius: 20,
     backgroundColor: "#EEEDED",
-    // padding: 20,
   },
   optionsCon: {
     alignItems: "center",
@@ -333,7 +324,6 @@ const styles = StyleSheet.create({
     height: 199,
     borderRadius: 20,
     opacity: 90,
-    // borderRadius: 20,
   },
   TextInsideImageStyle: {
     position: "absolute",
@@ -374,16 +364,12 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     backgroundColor: "white",
-    // paddingTop: 40,
     position: "absolute",
     bottom: 0,
-    // zIndex: 1,
   },
   FooterImage: {
     width: 35,
     height: 35,
-    // position: 'absolute',
-    // bottom:0,
   },
   FooterButtonText: {
     fontSize: 15,

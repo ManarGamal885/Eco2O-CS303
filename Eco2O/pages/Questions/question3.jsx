@@ -16,8 +16,7 @@ import { addBouns } from '../../firebase/Bouns';
 export default function Question3({ navigation, route }) {
   let { buons } = route.params;
   console.log("the number of the score", buons);
-  let finalbouns;
-  //function to add bouns 
+  // let finalbouns;
   function addBounsAndCheck() {
     if (buons === 0) {
       alert("There is no bouns :( !!");
@@ -35,10 +34,6 @@ export default function Question3({ navigation, route }) {
           else{
             obj={id:id,finalbouns:data[0].finalbouns}
           }
-        //   console.log("ther is the vale of val", val)
-        //   console.log("ther is the number of data in data base", val[0].finalbouns)
-        //   console.log("the bounsfrom data ", val[0].finalbouns, "the bouns here =", buons)
-          // finalbouns = val[0].finalbouns + buons;
           console.log("the bouns here =", buons,"the final bouns" , obj.finalbouns)
           addBouns({ id: id, finalbouns:(buons + obj.finalbouns) });
           console.log(id);
