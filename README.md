@@ -1,13 +1,20 @@
 # Eco2O-CS303
 Recycling of plastic
+## Instruction:
+### run:
+1- npm install <br />
+2- npm start <br />
+### instruction1:
+you should install the following libraries
+<br />
+1-expo-barcode-scanner <br />
+2-react-native-maps <br />
 # Admin Emil <br/>
 email=>admin@gmail.com <br/>
 password=>123456 <br/>
-
 # User Email
 email=>user@gmail.com <br/>
 password=>123456 <br/>
-
 ## Overview:
 The project is divided into: <br />
 ### 1-Scan your code:
@@ -31,12 +38,5 @@ The project is divided into: <br />
 8- questions <br />
 9- Events <br />
 10- suggestionBox <br />
-## Instruction:
-### run:
-1- npm install <br />
-2- npm start <br />
-### instruction1:
-you should install the following libraries
-<br />
-1-expo-barcode-scanner <br />
-2-react-native-maps <br />
+#Project Vido <br/>
+in this link three parts : https://drive.google.com/drive/folders/1-6xZwn8Jywis_TBqGZ9GI5wxoU4eiC-i?usp=sharing <br/>
