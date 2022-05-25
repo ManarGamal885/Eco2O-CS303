@@ -4,7 +4,7 @@ Recycling of plastic
 ### run:
 1- npm install <br />
 2- npm start <br />
-### instruction1:
+# instruction1:
 you should install the following libraries
 <br />
 1-expo-barcode-scanner <br />
@@ -28,7 +28,7 @@ The project is divided into: <br />
 ### 5- Suggestion box: 
  For the feedback
  
- ###Project Vido :
+#Project Vido :
 in this link there is three parts : https://drive.google.com/drive/folders/1-6xZwn8Jywis_TBqGZ9GI5wxoU4eiC-i?usp=sharing <br/>
 ## Branches :
 1- start <br />
