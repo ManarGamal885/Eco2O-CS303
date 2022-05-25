@@ -111,7 +111,7 @@ export default function Map({ navigation }) {
               ))
           }
 
-          {userId == "L31hcVXWGwbVRhGiqZfHXJO6RC83" ?
+          {userId == "Y4zTUzFSM2dH9rwGS1TD6p2oBag1" ?
             <View style={{ paddingTop: 20, justifyContent: "center", alignItems: "center" }}>
               <TextInput placeholder="enter your city" onChangeText={(val) => { setnewcity(val) }} />
               <View style={{ paddingTop: 20 }}>
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   },
   text: {
     paddingTop: 50,
-    fontSize: 25,
+    fontSize: 18,
     fontWeight: "bold",
     color: "black",
     textShadowColor: "gray",
