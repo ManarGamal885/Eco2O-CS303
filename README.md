@@ -1,5 +1,13 @@
 # Eco2O-CS303
 Recycling of plastic
+# Admin Emil <br/>
+email=>admin@gmail.com <br/>
+password=>123456 <br/>
+
+# User Email
+email=>user@gmail.com <br/>
+password=>123456 <br/>
+
 ## Overview:
 The project is divided into: <br />
 ### 1-Scan your code:
